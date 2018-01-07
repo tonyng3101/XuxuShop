@@ -28,8 +28,8 @@
   	</div>
 	</a>
   	
-  	<a href="Index.php?function=son-kem">
-  	<div class="col-sm-4 product text-center" style="margin: 0 36.5px 0 36.5px;">
+  <a href="Index.php?function=son-kem">
+  	<div class="col-sm-4 product text-center">
   	<div class="catalogue">
   		<div class="background-cat" style="background-image: url(image/son-kem.jpg);"></div>
   		<div class="diamond"></div>
@@ -39,11 +39,11 @@
   			<h4 class="title text-center">Xem Ngay</h4>
   		</div>
     </div>
-  	</div>
+  </div>
 	</a>
 
 	<a href="Index.php?function=son-duong">
-  	<div class="col-sm-4 product text-center">
+  	<div class="col-sm-4 product text-center" style="float: right;">
   	<div class="catalogue">
   		<div class="background-cat" style="background-image: url(image/sp-19.jpg);"></div>
   		<div class="diamond"></div>
@@ -83,7 +83,7 @@
 			<div class="col-sm-6" style="padding-right: 0;">
     			<div class="background-about" style="background-image: url(image/sp-10.jpg);"></div> 
     		</div>
-    		<div class="col-sm-5 red-bg text-center">
+    		<div class="col-sm-6 red-bg text-center" style="max-width: 800px;">
           <div style="width: 100%; padding: 50px 275px 50px 275px;">
             <h1 style="font-family: 'GroteskBoldCond'; font-weight: 400; font-size: 97px;letter-spacing: -3px; color: #fff;">SALE 10% OFF !</h1>
             <a href="index.php?function=san-pham"><input type="button" name="button" class="View-Shop" value="Shop Now"></a>
@@ -95,7 +95,7 @@
 <!-- End About -->
 
 <!-- Contact Of Website -->
-<div id="contact" class="parallax container-fluid bg-grey">
+<div id="contact" class="parallax container-fluid">
   <div class="row">
     <div class="col-sm-7 slideanim" style="left: 21%; margin-top: 175px">
       <div class="row">
@@ -111,8 +111,8 @@
       </div>
       <div class="col-sm-12 form-group" style="padding: 0;">
           <input class="form-control" id="subject" name="subject" placeholder="Subject" type="text" required>
-        </div>
-      <textarea  style="resize: none; overflow: hidden;" class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      </div>
+      <textarea  style="resize: none; overflow: hidden;" class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br/>
       <div class="row">
         <div class="col-sm-12 form-group">
           <button class="btn btn-default pull-right" style="width: 100%; border-radius: 0;border-color: #B97F6D;  background-color: #B97F6D; color: #fff" type="submit" onclick="return confirm('Cảm ơn bạn đã góp ý với chúng tôi!')">Send</button>

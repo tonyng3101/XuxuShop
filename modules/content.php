@@ -16,8 +16,8 @@
 			include 'modules/contents/son-kem.php';
 		}else if ($tam == 'son-duong') {
 			include 'modules/contents/son-duong.php';
-		}else if ($tam == 'my-pham-khac') {
-			include 'modules/contents/my-pham-khac.php';
+		}else if ($tam == 'log-in') {
+			include 'modules/contents/form-log-in.php';
 		}
 	?>
 </div>
