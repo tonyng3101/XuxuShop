@@ -117,8 +117,11 @@ h5 {
 
 .col-sm-4 {
     max-width: 509px;
+}
+
+.product{
     height: 615px;
-    padding: 50px 0px 0px 0;
+    padding: 50px 0px 0px 0px;
 }
 
 .text-inside {
@@ -219,14 +222,52 @@ footer .glyphicon {
 .add-wb{
     background-color: #B97F6D;
     height: 450px;
+    position: relative;
+}
+
+.content-footer{
+    color: #fff;
+    position: absolute;
+    left: 25%;
+    height: 200px;
+    top: 15%;
+}
+
+.ltsp-add{
+    letter-spacing: 7px;
+    margin-bottom: 20px;
+}
+
+.oph-str{
+    float: right;
+    height: 150px;
+    width: 50%;
+}
+
+.add-str{
+    float: left;
+    height: 150px;
+    width: 50%;
+    border-right: 1px solid #fff;
+}
+
+.subsc{
+    color: #fff;
+    position: absolute;
+    left: 25%;
+    top: 60%;
+    height: 100px;
+}
+
+h6{
+    letter-spacing: 0.25px;
+    font-size: 13px;
 }
 
 div#map{
     height:450px;
     width:100%;
 }
-
-
 
 /* Navigation bar */
 

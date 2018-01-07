@@ -15,7 +15,7 @@
 
 <div id="product" class="container-fluid text-center">
 	<a href="Index.php?function=son-thoi">
-  	<div class="col-sm-4 text-center">
+  	<div class="col-sm-4 product text-center">
   	<div class="catalogue">
   		<div class="background-cat" style="background-image: url(image/son-thoi.jpg);"></div>
   		<div class="diamond"></div>
@@ -29,7 +29,7 @@
 	</a>
   	
   	<a href="Index.php?function=son-kem">
-  	<div class="col-sm-4 text-center" style="margin: 0 36.5px 0 36.5px;">
+  	<div class="col-sm-4 product text-center" style="margin: 0 36.5px 0 36.5px;">
   	<div class="catalogue">
   		<div class="background-cat" style="background-image: url(image/son-kem.jpg);"></div>
   		<div class="diamond"></div>
@@ -43,7 +43,7 @@
 	</a>
 
 	<a href="Index.php?function=son-duong">
-  	<div class="col-sm-4 text-center">
+  	<div class="col-sm-4 product text-center">
   	<div class="catalogue">
   		<div class="background-cat" style="background-image: url(image/son-duong.jpg);"></div>
   		<div class="diamond"></div>
