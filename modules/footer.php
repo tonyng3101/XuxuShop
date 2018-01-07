@@ -18,7 +18,7 @@
 	<div class="subsc col-sm-6">
 			<h4 class="ltsp-add">SUBSCRIBE</h4>
 			<a href="https://www.facebook.com/xuxulipstick68.vn/?ref=bookmarks"><i class="fa fa-facebook-square" style="color: #fff; font-size: 30px"></i></a>
-			<h6 style="margin: 0;">XuxuLipstick - Son tươi cao cấp không chì</h6>
+			<h6>XuxuLipstick - Son tươi cao cấp không chì</h6>
 		</div>
 </div>
 <!-- End Footer -->
