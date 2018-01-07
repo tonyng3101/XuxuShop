@@ -45,7 +45,7 @@
 	<a href="Index.php?function=son-duong">
   	<div class="col-sm-4 product text-center">
   	<div class="catalogue">
-  		<div class="background-cat" style="background-image: url(image/son-duong.jpg);"></div>
+  		<div class="background-cat" style="background-image: url(image/sp-19.jpg);"></div>
   		<div class="diamond"></div>
   		<div class="text-inside">
   			<h4 class="title big-title text-center">SON DƯỠNG</h4>
