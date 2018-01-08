@@ -19,9 +19,9 @@ body {
     color: #B97F6D;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    max-width: 1600px;
+
     background-color: #efefef;
-    margin: auto;
+    margin: 50px 0 50px 0;
 }
 
 
@@ -101,6 +101,7 @@ h5 {
 .form-control {
     color: #B97F6D;
     border-radius: 0;
+    margin-bottom: 8px
 }
 
 .bg-white {
@@ -565,4 +566,15 @@ div#goTop {
  
 .form-control:-ms-input-placeholder {  
    color: #B97F6D;  
+}
+
+.form-login{
+    width: 450px;
+    height: auto;
+}
+
+input.form-login{
+    width: 100%;
+    display: block;
+    float: left;
 }
