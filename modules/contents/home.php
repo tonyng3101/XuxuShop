@@ -83,7 +83,7 @@
 			<div class="col-sm-6" style="padding-right: 0;">
     			<div class="background-about" style="background-image: url(image/sp-10.jpg);"></div> 
     		</div>
-    		<div class="col-sm-6 red-bg text-center" style="max-width: 800px;">
+    		<div class="col-sm-6 red-bg text-center" style="max-width: 812px;">
           <div style="width: 100%; padding: 50px 275px 50px 275px;">
             <h1 style="font-family: 'GroteskBoldCond'; font-weight: 400; font-size: 97px;letter-spacing: -3px; color: #fff;">SALE 10% OFF !</h1>
             <a href="index.php?function=san-pham"><input type="button" name="button" class="View-Shop" value="Shop Now"></a>

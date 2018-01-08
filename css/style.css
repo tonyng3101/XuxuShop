@@ -19,7 +19,6 @@ body {
     color: #B97F6D;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-
     background-color: #efefef;
     margin: 0px 50px 0px 50px;
 }
@@ -280,7 +279,7 @@ div#map{
 }
 
 .navbar .navbar-brand {
-    font-family: 'GroteskBoldCond';
+    font-family: 'GroteskBoldCond' ;
     color: #B97F6D !important;
 }
 
