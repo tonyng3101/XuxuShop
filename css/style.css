@@ -112,7 +112,16 @@ h5 {
 }
 
 .container {
-    min-width: 1600px;
+    padding-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1600px;
+  }
 }
 
 .product{
