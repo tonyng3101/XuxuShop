@@ -37,7 +37,7 @@
                                 <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
                                     <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                

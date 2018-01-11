@@ -16,7 +16,23 @@
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>        
-        
+<?php
+	//nhung noi dung cua file connect.php vao trang
+	include('connect.php');
+	
+	$username = '';
+	
+	if(isset($_SESSION['username']))
+		$username = $_SESSION['username'];
+	else
+		$username = 'khách';
+	
+	//Tao cau truy van va thuc thi cau truy van
+	$sql = 'select * from loai_sanpham';
+	
+	//thuc thi cau truy van
+	$recordset = mysql_query($sql);
+?>       
         <!-- APP WRAPPER -->
         <div class="app">            
             
@@ -30,79 +46,25 @@
                     </a>
                     <nav>
                         <ul>
-                            <li class="title">MAIN</li>
-                            <li><a href="index.html"><span class="nav-icon-hexa text-bloody-100">Ds</span> Dashboard</a></li>
+                            <li class="title">PHẦN SẢN PHẨM</li>
+                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
+                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
-                                <a href="#"><span class="nav-icon-hexa text-orange-100">Pg</span> Pages <span class="label label-success label-bordered label-ghost">+5</span></a>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
-                                    <li><a href="pages-faq.html"><span class="nav-icon-hexa">Fq</span> FAQ</a></li>
-                                    <li><a href="pages-gallery.html"><span class="nav-icon-hexa">Ga</span> Gallery</a></li>
-                                    <li><a href="pages-help.html"><span class="nav-icon-hexa">Hp</span> Help</a></li>
-                                    <li><a href="pages-search.html"><span class="nav-icon-hexa">Sr</span> Search Result</a></li>
-                                    <li><a href="pages-calendar.html"><span class="nav-icon-hexa">Cr</span> Calendar <span class="label label-success label-bordered label-ghost">new</span></a></li>                
+                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pt</span> Payment <span class="label label-success label-bordered label-ghost">new</span></a>
+                                        <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
-                                            <li><a href="pages-payment-invoice.html"><span class="nav-icon-hexa">Pi</span> Invoice</a></li>                        
-                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Pt</span> Pricing Tables</a></li>                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Cs</span> Call Service <span class="label label-success label-bordered label-ghost">new</span></a>
-                                        <ul>                
-                                            <li><a href="pages-call-service-daily.html"><span class="nav-icon-hexa">Ds</span> Daily Statistics</a></li>                        
-                                            <li><a href="pages-call-service-process.html"><span class="nav-icon-hexa">Pw</span> Process Window</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Ba</span> Bank Application</a>
-                                        <ul>                
-                                            <li><a href="pages-bank-main.html"><span class="nav-icon-hexa">Mn</span> Main</a></li>
-                                            <li><a href="pages-bank-deposits.html"><span class="nav-icon-hexa">Dp</span> Deposits</a></li>
-                                            <li><a href="pages-bank-activity.html"><span class="nav-icon-hexa">Ac</span> Activity</a></li>
-                                            <li><a href="pages-bank-settings.html"><span class="nav-icon-hexa">St</span> Settings</a></li>
-                                            <li><a href="pages-bank-security.html"><span class="nav-icon-hexa">Sc</span> Security</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Bp</span> Blog Pages</a>
-                                        <ul>                
-                                            <li><a href="pages-blog-main.html"><span class="nav-icon-hexa">Ma</span> Main (Variant 1)</a></li>
-                                            <li><a href="pages-blog-main-2.html"><span class="nav-icon-hexa">Mn</span> Main (Variant 2)</a></li>
-                                            <li><a href="pages-blog-category.html"><span class="nav-icon-hexa">Ct</span> Category (Right Sidebar)</a></li>
-                                            <li><a href="pages-blog-category-2.html"><span class="nav-icon-hexa">Cr</span> Category (Left Sidebar)</a></li>
-                                            <li><a href="pages-blog-single.html"><span class="nav-icon-hexa">Sn</span> Single</a></li>                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pf</span> User Profiles</a>
-                                        <ul>
-                                            <li><a href="pages-profile-social.html"><span class="nav-icon-hexa">Sp</span> Social Profile</a></li>
-                                            <li><a href="pages-profile-card.html"><span class="nav-icon-hexa">Pc</span> Profile Card</a></li>                
-                                        </ul>
-                                    </li>
-                                    <li><a href="pages-contact-list.html"><span class="nav-icon-hexa">Cl</span> Contact List</a></li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Ms</span> Messages</a>
-                                        <ul>
-                                            <li><a href="pages-messages-chat.html"><span class="nav-icon-hexa">Ct</span> Chat</a></li>
-                                            <li><a href="pages-messages-list.html"><span class="nav-icon-hexa">Ml</span> Messages List</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="pages-lock-screen.html"><span class="nav-icon-hexa">Ls</span> Lock Screen</a></li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Si</span> Log In / Sign In</a>
-                                        <ul>
-                                            <li><a href="pages-login.html"><span class="nav-icon-hexa">Li</span> Log In</a></li>
-                                            <li><a href="pages-login-bg.html"><span class="nav-icon-hexa">Lb</span> Log In (Background)</a></li>
-                                            <li><a href="pages-signin.html"><span class="nav-icon-hexa">Si</span> Sign In</a></li>
-                                            <li><a href="pages-signin-bg.html"><span class="nav-icon-hexa">Sb</span> Sign In (Background)</a></li>
+                                            <li><a href="danhsachloai.php"><span class="nav-icon-hexa">Ds</span> Danh sách loại</a></li>                        
+                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Tm</span> Thêm loại</a></li>                        
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>                
-                            <li><a href="documentation.html"><span class="nav-icon-hexa text-yellow-100">Dc</span> Documentation</a></li>
-                            
+                            </li> 
+                            <li class="title">PHẦN KHÁCH HÀNG</li>
+                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li> 
                             <li class="title">LAYOUTS</li>                
                             <li>
                                 <a href="#"><span class="nav-icon-hexa text-lime-200">Lc</span> Layout Components</a>
@@ -370,7 +332,7 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Sortable Tables</h1>
+                            <h1>Danh sách loại sản phẩm</h1>
                             <p>Examples of sortable tables.</p>
                         </div>
                         <!--<div class="heading-elements">
@@ -380,92 +342,21 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Components</a></li>
-                            <li class="active">Tables</li>
+                            <li><a href="#">Phần sản phẩm</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Loại sản phẩm</a></li>
+                            <li class="active">Danh sách loại sản phẩm</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->                 
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-
                         <div class="block block-condensed">
                             <!-- START HEADING -->
                             <div class="app-heading app-heading-small">
                                 <div class="title">
-                                    <h5>Basic Sortable Table</h5>
-                                    <p>Add class <code>datatable-basic</code> to get basic sortable table.</p>
-                                </div>
-                            </div>
-                            <!-- END HEADING -->
-                            
-                            <div class="block-content">
-                                
-                                <table class="table table-striped table-bordered datatable-basic">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>                                    
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>                                                                     
-                                    </tbody>
-                                </table>
-                                
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="block block-condensed">
-                            <!-- START HEADING -->
-                            <div class="app-heading app-heading-small">
-                                <div class="title">
-                                    <h5>Extended Sortable Table</h5>
+                                    <h5>Danh sách loại sản phẩm</h5>
                                     <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
                                 </div>
                             </div>
@@ -476,258 +367,26 @@
                                 <table class="table table-striped table-bordered datatable-extended">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>STT</th>
+                                            <th>Tên loại</th>
+                                            <th>Cập nhật</th>
+                                            <th>Xóa</th>
                                         </tr>
-                                    </thead>                                    
+                                    </thead>                                   
                                     <tbody>
+                                    <?php
+										//xu ly ket qua tra ve
+										while($row = mysql_fetch_array($recordset)) {	
+									?>    
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>        
-                                        <tr>
-                                            <td>Haley Kennedy</td>
-                                            <td>Senior Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>43</td>
-                                            <td>2012/12/18</td>
-                                            <td>$313,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana Fitzpatrick</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>19</td>
-                                            <td>2010/03/17</td>
-                                            <td>$385,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dai Rios</td>
-                                            <td>Personnel Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>35</td>
-                                            <td>2012/09/26</td>
-                                            <td>$217,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenette Caldwell</td>
-                                            <td>Development Lead</td>
-                                            <td>New York</td>
-                                            <td>30</td>
-                                            <td>2011/09/03</td>
-                                            <td>$345,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yuri Berry</td>
-                                            <td>Chief Marketing Officer (CMO)</td>
-                                            <td>New York</td>
-                                            <td>40</td>
-                                            <td>2009/06/25</td>
-                                            <td>$675,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Joyce</td>
-                                            <td>Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>42</td>
-                                            <td>2010/12/22</td>
-                                            <td>$92,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michelle House</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Sidney</td>
-                                            <td>37</td>
-                                            <td>2011/06/02</td>
-                                            <td>$95,400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescott Bartlett</td>
-                                            <td>Technical Author</td>
-                                            <td>London</td>
-                                            <td>27</td>
-                                            <td>2011/05/07</td>
-                                            <td>$145,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Cortez</td>
-                                            <td>Team Leader</td>
-                                            <td>San Francisco</td>
-                                            <td>22</td>
-                                            <td>2008/10/26</td>
-                                            <td>$235,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martena Mccray</td>
-                                            <td>Post-Sales support</td>
-                                            <td>Edinburgh</td>
-                                            <td>46</td>
-                                            <td>2011/03/09</td>
-                                            <td>$324,050</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>                                        
-                                    </tbody>
-                                </table>
-                                
+                            				<td><?php echo $row['id_loai']; ?></td>
+                            				<td><?php echo $row['ten_loai']; ?></td>
+                            				<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
+                            				<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
+                       					</tr>
+                        			<?php } ?>
+                    				</tbody>
+                                </table> 
                             </div>
                             
                         </div>

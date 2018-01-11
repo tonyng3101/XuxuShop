@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>                        
-        <title>Boooya - Code Preview</title>            
+        <title>Boooya - Gallery</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -18,35 +18,37 @@
     <body>        
         
         <!-- APP WRAPPER -->
-        <div class="app">            
-            
+        <div class="app">           
+
             <!-- START APP CONTAINER -->
-            <div class="app-container">                                
+            <div class="app-container">
                 <!-- START SIDEBAR -->
                 <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
-                    <a href="index.php" class="app-navigation-logo">
+                    <a href="index.html" class="app-navigation-logo">
                         Boooya - Revolution Admin Template
                         <button class="app-navigation-logo-button mobile-hidden" data-sidepanel-toggle=".app-sidepanel"><span class="icon-alarm"></span> <span class="app-navigation-logo-button-alert">7</span></button>
                     </a>
                     <nav>
                         <ul>
-                            <li class="title">MAIN</li>
-                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Ds</span> Dashboard</a></li>
+                            <li class="title">PHẦN SẢN PHẨM</li>
+                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
+                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
-                                <a href="#"><span class="nav-icon-hexa text-orange-100">Pg</span> Pages <span class="label label-success label-bordered label-ghost">+5</span></a>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
-                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Fq</span> FAQ</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Ga</span> Gallery</a></li>
-                                    <li><a href="pages-help.html"><span class="nav-icon-hexa">Hp</span> Help</a></li>
-                                    <li><a href="pages-search.html"><span class="nav-icon-hexa">Sr</span> Search Result</a></li>
-                                    <li><a href="pages-calendar.html"><span class="nav-icon-hexa">Cr</span> Calendar <span class="label label-success label-bordered label-ghost">new</span></a></li>                
+                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pt</span> Payment <span class="label label-success label-bordered label-ghost">new</span></a>
+                                        <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
-                                            <li><a href="pages-payment-invoice.html"><span class="nav-icon-hexa">Pi</span> Invoice</a></li>                        
-                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Pt</span> Pricing Tables</a></li>                        
+                                            <li><a href="components-tables-sortable.html"><span class="nav-icon-hexa">Ds</span> Danh sách loại</a></li>                        
+                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Tm</span> Thêm loại</a></li>                        
                                         </ul>
                                     </li>
+                                </ul>
+                            </li>  
+                            <li class="title">PHẦN KHÁCH HÀNG</li>
+                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li>
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Cs</span> Call Service <span class="label label-success label-bordered label-ghost">new</span></a>
                                         <ul>                
@@ -254,7 +256,7 @@
                                 <a href="#"><span class="nav-icon-hexa text-darkblue-100">Tb</span> Tables</a>
                                 <ul>
                                     <li><a href="components-tables-default.html"><span class="nav-icon-hexa">Df</span> Default</a></li>
-                                    <li><a href="danhsachloai.php"><span class="nav-icon-hexa">Sa</span> Sortable</a></li>
+                                    <li><a href="components-tables-sortable.html"><span class="nav-icon-hexa">Sa</span> Sortable</a></li>
                                     <li><a href="components-tables-export.html"><span class="nav-icon-hexa">Et</span> Export Tables</a></li>
                                 </ul>
                             </li>
@@ -370,9 +372,9 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Code Preview</h1>
-                            <p>JS modules for preview code.</p>
-                        </div>
+                            <h1>Cập nhật sản phẩm</h1>
+                            <p>Image listing with preview</p>
+                        </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
                             <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
@@ -380,63 +382,50 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Components</a></li>
-                            <li class="active">Code Preview</li>
+                            <li><a href="#">Phần sản phẩm</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Danh sách sản phẩm</a></li>
+                            <li class="active">Cập nhật sản phẩm</li>
                         </ul>
                     </div>
-                    <!-- END PAGE HEADING -->                 
-                    
+                    <!-- END PAGE HEADING -->
+   
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-
-                        <div class="block">
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h5>Code Mirror</h5>
-                                    <p>Is a versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.</p>
-                                </div>
-                            </div>
-                            
-<textarea id="codeEditor">
-<?php
-    class SomeClassName extends AnotherClassName{
-
-        var $someVar,$anotherVar;
-        var $someArray = array();
-
-        private function __construct($id,$param1,$param2){
-            $this->someVar    = $param1;
-            $this->anotherVar = $param2;
-            $this->someArray = $this->load_data($id);
-        }
-
-        public function build(){
-            return (($this->someVar / $this->anotherVar) * $this->buffer) > 0 ? true : false ;
-        }
-
-        public function load_data($id){
-            $data = array();
-
-            $query = mysql_query("SELECT * FROM `base` WHERE `id`='".$this->int($id)."'");
-
-            if(mysql_num_rows($query) > 0){
-                while($row = mysql_fetch_array($query)) $data[] = $row['somecol'];                                
-                return $data;    
-            }else
-                return false;
-        }
-
-        private function __destruct(){
-            $this->someVar    = false;
-            $this->anotherVar = false;
-        }
-    }
-?></textarea>
-                            
-                        </div>
-                        
+                    <?php
+						include('connect.php');
+						$id = $_GET['id'];
+						$sql = "select * from san_pham where id_sp = {$id}";
+						$recordset = mysql_query($sql);
+						$row = mysql_fetch_array($recordset);
+					?>
+                     <form class="form-horizontal" name="form1" method="post" action="update.php">
+                     <div class="form-group">
+   						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
+   							<div class="col-sm-10">          
+        					  <input type="text" class="form-control" name="txtid" id="txtid" value="<?php echo $row['id_sp']; ?>">
+      						</div>
+  						</div>
+  						<div class="form-group">
+   						 <label class="control-label col-sm-2">Tên sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control" name="txtten" id="txtten" value="<?php echo $row['ten_sp']; ?>">
+      						</div>
+  						</div>
+                        <div class="form-group">
+   						 <label class="control-label col-sm-2">Giá sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control" name="txtgia" id="txtgia" value="<?php echo $row['gia_sp']; ?>">
+      						</div>
+  						</div>
+                        <div class="form-group">
+   						 <label class="control-label col-sm-2">Giảm giá:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control" name="txtgiam" id="txtgiam" value="<?php echo $row['giam_gia']; ?>">
+      						</div>
+  						</div>
+                        <button type="submit" class="btn btn-primary center-block">Cập nhật</button>
+					</form>                                             
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -445,19 +434,183 @@
                                 
             </div>
             <!-- END APP CONTAINER -->
+
+            <!-- START APP SIDEPANEL -->
+            <div class="app-sidepanel scroll" data-overlay="show">                
+                <div class="container">
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small">
+                        <div class="icon icon-lg">
+                            <span class="icon-alarm"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Notifications</h2>              
+                            <p><strong>7 new</strong>, latest: July 19, 2016 at 10:14:32.</p>
+                        </div>                                
+                    </div>        
+            
+                    <div class="listing margin-bottom-10">                                                                                
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Product Delivered</strong> <span class="label label-success pull-right">delivered</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-18 to st. StreetName SA, USA.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 19/07/2016 10:14:32 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Successful Payment</strong> <span class="label label-success pull-right">success</span>
+                            <p class="margin-0 margin-top-5">Payment for order #SPW-955-17: <strong>$145.44</strong>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 09:55:12 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>New Order #SPW-955-17</strong> <span class="label label-warning pull-right">waiting</span>
+                            <p class="margin-0 margin-top-5">Added new order, waiting for payment. <a href="#">Order details</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 09:51:55 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Money Back Request</strong> <span class="label label-primary pull-right">return</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-17 return requested. <a href="#">Request details</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 08:44:51 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>The critical amount of product</strong> <span class="label label-danger pull-right">important</span>
+                            <p class="margin-0 margin-top-5">Product: <a href="#">Extra Awesome Product</a> (amount: <span class="text-danger">2</span>). <a href="#">Storehouse</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-cube margin-right-5"></span> 19/07/2016 08:30:00 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Product Delivery Start</strong> <span class="label label-warning pull-right">delivering</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-18 to st. StreetName SA, USA.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 18/07/2016 06:14:32 PM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Critical Server Load</strong> <span class="label label-danger pull-right">server</span>
+                            <p class="margin-0 margin-top-5">Disk space: 248.1Gb/250Gb. <a href="#">Control panel</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 18/07/2016 06:14:32 PM
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom-30">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <button class="btn btn-default btn-block">All Notification</button>
+                        </div>            
+                    </div>
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small margin-bottom-20">
+                        <div class="icon icon-lg">
+                            <span class="icon-cog"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Settings</h2>              
+                            <p>Notification Settings</p>
+                        </div>                                
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_1" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Delivery Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_2" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Product Amount Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_3" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Order Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_4" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Server Load</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_5" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>User Registrations</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_6" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Purchase Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- END APP SIDEPANEL -->
+            
+            <!-- APP OVERLAY -->
+            <div class="app-overlay"></div>
+            <!-- END APP OVERLAY -->
+            
+            <!-- MODAL PREVIEW -->
+            <div class="modal fade" id="preview" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+                    
+                    <div class="modal-content">
+                        <div class="modal-body padding-5"></div>
+                    </div>
+                </div>            
+            </div>
+            <!-- END MODAL PREVIEW -->
             
         </div>        
         <!-- END APP WRAPPER -->                
-        
-        <!-- CODEMIRROR -->
-        <script type="text/javascript" src="js/vendor/codemirror/codemirror.js"></script>
-        <script type='text/javascript' src="js/vendor/codemirror/modes/htmlmixed.js"></script>
-        <script type="text/javascript" src="js/vendor/codemirror/modes/xml.js"></script>
-        <script type="text/javascript" src="js/vendor/codemirror/modes/javascript.js"></script>
-        <script type="text/javascript" src="js/vendor/codemirror/modes/css.js"></script>
-        <script type="text/javascript" src="js/vendor/codemirror/modes/clike.js"></script>
-        <script type="text/javascript" src="js/vendor/codemirror/modes/php.js"></script>
-        <!-- END CODEMIRROR -->
         
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
@@ -466,23 +619,13 @@
         <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/isotope/isotope.pkgd.min.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
         <script type="text/javascript" src="js/app_demo.js"></script>
         <!-- END APP SCRIPTS -->
-        
-        <script>
-            var editor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), {
-                lineNumbers: true,
-                matchBrackets: true,
-                mode: "application/x-httpd-php",
-                indentUnit: 4,
-                indentWithTabs: true,
-                enterMode: "keep",
-                tabMode: "shift"                                                
-            });
-            editor.setSize('100%','700px');
-        </script>
     </body>
 </html>

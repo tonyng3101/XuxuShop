@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>                        
-        <title>Boooya - FAQ</title>            
+        <title>Boooya - Sortable Tables</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,8 +15,8 @@
         <link rel="stylesheet" href="css/styles.css">
         <!-- EOF CSS INCLUDE -->
     </head>
-    <body> 
-    <?php
+    <body>        
+<?php
 	//nhung noi dung cua file connect.php vao trang
 	include('connect.php');
 	
@@ -33,12 +33,11 @@
 	//thuc thi cau truy van
 	$recordset = mysql_query($sql);
 ?>       
-        
         <!-- APP WRAPPER -->
-        <div class="app">           
-
+        <div class="app">            
+            
             <!-- START APP CONTAINER -->
-            <div class="app-container">
+            <div class="app-container">                
                 <!-- START SIDEBAR -->
                 <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
                     <a href="index.html" class="app-navigation-logo">
@@ -54,7 +53,7 @@
                                 <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
                                     <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
@@ -65,7 +64,7 @@
                                 </ul>
                             </li> 
                             <li class="title">PHẦN KHÁCH HÀNG</li>
-                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li>
+                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li> 
                             <li class="title">LAYOUTS</li>                
                             <li>
                                 <a href="#"><span class="nav-icon-hexa text-lime-200">Lc</span> Layout Components</a>
@@ -335,7 +334,7 @@
                         <div class="title">
                             <h1>Danh sách sản phẩm</h1>
                             <p>Frequently Asked Questions</p>
-                        </div>                
+                        </div>
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
                             <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
@@ -348,50 +347,69 @@
                             <li class="active">Danh sách sản phẩm</li>
                         </ul>
                     </div>
-                    <!-- END PAGE HEADING -->
+                    <!-- END PAGE HEADING -->                 
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                    <div class="example">
-        <div class="container">
-            <div class="row">
-                <table class="table table-hover">
-                	<?php
-						//xu ly ket qua tra ve
-						while($row = mysql_fetch_array($recordset)) {
-					?>
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Giới thiệu sản phẩm</th>
-                            <th>Mô tả</th>
-                            <th>Hình ảnh</th>
-                            <th>Cập nhật</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row['id_sp']; ?></td>
-                            <td><?php echo $row['ten_sp']; ?></td>
-                            <td><?php echo $row['gia_sp']; ?></td>
-                            <td><?php echo $row['gioithieu_sp']; ?></td>
-                            <td><?php echo $row['mota_sp']; ?></td>
-                            <td><?php echo $row['hinhanh_sp']; ?></td>
-                            <td><a href="#">Cập nhật</a></td>
-                            <td><a href="#">Xóa</a></td>
-                        </tr>
-                        
-                    </tbody>
-                    <?php } ?>
-                </table>
-            </div>
-        </div>
- 
-    </div>
-                       
+                        <div class="block block-condensed">
+                            <!-- START HEADING -->
+                            <div class="app-heading app-heading-small">
+                                <div class="title">
+                                    <h5>Danh sách sản phẩm</h5>
+                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
+                                </div>
+                            </div>
+                            <!-- END HEADING -->
+                            
+                            <div class="block-content">
+                                
+                         		<table class="table table-striped table-bordered datatable-extended">
+                           			<thead>
+                            			<tr>
+                            				<th>STT</th>
+                            				<th>Tên sản phẩm</th>
+                            				<th>Giá sản phẩm</th>
+                            				<th>Giảm giá</th>
+                            				<th>Giới thiệu sản phẩm</th>
+                            				<th>Mô tả</th>
+                            				<th>Hình ảnh</th>
+                            				<th>Danh sách hình ảnh</th>
+                            				<th>Tình trạng</th>
+                           				 	<th>Cập nhật</th>
+                            				<th>Xóa</th>
+                        				</tr>
+                    				</thead>
+                    			<tbody>
+                    				<?php
+										//xu ly ket qua tra ve
+										while($row = mysql_fetch_array($recordset)) {
+										$stt = $row['status'];
+										$status = '';
+		
+											if($stt == 0)
+												$status = 'Hết hàng';
+											else
+												$status = 'Còn hàng';
+									?>
+                        			<tr>
+                            			<td><?php echo $row['id_sp']; ?></td>
+                            			<td><?php echo $row['ten_sp']; ?></td>
+                            			<td><?php echo $row['gia_sp']; ?></td>
+                            			<td><?php echo $row['giam_gia']; ?></td>
+                            			<td><?php echo $row['gioithieu_sp']; ?></td>
+                            			<td><?php echo $row['mota_sp']; ?></td>
+                            			<td><?php echo $row['hinhanh_sp']; ?></td>
+                            			<td><?php echo $row['ds_hinhanh']; ?></td>
+                            			<td><?php echo $status; ?></td>
+                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
+                            			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
+                        			</tr>
+                        			<?php } ?>
+                   			 	</tbody>
+                			</table>   
+                            </div>
+                            
+                        </div>
                         
                     </div>
                     <!-- END PAGE CONTAINER -->
@@ -400,8 +418,8 @@
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->
-                        
+            <!-- END APP CONTAINER -->            
+            
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
                 <div class="container">
@@ -573,13 +591,14 @@
         <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/vendor/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
         <script type="text/javascript" src="js/app_demo.js"></script>
         <!-- END APP SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/highlight/jquery.highlight.js"></script>
-        <script type="text/javascript" src="js/app_faq.js"></script>
-        
     </body>
 </html>

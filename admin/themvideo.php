@@ -34,10 +34,15 @@
                             <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
                             <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Vd</span> Video </a>
+                                <ul>                
+                                  <li><a href="danhsachvideo.php"><span class="nav-icon-hexa">Ds</span>Danh sách video</a></li>                        		  <li><a href="themvideo.php"><span class="nav-icon-hexa">Tm</span> Thêm video</a></li>                        		</ul>
+                            </li>
+                            <li>
                                 <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
                                     <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
@@ -372,7 +377,7 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Thêm mới sản phẩm</h1>
+                            <h1>Thêm mới video</h1>
                             <p>Image listing with preview</p>
                         </div>               
                         <!--<div class="heading-elements">
@@ -383,16 +388,56 @@
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
                             <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li class="active">Thêm sản phẩm</li>
+                            <li><a href="#">Video</a></li>
+                            <li class="active">Thêm video</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                        
-                        aaaa                                              
+                         <div class="row">
+                         	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                            <?php
+							    include('connect.php');
+								if($_SERVER['REQUEST_METHOD']=='POST')
+								{
+									$title=$_POST['txttitle'];
+									$link=$_POST['txtlink'];
+									$ordernum=$_POST['txtordernum'];
+									$query="INSERT INTO video(title,link,ordernum) VALUES('{$title}', '{$link}', $ordernum)";
+									$results=mysql_query($conn.$query) or die("Query {$query} \n </br> Mysql error:".mysql_error($conn));
+									if(mysql_affected_rows($conn)==1)
+									{
+										echo "<p>Thêm mới thành công</p>";
+									}
+									else
+									{
+										echo "<p>Thêm mới không thành công</p>";
+									}
+									}
+							?>
+                            	<form name="frmthemvideo" method="POST">
+                                <div class="form-group">
+                                    	<label>ID</label>
+                                        <input type="text" name="txtid" class="form-control" placeholder="ID">
+                                    </div>
+                                	<div class="form-group">
+                                    	<label>Tiêu đề</label>
+                                        <input type="text" name="txttitle" class="form-control" placeholder="Title">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Link</label>
+                                        <input type="text" name="txtlink" class="form-control" placeholder="Video">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Thứ tự</label>
+                                        <input type="text" name="txtordernum" class="form-control" placeholder="Thứ tự">
+                                    </div>
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
+                                </form>
+                            </div>
+                         </div>                                       
                     </div>
                     <!-- END PAGE CONTAINER -->
                     

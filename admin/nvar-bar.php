@@ -9,10 +9,15 @@
                             <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
                             <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Vd</span> Video </a>
+                                <ul>                
+                                  <li><a href="danhsachvideo.php"><span class="nav-icon-hexa">Ds</span>Danh sách video</a></li>                        		  <li><a href="themvideo.html"><span class="nav-icon-hexa">Tm</span> Thêm video</a></li>                        		</ul>
+                            </li>
+                            <li>
                                 <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
                                     <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>                        
-        <title>Boooya - jVector Maps</title>            
+        <title>Boooya - Gallery</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -18,10 +18,10 @@
     <body>        
         
         <!-- APP WRAPPER -->
-        <div class="app">            
-            
+        <div class="app">           
+
             <!-- START APP CONTAINER -->
-            <div class="app-container">                
+            <div class="app-container">
                 <!-- START SIDEBAR -->
                 <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
                     <a href="index.html" class="app-navigation-logo">
@@ -30,23 +30,30 @@
                     </a>
                     <nav>
                         <ul>
-                            <li class="title">MAIN</li>
-                            <li><a href="index.html"><span class="nav-icon-hexa text-bloody-100">Ds</span> Dashboard</a></li>
+                            <li class="title">PHẦN SẢN PHẨM</li>
+                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
+                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
-                                <a href="#"><span class="nav-icon-hexa text-orange-100">Pg</span> Pages <span class="label label-success label-bordered label-ghost">+5</span></a>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Vd</span> Video </a>
+                                <ul>                
+                                  <li><a href="danhsachvideo.php"><span class="nav-icon-hexa">Ds</span>Danh sách video</a></li>                        		  <li><a href="themvideo.php"><span class="nav-icon-hexa">Tm</span> Thêm video</a></li>                        		</ul>
+                            </li>
+                            <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
-                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Fq</span> FAQ</a></li>
-                                    <li><a href="pages-gallery.php"><span class="nav-icon-hexa">Ga</span> Gallery</a></li>
-                                    <li><a href="pages-help.html"><span class="nav-icon-hexa">Hp</span> Help</a></li>
-                                    <li><a href="pages-search.html"><span class="nav-icon-hexa">Sr</span> Search Result</a></li>
-                                    <li><a href="pages-calendar.html"><span class="nav-icon-hexa">Cr</span> Calendar <span class="label label-success label-bordered label-ghost">new</span></a></li>                
+                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pt</span> Payment <span class="label label-success label-bordered label-ghost">new</span></a>
+                                        <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
-                                            <li><a href="pages-payment-invoice.html"><span class="nav-icon-hexa">Pi</span> Invoice</a></li>                        
-                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Pt</span> Pricing Tables</a></li>                        
+                                            <li><a href="components-tables-sortable.html"><span class="nav-icon-hexa">Ds</span> Danh sách loại</a></li>                        
+                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Tm</span> Thêm loại</a></li>                        
                                         </ul>
                                     </li>
+                                </ul>
+                            </li>  
+                            <li class="title">PHẦN KHÁCH HÀNG</li>
+                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li>
                                     <li>
                                         <a href="#"><span class="nav-icon-hexa">Cs</span> Call Service <span class="label label-success label-bordered label-ghost">new</span></a>
                                         <ul>                
@@ -254,7 +261,7 @@
                                 <a href="#"><span class="nav-icon-hexa text-darkblue-100">Tb</span> Tables</a>
                                 <ul>
                                     <li><a href="components-tables-default.html"><span class="nav-icon-hexa">Df</span> Default</a></li>
-                                    <li><a href="danhsachloai.php"><span class="nav-icon-hexa">Sa</span> Sortable</a></li>
+                                    <li><a href="components-tables-sortable.html"><span class="nav-icon-hexa">Sa</span> Sortable</a></li>
                                     <li><a href="components-tables-export.html"><span class="nav-icon-hexa">Et</span> Export Tables</a></li>
                                 </ul>
                             </li>
@@ -370,9 +377,9 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>jVectorMap</h1>
-                            <p>Javascript based vector map</p>
-                        </div>
+                            <h1>Thêm mới sản phẩm</h1>
+                            <p>Image listing with preview</p>
+                        </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
                             <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
@@ -380,78 +387,42 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Components</a></li>
-                            <li class="active">jVectorMap</li>
+                            <li><a href="#">Phần sản phẩm</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li class="active">Thêm sản phẩm</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                
-                                <div class="block">                            
-                                    <div class="app-heading app-heading-small">                                
-                                        <div class="title">
-                                            <h3>World</h3>                                
-                                            <p>Simple world map with default parameters</p>
-                                        </div>                                
-                                    </div>                                    
-                                    
-                                    <div id="jvm-world-map" class="pull-left" style="width: 100%; height: 400px;"></div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                                
-                                <div class="block"> 
-                                    <div class="app-heading app-heading-small">                                
-                                        <div class="title">
-                                            <h3>USA Map</h3>                                
-                                            <p>Use another map area to provide special info.</p>
-                                        </div>                                
-                                    </div>
-                                    
-                                    <div id="jvm-us_map" class="pull-left" style="width: 100%; height: 400px;"></div>
-                                </div>
-                                
-                            </div>
-                        </div>                                                
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                
-                                <div class="block">                            
-                                    <div class="app-heading app-heading-small">                                
-                                        <div class="title">
-                                            <h3>Markers On Map</h3>                                
-                                            <p>Add markers on your map to provide some info.</p>
-                                        </div>                                
-                                    </div>                                    
-                                    
-                                    <div id="jvm-world-map-markers" class="pull-left" style="width: 100%; height: 400px;"></div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                                
-                                <div class="block"> 
-                                    <div class="app-heading app-heading-small">                                
-                                        <div class="title">
-                                            <h3>Labels On Map</h3>                                
-                                            <p>Add labels to make it more understandable.</p>
-                                        </div>                                
-                                    </div>
-                                    
-                                    <div id="jvm-us-map-labels" class="pull-left" style="width: 100%; height: 400px;"></div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        
+                     <form class="form-horizontal" name="form1" method="post" action="add.php">
+                     <div class="form-group">
+   						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control"  placeholder="" name="txtid" id="txtid">
+      						</div>
+  						</div>
+  						<div class="form-group">
+   						 <label class="control-label col-sm-2">Tên sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control"  placeholder="Tên sản phẩm" name="txtten" id="txtten">
+      						</div>
+  						</div>
+                        <div class="form-group">
+   						 <label class="control-label col-sm-2">Giá sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control"  placeholder="21432423" name="txtgia" id="txtgia">
+      						</div>
+  						</div>
+                        <div class="form-group">
+   						 <label class="control-label col-sm-2">Giảm giá:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control"  placeholder="21432423" name="txtgiam" id="txtgiam">
+      						</div>
+  						</div>
+                        <button type="submit" class="btn btn-primary center-block">Submit</button>
+					</form>                                             
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -460,7 +431,7 @@
                                 
             </div>
             <!-- END APP CONTAINER -->
-            
+
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
                 <div class="container">
@@ -622,6 +593,19 @@
             <!-- APP OVERLAY -->
             <div class="app-overlay"></div>
             <!-- END APP OVERLAY -->
+            
+            <!-- MODAL PREVIEW -->
+            <div class="modal fade" id="preview" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+                    
+                    <div class="modal-content">
+                        <div class="modal-body padding-5"></div>
+                    </div>
+                </div>            
+            </div>
+            <!-- END MODAL PREVIEW -->
+            
         </div>        
         <!-- END APP WRAPPER -->                
         
@@ -633,9 +617,7 @@
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- THIS PAGE SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-us-aea-en.js"></script>        
+        <script type="text/javascript" src="js/vendor/isotope/isotope.pkgd.min.js"></script>
         <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>

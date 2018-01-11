@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>                        
-        <title>Boooya - Basic Form Elements</title>            
+        <title>Boooya - Sortable Tables</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -16,93 +16,60 @@
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>        
-        
+<?php
+	//nhung noi dung cua file connect.php vao trang
+	include('connect.php');
+	
+	$username = '';
+	
+	if(isset($_SESSION['username']))
+		$username = $_SESSION['username'];
+	else
+		$username = 'khách';
+	
+	//Tao cau truy van va thuc thi cau truy van
+	$sql = 'select * from video';
+	
+	//thuc thi cau truy van
+	$recordset = mysql_query($sql);
+?>       
         <!-- APP WRAPPER -->
-        <div class="app">
+        <div class="app">            
             
             <!-- START APP CONTAINER -->
             <div class="app-container">                
                 <!-- START SIDEBAR -->
                 <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
-                    <a href="index.php" class="app-navigation-logo">
+                    <a href="index.html" class="app-navigation-logo">
                         Boooya - Revolution Admin Template
                         <button class="app-navigation-logo-button mobile-hidden" data-sidepanel-toggle=".app-sidepanel"><span class="icon-alarm"></span> <span class="app-navigation-logo-button-alert">7</span></button>
                     </a>
                     <nav>
                         <ul>
-                            <li class="title">MAIN</li>
-                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Ds</span> Dashboard</a></li>
+                            <li class="title">PHẦN SẢN PHẨM</li>
+                            <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
+                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>
-                                <a href="#"><span class="nav-icon-hexa text-orange-100">Pg</span> Pages <span class="label label-success label-bordered label-ghost">+5</span></a>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Vd</span> Video </a>
+                                <ul>                
+                                  <li><a href="danhsachvideo.php"><span class="nav-icon-hexa">Ds</span>Danh sách video</a></li>                        		  <li><a href="themvideo.php"><span class="nav-icon-hexa">Tm</span> Thêm video</a></li>                        		</ul>
+                            </li>
+                            <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
                                 <ul>                                
-                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Fq</span> FAQ</a></li>
-                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Ga</span> Gallery</a></li>
-                                    <li><a href="pages-help.html"><span class="nav-icon-hexa">Hp</span> Help</a></li>
-                                    <li><a href="pages-search.html"><span class="nav-icon-hexa">Sr</span> Search Result</a></li>
-                                    <li><a href="pages-calendar.html"><span class="nav-icon-hexa">Cr</span> Calendar <span class="label label-success label-bordered label-ghost">new</span></a></li>                
+                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
+                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
                                     <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pt</span> Payment <span class="label label-success label-bordered label-ghost">new</span></a>
+                                        <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
                                         <ul>                
-                                            <li><a href="pages-payment-invoice.html"><span class="nav-icon-hexa">Pi</span> Invoice</a></li>                        
-                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Pt</span> Pricing Tables</a></li>                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Cs</span> Call Service <span class="label label-success label-bordered label-ghost">new</span></a>
-                                        <ul>                
-                                            <li><a href="pages-call-service-daily.html"><span class="nav-icon-hexa">Ds</span> Daily Statistics</a></li>                        
-                                            <li><a href="pages-call-service-process.html"><span class="nav-icon-hexa">Pw</span> Process Window</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Ba</span> Bank Application</a>
-                                        <ul>                
-                                            <li><a href="pages-bank-main.html"><span class="nav-icon-hexa">Mn</span> Main</a></li>
-                                            <li><a href="pages-bank-deposits.html"><span class="nav-icon-hexa">Dp</span> Deposits</a></li>
-                                            <li><a href="pages-bank-activity.html"><span class="nav-icon-hexa">Ac</span> Activity</a></li>
-                                            <li><a href="pages-bank-settings.html"><span class="nav-icon-hexa">St</span> Settings</a></li>
-                                            <li><a href="pages-bank-security.html"><span class="nav-icon-hexa">Sc</span> Security</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Bp</span> Blog Pages</a>
-                                        <ul>                
-                                            <li><a href="pages-blog-main.html"><span class="nav-icon-hexa">Ma</span> Main (Variant 1)</a></li>
-                                            <li><a href="pages-blog-main-2.html"><span class="nav-icon-hexa">Mn</span> Main (Variant 2)</a></li>
-                                            <li><a href="pages-blog-category.html"><span class="nav-icon-hexa">Ct</span> Category (Right Sidebar)</a></li>
-                                            <li><a href="pages-blog-category-2.html"><span class="nav-icon-hexa">Cr</span> Category (Left Sidebar)</a></li>
-                                            <li><a href="pages-blog-single.html"><span class="nav-icon-hexa">Sn</span> Single</a></li>                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Pf</span> User Profiles</a>
-                                        <ul>
-                                            <li><a href="pages-profile-social.html"><span class="nav-icon-hexa">Sp</span> Social Profile</a></li>
-                                            <li><a href="pages-profile-card.html"><span class="nav-icon-hexa">Pc</span> Profile Card</a></li>                
-                                        </ul>
-                                    </li>
-                                    <li><a href="pages-contact-list.html"><span class="nav-icon-hexa">Cl</span> Contact List</a></li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Ms</span> Messages</a>
-                                        <ul>
-                                            <li><a href="pages-messages-chat.html"><span class="nav-icon-hexa">Ct</span> Chat</a></li>
-                                            <li><a href="pages-messages-list.html"><span class="nav-icon-hexa">Ml</span> Messages List</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="pages-lock-screen.html"><span class="nav-icon-hexa">Ls</span> Lock Screen</a></li>
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Si</span> Log In / Sign In</a>
-                                        <ul>
-                                            <li><a href="pages-login.html"><span class="nav-icon-hexa">Li</span> Log In</a></li>
-                                            <li><a href="pages-login-bg.html"><span class="nav-icon-hexa">Lb</span> Log In (Background)</a></li>
-                                            <li><a href="pages-signin.html"><span class="nav-icon-hexa">Si</span> Sign In</a></li>
-                                            <li><a href="pages-signin-bg.html"><span class="nav-icon-hexa">Sb</span> Sign In (Background)</a></li>
+                                            <li><a href="danhsachloai.php"><span class="nav-icon-hexa">Ds</span> Danh sách loại</a></li>                        
+                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Tm</span> Thêm loại</a></li>                        
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>                
-                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dc</span> Documentation</a></li>
-                            
+                            </li> 
+                            <li class="title">PHẦN KHÁCH HÀNG</li>
+                            <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li> 
                             <li class="title">LAYOUTS</li>                
                             <li>
                                 <a href="#"><span class="nav-icon-hexa text-lime-200">Lc</span> Layout Components</a>
@@ -370,8 +337,8 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h2>Default Elements</h2>
-                            <p>Easiest way to make your heading beautiful</p>
+                            <h1>Danh sách video</h1>
+                            <p>Frequently Asked Questions</p>
                         </div>
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -380,324 +347,237 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Form Elements</a></li>
-                            <li class="active">Default Elements</li>
+                            <li><a href="#">Phần sản phẩm</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li class="active">Danh sách video</li>
                         </ul>
                     </div>
-                    <!-- END PAGE HEADING -->
-                   
-                    <!-- START PAGE CONTAINER -->                    
+                    <!-- END PAGE HEADING -->                 
+                    
+                    <!-- START PAGE CONTAINER -->
                     <div class="container">
-                        
-                        <!-- BASIC INPUTS -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
+                        <div class="block block-condensed">
+                            <!-- START HEADING -->
+                            <div class="app-heading app-heading-small">
                                 <div class="title">
-                                    <h2>Basic Inputs</h2>
-                                    <p>Ultra Crisp Line Icons with Integrity</p>
-                                </div>                                
+                                    <h5>Danh sách video</h5>
+                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
+                                </div>
                             </div>
-                                  
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Input text</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Password</label>
-                                    <div class="col-md-10">
-                                        <input type="password" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Placeholder</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" placeholder="placeholder">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Predefined value</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" value="Predefined value">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Readonly</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" value="Field value" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Disabled</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" value="Field value" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Textarea</label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" rows="5"></textarea>
-                                    </div>
-                                </div>
-                            </form>
+                            <!-- END HEADING -->
+                            
+                            <div class="block-content">
+                                
+                         		<table class="table table-striped table-bordered datatable-extended">
+                           			<thead>
+                            			<tr>
+                            				<th>STT</th>
+                            				<th>Tiêu đề</th>
+                            				<th>Video</th>
+                            				<th>Orfernum</th>
+                            				<th>Tình trạng</th>
+                           				 	<th>Cập nhật</th>
+                            				<th>Xóa</th>
+                        				</tr>
+                    				</thead>
+                    			<tbody>
+                    				<?php
+										//xu ly ket qua tra ve
+										while($row = mysql_fetch_array($recordset)) {
+										$stt = $row['status'];
+										$status = '';
+		
+											if($stt == 0)
+												$status = 'Hết hàng';
+											else
+												$status = 'Còn hàng';
+									?>
+                        			<tr>
+                            			<td><?php echo $row['id']; ?></td>
+                            			<td><?php echo $row['title']; ?></td>
+                            			<td><?php echo $row['link']; ?></td>
+                            			<td><?php echo $row['ordernum']; ?></td>
+                            			<td><?php echo $status; ?></td>
+                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id']; ?>">Cập nhật</a></td>
+                            			<td><a href="deletevideo.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
+                        			</tr>
+                        			<?php } ?>
+                   			 	</tbody>
+                			</table>   
+                            </div>
                             
                         </div>
-                        <!-- END BASIC INPUTS -->
-                        
-                        <!-- BASIC SELECT -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>Basic Select</h2>
-                                    <p>Ultra Crisp Line Icons with Integrity</p>
-                                </div>                                
-                            </div>
-                                  
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Input text</label>
-                                    <div class="col-md-10">
-                                        <select class="form-control">
-                                            <option>Elit senserit intellegat</option>
-                                            <option>Mei et ridens voluptua</option>
-                                            <option selected>Laboramus voluptatum</option>
-                                            <option>Ferri nobis possim</option>
-                                            <option>Usu nobis volumus</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Password</label>
-                                    <div class="col-md-10">
-                                        <select multiple class="form-control">
-                                            <option>Elit senserit intellegat</option>
-                                            <option selected>Mei et ridens voluptua</option>
-                                            <option>Laboramus voluptatum</option>
-                                            <option>Ferri nobis possim</option>
-                                            <option>Usu nobis volumus</option>
-                                        </select>
-                                    </div>
-                                </div>                                
-                            </form>
-                            
-                        </div>
-                        <!-- END BASIC SELECT -->
-                        
-                        <!-- BASIC SELECT -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>Basic Checkbox & Radio Buttons</h2>
-                                    <p>Ultra Crisp Line Icons with Integrity</p>
-                                </div>                                
-                            </div>                                  
-                            
-                            <div class="checkbox"> 
-                                <label> 
-                                    <input type="checkbox" value=""> Option one is this and that—be sure to include why it's great 
-                                </label> 
-                            </div> 
-                            <div class="checkbox disabled"> 
-                                <label> 
-                                    <input type="checkbox" value="" disabled="disabled"> Option two is disabled 
-                                </label> 
-                            </div> 
-                            <div class="radio"> 
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="checked"> Option one is this and that—be sure to include why it's great 
-                                </label> 
-                            </div> 
-                            <div class="radio"> 
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Option two can be something else and selecting it will deselect option one 
-                                </label> 
-                            </div> 
-                            <div class="radio disabled"> 
-                                <label> 
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="disabled"> Option three is disabled 
-                                </label> 
-                            </div>                                                         
-                        </div>
-                        <!-- END BASIC SELECT -->
-                        
-                        <!-- FILE INPUT -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>File Input</h2>
-                                    <p>Default file input and custom</p>
-                                </div>                                
-                            </div>
-                                  
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Default File Input</label>
-                                    <div class="col-md-10">
-                                        <input type="file" >
-                                    </div>
-                                </div>                                        
-                            </form>
-                            
-                        </div>
-                        <!-- END FILE INPUT -->
-                        
-                        <!-- HELP BLOCK -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>Sizing</h2>
-                                    <p>Set heights using classes like <code>.input-lg</code>.</p>
-                                </div>                                
-                            </div>
-                            <div class="form-group">
-                                <label>Large</label>
-                                <input class="form-control input-lg" type="text" placeholder=".input-lg">
-                            </div>
-                            <div class="form-group">
-                                <label>Default</label>
-                                <input class="form-control" type="text" placeholder="Default input">
-                            </div>
-                            <div class="form-group">
-                                <label>Small</label>
-                                <input class="form-control input-sm" type="text" placeholder=".input-sm">
-                            </div>                            
-                        </div>
-                        <!-- END HELP BLOCK -->
-                        
-                        <!-- HELP BLOCK -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>Help Block</h2>
-                                    <p>Ultra Crisp Line Icons with Integrity</p>
-                                </div>                                
-                            </div>
-                                  
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Default</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control">
-                                        <span class="help-block">Lorem ipsum dolor sit amet</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Text Center</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control">
-                                        <span class="help-block text-center">Lorem ipsum dolor sit amet</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Text Right</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control">
-                                        <span class="help-block text-right">Lorem ipsum dolor sit amet</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Right</label>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control">                                        
-                                    </div>
-                                    <label class="col-md-2 control-label help-block">Lorem ipsum dolor sit amet</label>
-                                </div>
-                            </form>
-                            
-                        </div>
-                        <!-- END HELP BLOCK -->
-
-                        <!-- HELP BLOCK -->
-                        <div class="block">                        
-                            
-                            <div class="app-heading app-heading-small">                                
-                                <div class="title">
-                                    <h2>Form Grid</h2>
-                                    <p>Mobile ready bootstrap grid system.</p>
-                                </div>                                
-                            </div>
-                                  
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">                                        
-                                    <div class="col-md-12">
-                                        <label>.col-md-12</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">                                    
-                                    <div class="col-md-8">
-                                        <label>.col-md-8</label>
-                                        <input type="text" class="form-control">
-                                    </div>               
-                                    <div class="col-md-4">
-                                        <label>.col-md-4</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                                                               
-                                </div>       
-                                <div class="form-group">                                    
-                                    <div class="col-md-6">
-                                        <label>.col-md-6</label>
-                                        <input type="text" class="form-control">
-                                    </div>               
-                                    <div class="col-md-3">
-                                        <label>.col-md-3</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                                                               
-                                    <div class="col-md-3">
-                                        <label>.col-md-3</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                        
-                                </div>                                      
-                                <div class="form-group">                                    
-                                    <div class="col-md-4">
-                                        <label>.col-md-4</label>
-                                        <input type="text" class="form-control">
-                                    </div>               
-                                    <div class="col-md-4">
-                                        <label>.col-md-4</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>.col-md-4</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                                        
-                                </div>                                                                                    
-                                <div class="form-group">                                    
-                                    <div class="col-md-2">
-                                        <label>.col-md-2</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                         
-                                    <div class="col-md-5">
-                                        <label>.col-md-5</label>
-                                        <input type="text" class="form-control">
-                                    </div>   
-                                    <div class="col-md-5">
-                                        <label>.col-md-5</label>
-                                        <input type="text" class="form-control">
-                                    </div>                                                                                                                                   
-                                </div>                                           
-                            </form>
-                            
-                        </div>
-                        <!-- END HELP BLOCK -->
                         
                     </div>
+                    <!-- END PAGE CONTAINER -->
                     
                 </div>
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->                        
+            <!-- END APP CONTAINER -->            
             
+            <!-- START APP SIDEPANEL -->
+            <div class="app-sidepanel scroll" data-overlay="show">                
+                <div class="container">
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small">
+                        <div class="icon icon-lg">
+                            <span class="icon-alarm"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Notifications</h2>              
+                            <p><strong>7 new</strong>, latest: July 19, 2016 at 10:14:32.</p>
+                        </div>                                
+                    </div>        
+            
+                    <div class="listing margin-bottom-10">                                                                                
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Product Delivered</strong> <span class="label label-success pull-right">delivered</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-18 to st. StreetName SA, USA.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 19/07/2016 10:14:32 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Successful Payment</strong> <span class="label label-success pull-right">success</span>
+                            <p class="margin-0 margin-top-5">Payment for order #SPW-955-17: <strong>$145.44</strong>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 09:55:12 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>New Order #SPW-955-17</strong> <span class="label label-warning pull-right">waiting</span>
+                            <p class="margin-0 margin-top-5">Added new order, waiting for payment. <a href="#">Order details</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 09:51:55 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Money Back Request</strong> <span class="label label-primary pull-right">return</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-17 return requested. <a href="#">Request details</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-bank margin-right-5"></span> 19/07/2016 08:44:51 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>The critical amount of product</strong> <span class="label label-danger pull-right">important</span>
+                            <p class="margin-0 margin-top-5">Product: <a href="#">Extra Awesome Product</a> (amount: <span class="text-danger">2</span>). <a href="#">Storehouse</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-cube margin-right-5"></span> 19/07/2016 08:30:00 AM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Product Delivery Start</strong> <span class="label label-warning pull-right">delivering</span>
+                            <p class="margin-0 margin-top-5">#SPW-955-18 to st. StreetName SA, USA.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 18/07/2016 06:14:32 PM
+                            </p>
+                        </div>
+                        <div class="listing-item margin-bottom-10">
+                            <strong>Critical Server Load</strong> <span class="label label-danger pull-right">server</span>
+                            <p class="margin-0 margin-top-5">Disk space: 248.1Gb/250Gb. <a href="#">Control panel</a>.</p>
+                            <p class="text-muted">
+                                <span class="fa fa-truck margin-right-5"></span> 18/07/2016 06:14:32 PM
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom-30">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <button class="btn btn-default btn-block">All Notification</button>
+                        </div>            
+                    </div>
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small margin-bottom-20">
+                        <div class="icon icon-lg">
+                            <span class="icon-cog"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Settings</h2>              
+                            <p>Notification Settings</p>
+                        </div>                                
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_1" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Delivery Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_2" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Product Amount Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_3" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Order Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_4" checked="" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Server Load</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_5" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>User Registrations</label>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="app_settings_6" value="0">
+                                </label>
+                            </div>
+                            <div class="col-xs-10">
+                                <label>Purchase Information</label>
+                            </div>
+                        </div>            
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- END APP SIDEPANEL -->
+            
+            <!-- APP OVERLAY -->
+            <div class="app-overlay"></div>
+            <!-- END APP OVERLAY -->
         </div>        
         <!-- END APP WRAPPER -->                
         
@@ -708,6 +588,10 @@
         <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/vendor/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
