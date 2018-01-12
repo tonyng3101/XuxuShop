@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+if (!isset($_SESSION['username'])) {
+	 header('Location: login.php');
+}
+?>
 <html lang="en">
     <head>                        
         <title>Boooya - Revolution Admin Template</title>            
@@ -41,7 +49,7 @@
                                 <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
                                     <img src="assets/images/users/user_1.jpg" alt="John Doe">
                                     <div class="contact-container">
-                                        <a href="#">John Doe</a>
+                                        <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
                                         <span>Administrator</span>
                                     </div>
                                     <div class="contact-controls">
@@ -52,7 +60,7 @@
                                                 <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
                                                 <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="#"><span class="icon-exit"></span> Log Out</a></li> 
+                                                <li><a href="logout.php"><span class="icon-exit"></span> Log Out</a></li> 
                                             </ul>
                                         </div>                    
                                     </div>

@@ -36,7 +36,7 @@ if (!isset($_SESSION['username'])) {
 		$username = 'khách';
 	
 	//Tao cau truy van va thuc thi cau truy van
-	$sql = 'select * from san_pham';
+	$sql = 'select * from admin';
 	
 	//thuc thi cau truy van
 	$recordset = mysql_query($sql);
@@ -125,13 +125,12 @@ if (!isset($_SESSION['username'])) {
                            			<thead>
                             			<tr>
                             				<th>STT</th>
-                            				<th>Tên sản phẩm</th>
-                            				<th>Giá sản phẩm</th>
-                            				<th>Giảm giá</th>
-                            				<th>Giới thiệu sản phẩm</th>
-                            				<th>Mô tả</th>
-                            				<th>Hình ảnh</th>
-                            				<th>Danh sách hình ảnh</th>
+                            				<th>Tài khoản</th>
+                            				<th>Mật khẩu</th>
+                            				<th>Họ tên</th>
+                            				<th>Điện thoại</th>
+                            				<th>Email</th>
+                            				<th>Địa chỉ</th>
                             				<th>Tình trạng</th>
                            				 	<th>Cập nhật</th>
                             				<th>Xóa</th>
@@ -150,14 +149,13 @@ if (!isset($_SESSION['username'])) {
 												$status = 'Còn hàng';
 									?>
                         			<tr>
-                            			<td><?php echo $row['id_sp']; ?></td>
-                            			<td><?php echo $row['ten_sp']; ?></td>
-                            			<td><?php echo $row['gia_sp']; ?></td>
-                            			<td><?php echo $row['giam_gia']; ?></td>
-                            			<td><?php echo $row['gioithieu_sp']; ?></td>
-                            			<td><?php echo $row['mota_sp']; ?></td>
-                            			<td><?php echo $row['hinhanh_sp']; ?></td>
-                            			<td><?php echo $row['ds_hinhanh']; ?></td>
+                                    	<td><?php echo $row['id_ad']; ?></td>
+                            			<td><?php echo $row['username']; ?></td>
+                            			<td><?php echo $row['password']; ?></td>
+                            			<td><?php echo $row['hoten']; ?></td>
+                            			<td><?php echo $row['dienthoai']; ?></td>
+                            			<td><?php echo $row['email']; ?></td>
+                            			<td><?php echo $row['diachi']; ?></td>
                             			<td><?php echo $status; ?></td>
                             			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
                             			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>

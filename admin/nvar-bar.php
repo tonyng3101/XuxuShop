@@ -5,7 +5,16 @@
                     </a>
                     <nav>
                         <ul>
+                        	
+                                
                             <li class="title">PHẦN SẢN PHẨM</li>
+                            <li>
+                            <a href="#"><span class="nav-icon-hexa text-orange-100">Tk</span> Tài khoản </a>
+                                <ul>
+                            		<li><a href="danhsachtaikhoan.php"><span class="nav-icon-hexa text-bloody-100">Ds</span>Danh sách</a></li>
+                            		<li><a href="themtaikhoan.php"><span class="nav-icon-hexa text-bloody-100">Tm</span>Thêm mới</a></li>
+                            	</ul>
+                                </li>
                             <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
                             <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
                             <li>

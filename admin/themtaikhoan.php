@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Sortable Tables</title>            
+        <title>Boooya - Revolution Admin Template</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,29 +24,12 @@ if (!isset($_SESSION['username'])) {
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>        
-<?php
-	//nhung noi dung cua file connect.php vao trang
-	include('connect.php');
-	
-	$username = '';
-	
-	if(isset($_SESSION['username']))
-		$username = $_SESSION['username'];
-	else
-		$username = 'khách';
-	
-	//Tao cau truy van va thuc thi cau truy van
-	$sql = 'select * from san_pham';
-	
-	//thuc thi cau truy van
-	$recordset = mysql_query($sql);
-?>       
+        
         <!-- APP WRAPPER -->
-        <div class="app">            
-            
+        <div class="app">           
+
             <!-- START APP CONTAINER -->
-            <div class="app-container">  
-                          
+            <div class="app-container">
                 <?php include ('nvar-bar.php'); ?>
                 
                 <!-- START APP CONTENT -->
@@ -77,7 +60,7 @@ if (!isset($_SESSION['username'])) {
                                                 <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
                                                 <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="#"><span class="icon-exit"></span> Log Out</a></li> 
+                                                <li><a href="logout.php"><span class="icon-exit"></span> Log Out</a></li> 
                                             </ul>
                                         </div>                    
                                     </div>
@@ -88,11 +71,14 @@ if (!isset($_SESSION['username'])) {
                     <!-- END APP HEADER  -->
                     
                     <!-- START PAGE HEADING -->
-                    <div class="app-heading app-heading-bordered app-heading-page">                        
-                        <div class="title">
-                            <h1>Danh sách sản phẩm</h1>
-                            <p>Frequently Asked Questions</p>
+                    <div class="app-heading app-heading-bordered app-heading-page">
+                        <div class="icon icon-lg">
+                            <span class="icon-laptop-phone"></span>
                         </div>
+                        <div class="title">
+                            <h1>Thêm mới</h1>
+                            <p>The revolution in admin template build</p>
+                        </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
                             <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
@@ -100,75 +86,197 @@ if (!isset($_SESSION['username'])) {
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li class="active">Danh sách sản phẩm</li>
+                            <li><a href="index.php">Trang chủ</a></li>                                                     
+                            <li class="active">Tài khoản</li>
+                            <li class="active">Thêm mới</li>
                         </ul>
                     </div>
-                    <!-- END PAGE HEADING -->                 
+                    <!-- END PAGE HEADING -->
                     
                     <!-- START PAGE CONTAINER -->
+                    <style type="text/css">
+					.required
+					{
+						color:red;
+					}
+					</style>
                     <div class="container">
-                        <div class="block block-condensed">
-                            <!-- START HEADING -->
-                            <div class="app-heading app-heading-small">
-                                <div class="title">
-                                    <h5>Danh sách sản phẩm</h5>
-                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
-                                </div>
-                            </div>
-                            <!-- END HEADING -->
-                            
-                            <div class="block-content">
-                                
-                         		<table class="table table-striped table-bordered datatable-extended">
-                           			<thead>
-                            			<tr>
-                            				<th>STT</th>
-                            				<th>Tên sản phẩm</th>
-                            				<th>Giá sản phẩm</th>
-                            				<th>Giảm giá</th>
-                            				<th>Giới thiệu sản phẩm</th>
-                            				<th>Mô tả</th>
-                            				<th>Hình ảnh</th>
-                            				<th>Danh sách hình ảnh</th>
-                            				<th>Tình trạng</th>
-                           				 	<th>Cập nhật</th>
-                            				<th>Xóa</th>
-                        				</tr>
-                    				</thead>
-                    			<tbody>
-                    				<?php
-										//xu ly ket qua tra ve
-										while($row = mysql_fetch_array($recordset)) {
-										$stt = $row['status'];
-										$status = '';
-		
-											if($stt == 0)
-												$status = 'Hết hàng';
-											else
-												$status = 'Còn hàng';
+						<div class="row">
+                        	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                            <?php
+							include('connect.php');
+							if($_SERVER['REQUEST_METHOD']=='POST')
+							{
+								$error=array();
+								if(empty($_POST['username']))
+								{
+									$error[]='username';
+								}
+								else
+								{
+									$username=$_POST['username'];
+								}
+								if(empty($_POST['password']))
+								{
+									$error[]='password';
+								}
+								else
+								{
+									$password=$_POST['password'];
+								}
+								if(trim($_POST['password'])!=trim($_POST['repassword']))
+								{
+									$error[]='repassword';
+								}
+								if(empty($_POST['hoten']))
+								{
+									$error[]='hoten';
+								}
+								else
+								{
+									$hoten=$_POST['hoten'];
+								}
+								if(empty($_POST['dienthoai']))
+								{
+									$error[]='dienthoai';
+								}
+								else
+								{
+									$dienthoai=$_POST['dienthoai'];
+								}
+								if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)==TRUE)
+								{
+									$email=mysql_real_escape_string($_POST['email']);
+								}
+								else
+								{
+									$error[]='email';
+								}
+								if(empty($_POST['diachi']))
+								{
+									$error[]='diachi';
+								}
+								else
+								{
+									$diachi=$_POST['diachi'];
+								}
+								if(empty($error))
+								{
+									$query="SELECT username FROM admin WHERE username='{$username}' ";
+									$results=mysql_query($query);
+									$query2="SELECT email FROM admin WHERE email='{$email}' ";
+									$results2=mysql_query($query2);
+									if(mysql_num_rows($results)==1)
+									{
+										$message="<p class='required'> Tài khoản đã tồn tại, yêu cầu nhập lại tài khoản</p>";
+									}
+									elseif(mysql_num_rows($results2)==1)
+									{
+										$message="<p class='required'> Email đã tồn tại, yêu cầu nhập email khác</p>";
+									}
+									else
+									{
+										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi)
+										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}')";
+										$results_in=mysql_query($query_in);
+										if(mysql_affected_rows($conn)==1)
+										{
+											echo "<p class='required'> Thêm mới thành công</p>";
+										}
+										else
+										{
+											echo "<p class='required'>Thêm mới không thanh công</p>";
+										}
+									}
+								}
+								else
+								{
+									$message="<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
+								}
+							}
+							?>
+                            	<form name="frmthemtaikhoan" method="POST">
+                                	<?php
+										if(isset($message))
+										{
+											echo $message;
+										}
 									?>
-                        			<tr>
-                            			<td><?php echo $row['id_sp']; ?></td>
-                            			<td><?php echo $row['ten_sp']; ?></td>
-                            			<td><?php echo $row['gia_sp']; ?></td>
-                            			<td><?php echo $row['giam_gia']; ?></td>
-                            			<td><?php echo $row['gioithieu_sp']; ?></td>
-                            			<td><?php echo $row['mota_sp']; ?></td>
-                            			<td><?php echo $row['hinhanh_sp']; ?></td>
-                            			<td><?php echo $row['ds_hinhanh']; ?></td>
-                            			<td><?php echo $status; ?></td>
-                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
-                            			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
-                        			</tr>
-                        			<?php } ?>
-                   			 	</tbody>
-                			</table>   
+                                    <h3>Thêm tài khoản</h3>
+                                    <div class="form-group">
+                                    	<label> Tài khoản</label>
+                                        <input type="text" name="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>" class="form-control" placeholder="Tài khoản">
+                                        <?php
+											if(isset($error) && in_array('username',$error))
+											{
+												echo "<p class='required'> Tài khoản không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Mật khẩu</label>
+                                        <input type="password" name="password" value="" class="form-control" placeholder="Mật khẩu">
+                                    	 <?php
+											if(isset($error) && in_array('password',$error))
+											{
+												echo "<p class='required'> Mật khẩu không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Xác nhận mật khẩu</label>
+                                        <input type="password" name="repassword" value="" class="form-control" placeholder="">
+                                         <?php
+											if(isset($error) && in_array('repassword',$error))
+											{
+												echo "<p class='required'>Mật khẩu không giống nhau</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Họ tên</label>
+                                        <input type="text" name="hoten" value="<?php if(isset($_POST['hoten'])){echo $_POST['hoten'];} ?>" class="form-control" placeholder="Họ tên">
+                                         <?php
+											if(isset($error) && in_array('hoten',$error))
+											{
+												echo "<p class='required'>Họ tên không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Điện thoại</label>
+                                        <input type="text" name="dienthoai" value="<?php if(isset($_POST['dienthoai'])){echo $_POST['dienthoai'];} ?>" class="form-control" placeholder="Điện thoại">
+                                         <?php
+											if(isset($error) && in_array('dienthoai',$error))
+											{
+												echo "<p class='required'>Điện thoại không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Email</label>
+                                        <input type="text" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>" class="form-control" placeholder="Tài khoản">
+                                         <?php
+											if(isset($error) && in_array('email',$error))
+											{
+												echo "<p class='required'>Email không hợp lệ</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Địa chỉ</label>
+                                        <input type="text" name="diachi" value="<?php if(isset($_POST['diachi'])){echo $_POST['diachi'];} ?>" class="form-control" placeholder="Địa chỉ">
+                                         <?php
+											if(isset($error) && in_array('diachi',$error))
+											{
+												echo "<p class='required'>Địa chỉ không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
+                                </form>
                             </div>
-                            
-                        </div>
-                        
+                        </div> 
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -176,7 +284,6 @@ if (!isset($_SESSION['username'])) {
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->            
             
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
@@ -350,13 +457,20 @@ if (!isset($_SESSION['username'])) {
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- THIS PAGE SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/vendor/datatables/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="js/vendor/rickshaw/rickshaw.min.js"></script>
         <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
         <script type="text/javascript" src="js/app_demo.js"></script>
         <!-- END APP SCRIPTS -->
+        <script type="text/javascript" src="js/app_demo_dashboard.js"></script>
     </body>
 </html>
