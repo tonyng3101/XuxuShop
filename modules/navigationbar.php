@@ -26,7 +26,7 @@
       <?php 
        if (isset($_SESSION['username']) && $_SESSION['username']){
            echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Xin chào, '.$_SESSION['username']. '</a></li>';
-           echo 'Click vào đây để <a href="logout.php">Logout</a>';
+           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
        }
        else{
            echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';

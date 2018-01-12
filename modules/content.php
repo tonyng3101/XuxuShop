@@ -17,7 +17,7 @@
 		}else if ($tam == 'son-duong') {
 			include 'modules/contents/son-duong.php';
 		}else if ($tam == 'log-in') {
-			include 'modules/contents/form-log-in.php';
+			include 'modules/contents/log-in.php';
 		}
 	?>
 </div>
