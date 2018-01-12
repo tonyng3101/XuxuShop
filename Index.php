@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login-form.css">
   <!-- Bootstrap -->
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Open+Sans+Condensed:300,700|Montserrat:400|Roboto+Condensed:300,400,700&amp;subset=vietnamese" rel="stylesheet">
@@ -16,13 +20,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--Font Awesome -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
   <script src="js/bootstrap.min.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 	<?php
 	//Include site
-    include 'modules/connection.php';
+    include 'modules/connect.php';
     include 'modules/navigationbar.php';
     include 'modules/content.php';
     include 'modules/footer.php';
