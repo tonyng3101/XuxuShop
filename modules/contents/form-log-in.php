@@ -1,14 +1,18 @@
 <div id="login" class="parallax text-center">
 	<h1 style="font-family: 'GroteskBoldCond'; font-weight: 500; font-size: 112px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;"> SIGN IN</h1>
 	<hr  width="10px" color="#fff" style="border:2px solid #fff" />
-	<div class="form-login">
-      	<form action="log-in.php" method="post" enctype="multipart/form-data">
-          		<input class="form-control" id="username" name="username" placeholder="Username" type="text" required>
-        	
-          		<input class="form-control" id="password" name="password" placeholder="Password" type="password" required>
-
-          		<button class="btn btn-default pull-right" style="width: 100%; border-radius: 0;border-color: #B97F6D;  background-color: #B97F6D; color: #fff" type="submit">Log In</button>
-      </form>
-  </div>
+	<div class="login-card">
+  		<form action="modules/login/login.php" method="post">
+    		<input type="text" name="user" placeholder="Username...">
+    		<span id="user_error"></span>
+    		<input type="password" name="pass" maxlength="16" placeholder="Password...">
+    		<span id="pass_error"></span>
+    		<input type="submit" name="login" class="login login-submit" value="Login">
+  		</form>
+    
+  	<div class="login-help">
+    	<a href="#">Register</a> • <a href="#">Forgot Password</a>
+  	</div>
+</div>
   </div>
 </div>

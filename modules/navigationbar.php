@@ -23,7 +23,15 @@
         <li><a href="index.php#contact">Liên hệ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+      <?php 
+       if (isset($_SESSION['username']) && $_SESSION['username']){
+           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Xin chào, '.$_SESSION['username']. '</a></li>';
+           echo 'Click vào đây để <a href="logout.php">Logout</a>';
+       }
+       else{
+           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';
+       }
+       ?>
       <li><a href="#"><span id="cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 15px;"></span></a></li>
     </ul>
     </div>
