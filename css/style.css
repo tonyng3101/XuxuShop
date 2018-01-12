@@ -24,7 +24,6 @@ body {
 }
 
 
-
 /* Text About */
 
 .text-about {
@@ -94,7 +93,6 @@ h5 {
 }
 
 
-
 /* Form Contact */
 
 .form-control {
@@ -119,12 +117,12 @@ h5 {
 
 
 @media (min-width: 1200px) {
-  .container {
-    width: 1600px;
-  }
+    .container {
+        width: 1600px;
+    }
 }
 
-.product{
+.product {
     height: 615px;
     padding: 50px 0px 0px 0px;
 }
@@ -215,8 +213,6 @@ div#contact {
 }
 
 
-
-
 /* Footer Of Website */
 
 footer .glyphicon {
@@ -224,13 +220,13 @@ footer .glyphicon {
     margin-bottom: 20px;
 }
 
-.add-wb{
+.add-wb {
     background-color: #B97F6D;
     height: 450px;
     position: relative;
 }
 
-.content-footer{
+.content-footer {
     color: #fff;
     position: absolute;
     left: 25%;
@@ -238,18 +234,18 @@ footer .glyphicon {
     top: 15%;
 }
 
-.ltsp-add{
+.ltsp-add {
     letter-spacing: 7px;
     margin-bottom: 20px;
 }
 
-.oph-str{
+.oph-str {
     float: right;
     height: 150px;
     width: 50%;
 }
 
-.add-str{
+.add-str {
     float: left;
     height: 150px;
     width: 50%;
@@ -257,7 +253,7 @@ footer .glyphicon {
     border-right: 1px solid #fff;
 }
 
-.subsc{
+.subsc {
     color: #fff;
     position: absolute;
     left: 25%;
@@ -265,15 +261,16 @@ footer .glyphicon {
     height: 100px;
 }
 
-h6{
+h6 {
     letter-spacing: 0.25px;
     font-size: 13px;
 }
 
-div#map{
-    height:450px;
-    width:100%;
+div#map {
+    height: 450px;
+    width: 100%;
 }
+
 
 /* Navigation bar */
 
@@ -288,7 +285,7 @@ div#map{
 }
 
 .navbar .navbar-brand {
-    font-family: 'GroteskBoldCond' ;
+    font-family: 'GroteskBoldCond';
     color: #B97F6D !important;
 }
 
@@ -330,9 +327,6 @@ div#map{
 }
 
 
-
-
-
 /*Slide An Image */
 
 .slideanim {
@@ -349,9 +343,6 @@ div#map{
     /* Make the element visible */
     visibility: visible;
 }
-
-
-
 
 
 /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
@@ -379,39 +370,38 @@ div#map{
 }
 
 
-
-
-
 /* Parallax Scrolling Effect */
 
 .parallax {
     background-attachment: fixed;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 div#home {
     background-image: url("../image/bg-head.jpg");
-    height: 850px;
-    margin-top: 30px;
+    height: 800px;
+    margin-top: 50px;
 }
 
-div#login{
+div#login {
     background-image: url("../image/bg-head.jpg");
     height: 800px;
-    margin-top: 30px;
-    position: inherit;
+    margin-top: 50px;
 }
 
-div#san-pham{
-    
+div#header-title {
+    height: 600px;
+    margin-top: 50px;
+    background-position: top;
+    background-size: cover;
 }
 
 div#contact {
     background-image: url("../image/bg-head.jpg");
     height: 800px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 
@@ -508,9 +498,6 @@ div#contact {
 }
 
 
-
-
-
 /* Dropdown Navbar */
 
 .dropdown-menu {
@@ -565,28 +552,41 @@ div#goTop {
 
 
 .form-control::-webkit-input-placeholder {
-   color: #B97F6D;
-}
- 
-.form-control:-moz-placeholder { /* Firefox 18- */
-   color: #B97F6D;  
-}
- 
-.form-control::-moz-placeholder {  /* Firefox 19+ */
-   color: #B97F6D;  
-}
- 
-.form-control:-ms-input-placeholder {  
-   color: #B97F6D;  
+    color: #B97F6D;
 }
 
-.form-login{
+.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    color: #B97F6D;
+}
+
+.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #B97F6D;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #B97F6D;
+}
+
+.form-login {
     width: 450px;
     height: auto;
 }
 
-input.form-login{
+input.form-login {
     width: 100%;
     display: block;
     float: left;
+}
+
+/* Product Site */
+div#main-prod{
+    width: 100%;
+    height: 100px;
+}
+
+.filter{
+    height: 100px;
+    border-right: 1px solid #B97F6D;
 }

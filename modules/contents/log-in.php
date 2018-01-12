@@ -14,9 +14,9 @@
 			if ($error == 'unknow') {
 				echo "Please enter username and password";
 			}elseif ($error == 'unknowuser') {
-				echo "Username is not";
+				echo "Username is invalid";
 			}elseif ($error == 'unknowpass') {
-				echo "Sai mật khẩu";
+				echo "Password is invalid";
 			}else {
 				echo " ";
 			}
