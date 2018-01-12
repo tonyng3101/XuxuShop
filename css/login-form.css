@@ -10,7 +10,7 @@ body {
 .login-card {
   padding: 40px;
   width: 450px;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.8);
   margin: 0 auto 10px;
   border-radius: 2px;
   overflow: hidden;
@@ -82,7 +82,7 @@ body {
 
 .login-card a {
   text-decoration: none;
-  color: #fff;
+  color: #B97F6D;
   font-weight: 400;
   text-align: center;
   display: inline-block;
@@ -97,5 +97,21 @@ body {
 .login-help {
   width: 100%;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.login-card::-webkit-input-placeholder {
+   color: #B97F6D;
+}
+ 
+.login-card:-moz-placeholder { /* Firefox 18- */
+   color: #B97F6D;  
+}
+ 
+.login-card::-moz-placeholder {  /* Firefox 19+ */
+   color: #B97F6D;  
+}
+ 
+.login-card:-ms-input-placeholder {  
+   color: #B97F6D;  
 }

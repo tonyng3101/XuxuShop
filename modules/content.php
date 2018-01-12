@@ -18,6 +18,8 @@
 			include 'modules/contents/son-duong.php';
 		}else if ($tam == 'log-in') {
 			include 'modules/contents/log-in.php';
+		}else if ($tam == 'log-out') {
+			header('Location: modules/login/logout.php');
 		}
 	?>
 </div>

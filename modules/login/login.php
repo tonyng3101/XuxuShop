@@ -24,7 +24,7 @@
             header('Location: ../../index.php?function=log-in&error=unknowpass');
           }else{
             $_SESSION['username'] = $user;
-            header('Location : ../../Index.php');
+            header('Location: ../../index.php');
           }
         }
       }	

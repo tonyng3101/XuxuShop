@@ -2,7 +2,7 @@
 <!-- Header Of Website -->
 <div id="home" class="parallax text-center">
 	<img src="image/logo-white.png" width="15%" style="margin-top: 80px;">
-	<h1 style="font-family: 'GroteskBoldCond'; font-weight: 500; font-size: 112px; color: #fff; letter-spacing: 13.5px"> XUXU LIPSTICK</h1>
+	<h1 style="font-family: 'GroteskBoldCond'; font-size: 112px; color: #fff; letter-spacing: 13.5px"> XUXU LIPSTICK</h1>
 	<hr style="width: 350px; margin: 2 auto;">
 	<h3 style="font-family: 'AvenirLTStd-Light'; color: #fff; letter-spacing: 7px; font-size: 20px">ULTRA MATTE LIP-MATTE LIP CREAM</h3>
 

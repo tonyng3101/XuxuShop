@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href="index.php#home">Trang chủ</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="Index.php#product">Sản phẩm <span class="caret"></span></a>
+          <a class="dropdown-toggle" href="Index.php?function=san-pham">Sản phẩm <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <li><a href="Index.php?function=son-thoi">Son Thỏi</a></li>
           <li><a href="Index.php?function=son-kem">Son Kem</a></li>
@@ -24,9 +24,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <?php 
-       if (isset($_SESSION['username']) && $_SESSION['username']){
-           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Xin chào, '.$_SESSION['username']. '</a></li>';
-           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
+       if (isset($_SESSION['username'])){
+           echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  Xin chào, '.$_SESSION['username']. '</a></li>';
+           echo '<li><a href="index.php?function=log-out"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
        }
        else{
            echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';

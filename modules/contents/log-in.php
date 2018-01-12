@@ -1,5 +1,5 @@
 <div id="login" class="parallax text-center">
-	<h1 style="font-family: 'GroteskBoldCond'; font-weight: 500; font-size: 112px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;"> SIGN IN</h1>
+	<h1 style="font-family: 'GroteskBoldCond'; font-size: 112px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;"> SIGN IN</h1>
 	<hr  width="10px" color="#fff" style="border:2px solid #fff" />
 	<div class="background-login">
 	<div class="login-card">
@@ -12,9 +12,9 @@
 			}
 
 			if ($error == 'unknow') {
-				echo "Vui lòng nhập tài khoản và mật khẩu";
+				echo "Please enter username and password";
 			}elseif ($error == 'unknowuser') {
-				echo "Tài khoản không tồn tại";
+				echo "Username is not";
 			}elseif ($error == 'unknowpass') {
 				echo "Sai mật khẩu";
 			}else {
