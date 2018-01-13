@@ -1,7 +1,18 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
+<?php
+session_start();
+//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+if (!isset($_SESSION['uid'])) {
+	 header('Location: login.php');
+}
+?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Documentation</title>            
+        <title>Boooya - Revolution Admin Template</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,27 +26,61 @@
         <link rel="stylesheet" href="css/styles.css">
         <!-- EOF CSS INCLUDE -->
     </head>
-    <body>
+    <body>        
+        
         <!-- APP WRAPPER -->
         <div class="app">           
 
             <!-- START APP CONTAINER -->
             <div class="app-container">
-                <!-- START SIDEBAR -->
                 <?php include ('nvar-bar.php'); ?>
-                <!-- END SIDEBAR -->
                 
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
                     <!-- START APP HEADER -->
-                    <?php include ('header.php'); ?>
+                    <div class="app-header">
+                        <ul class="app-header-buttons">
+                            <li class="visible-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-toggle=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+                            <li class="hidden-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-minimize=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+                        </ul>
+                        <form class="app-header-search" action="" method="post">        
+                            <input type="text" name="keyword" placeholder="Search">
+                        </form>    
+                    
+                        <ul class="app-header-buttons pull-right">
+                            <li>
+                                <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
+                                    <img src="assets/images/users/user_1.jpg" alt="John Doe">
+                                    <div class="contact-container">
+                                        <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
+                                        <span>Administrator</span>
+                                    </div>
+                                    <div class="contact-controls">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>                        
+                                            <ul class="dropdown-menu dropdown-left">
+                                                <li><a href="#"><span class="icon-cog"></span> Settings</a></li> 
+                                                <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
+                                                <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="logout.php"><span class="icon-exit"></span> Log Out</a></li> 
+                                            </ul>
+                                        </div>                    
+                                    </div>
+                                </div>
+                            </li>        
+                        </ul>
+                    </div>
                     <!-- END APP HEADER  -->
                     
                     <!-- START PAGE HEADING -->
-                    <div class="app-heading app-heading-bordered app-heading-page">                        
+                    <div class="app-heading app-heading-bordered app-heading-page">
+                        <div class="icon icon-lg">
+                            <span class="icon-laptop-phone"></span>
+                        </div>
                         <div class="title">
-                            <h1>Đơn hàng</h1>
-                            <p>Read this before you start using template</p>
+                            <h1>Cập nhật</h1>
+                            <p>The revolution in admin template build</p>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -44,17 +89,192 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li class="active">Đơn hàng</li>
+                            <li><a href="index.php">Trang chủ</a></li>                                                     
+                            <li class="active">Tài khoản</li>
+                            <li class="active">Cập nhật</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
                     
                     <!-- START PAGE CONTAINER -->
+                    <style type="text/css">
+					.required
+					{
+						color:red;
+					}
+					</style>
                     <div class="container">
-                        
-                        aaaa
-
+						<div class="row">
+                        	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                            <?php
+							include('connect.php');
+							if(isset($_GET['id']) && filter_var($_GET['id'],FILTER_VALIDATE_INT,array('min_range'=>1)))
+							{
+								$id = $_GET['id'];
+							}
+							else
+							{
+								header('Location: danhsachtaikhoan.php');
+								exit();
+								
+							}
+							if($_SERVER['REQUEST_METHOD']=='POST')
+							{
+								$error=array();
+								
+								if(empty($_POST['hoten']))
+								{
+									$error[]='hoten';
+								}
+								else
+								{
+									$hoten=$_POST['hoten'];
+								}
+								if(empty($_POST['dienthoai']))
+								{
+									$error[]='dienthoai';
+								}
+								else
+								{
+									$dienthoai=$_POST['dienthoai'];
+								}
+								if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)==TRUE)
+								{
+									$email=mysql_real_escape_string($_POST['email']);
+								}
+								else
+								{
+									$error[]='email';
+								}
+								if(empty($_POST['diachi']))
+								{
+									$error[]='diachi';
+								}
+								else
+								{
+									$diachi=$_POST['diachi'];
+								}
+								$status=$_POST['status'];
+								if(empty($error))
+								{
+										$query_in="UPDATE admin
+													SET hoten='{$hoten}',
+														dienthoai='{$dienthoai}',
+														email='{$email}',
+														diachi='{$diachi}',
+														status={$status}
+													WHERE id={$id}
+													";
+										$results_in=mysql_query($query_in);
+										if(mysql_affected_rows($conn)==1)
+										{
+											echo "<p style='color:green;'> Sửa  thành công</p>";
+										}
+										else
+										{
+											echo "<p class='required'>Sửa không thành công</p>";
+										}
+								}
+								else
+								{
+									$message="<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
+								}
+							}
+							$query_id="SELECT username,hoten,dienthoai,email,diachi FROM admin WHERE id={$id}";
+	
+							$results_id=mysql_query($query_id);
+							
+							//Kiểm tra ID có tồn tại không
+							if(mysql_num_rows($results_id)==1)
+							{
+								list($username,$hoten,$dienthoai,$email,$diachi)=mysql_fetch_array($results_id, MYSQL_NUM);
+							}
+							else
+							{
+								$message="<p class='required'>ID user không tồn tại</p>";
+							}
+							?>
+                            	<form name="frmthemtaikhoan" method="POST">
+                                	<?php
+										if(isset($message))
+										{
+											echo $message;
+										}
+									?>
+                                    <h3>Cập nhật tài khoản</h3>
+                                    <div class="form-group">
+                                    	<label> Tài khoản</label>
+                                        <input type="text" name="username" value="<?php if(isset ($username)){echo $username;} ?>" class="form-control" placeholder="Tài khoản" readonly>
+                                        <?php
+											if(isset($error) && in_array('username',$error))
+											{
+												echo "<p class='required'> Tài khoản không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Họ tên</label>
+                                        <input type="text" name="hoten" value="<?php if(isset ($hoten)){echo $hoten;} ?>" class="form-control" placeholder="Họ tên">
+                                         <?php
+											if(isset($error) && in_array('hoten',$error))
+											{
+												echo "<p class='required'>Họ tên không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Điện thoại</label>
+                                        <input type="text" name="dienthoai" value="<?php if(isset ($dienthoai)){echo $dienthoai;} ?>" class="form-control" placeholder="Điện thoại">
+                                         <?php
+											if(isset($error) && in_array('dienthoai',$error))
+											{
+												echo "<p class='required'>Điện thoại không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Email</label>
+                                        <input type="text" name="email" value="<?php if(isset ($email)){echo $email;} ?>" class="form-control" placeholder="Tài khoản">
+                                         <?php
+											if(isset($error) && in_array('email',$error))
+											{
+												echo "<p class='required'>Email không hợp lệ</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Địa chỉ</label>
+                                        <input type="text" name="diachi" value="<?php if(isset ($diachi)){echo $diachi;} ?>" class="form-control" placeholder="Địa chỉ">
+                                         <?php
+											if(isset($error) && in_array('diachi',$error))
+											{
+												echo "<p class='required'>Địa chỉ không để trống</p>";
+											}
+										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label style="display:block;">Trạng thái:</label>
+                                        <?php
+											if(isset($status)==1)
+											{
+										?>
+                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Kích hoạt</label>
+                                        <label class="radio-inline"><input type="radio" name="status" value="0">Không kích hoạt</label>
+                                        <?php
+											}
+											else
+											{
+												?>
+                                                	<label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Kích hoạt</label>
+                                        			<label class="radio-inline"><input type="radio" name="status" value="0">Không kích hoạt</label>
+                                                <?php
+											}
+										?>
+                                    </div>
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Cập nhật">
+                                </form>
+                            </div>
+                        </div> 
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -62,100 +282,6 @@
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->
-                        
-            <!-- START APP FOOTER -->
-            <div class="app-footer app-footer-default" id="footer">
-            
-                <div class="alert alert-primary alert-dismissible alert-inside text-center">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="icon-cross"></span></button>
-                    We use cookies to offer you the best experience on our website. Continuing browsing, you accept our cookies policy.
-                </div>
-            
-                <div class="app-footer-line extended">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-4">
-                            <h3 class="title"><img src="/img/logo-footer.png" alt="boooyah"> Boooya</h3>                            
-                            <p>The innovation in admin template design. You will save hundred hours while working with our template. That is based on latest technologies and understandable for all.</p>
-                            <p><strong>How?</strong><br>This template included with thousand of best components, that really help you to build awesome design.</p>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <h3 class="title"><span class="icon-clipboard-text"></span> About Us</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#">About</a></li>                                                                
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Why use us?</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-2 col-sm-4">                            
-                            <h3 class="title"><span class="icon-lifebuoy"></span> Need Help?</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#">FAQ</a></li>                                                                
-                                <li><a href="#">Community</a></li>
-                                <li><a href="#">Contacts</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-6 clear-mobile">
-                            <h3 class="title"><span class="icon-reading"></span> Latest News</h3>
-            
-                            <div class="row app-footer-articles">
-                                <div class="col-md-3 col-sm-4">
-                                    <img src="/assets/images/preview/img-1.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <a href="#">Best way to increase vocabulary</a>
-                                    <p>Quod quam magnum sit fictae veterum fabulae declarant, in quibus tam multis.</p>
-                                </div>
-                            </div>
-            
-                            <div class="row app-footer-articles">
-                                <div class="col-md-3 col-sm-4">
-                                    <img src="/assets/images/preview/img-2.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <a href="#">Best way to increase vocabulary</a>
-                                    <p>In quibus tam multis tamque variis ab ultima antiquitate repetitis tria.</p>
-                                </div>
-                            </div>
-            
-                        </div>
-                        <div class="col-md-2 col-sm-6">
-                            <h3 class="title"><span class="icon-thumbs-up"></span> Social Media</h3>
-            
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-youtube"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-feed"></i>
-                            </a>
-            
-                            <h3 class="title"><span class="icon-paper-plane"></span> Subscribe</h3>
-            
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="E-mail...">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary">GO</button>
-                                </div>
-                            </div> 
-                        </div>                        
-                    </div>                    
-                </div>
-                <div class="app-footer-line darken">                
-                    <div class="copyright wide text-center">&copy; 2016 Boooya. All right reserved in the Ukraine and other countries.</div>                
-                </div>
-            </div>
-            <!-- END APP FOOTER -->
             
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
@@ -321,11 +447,6 @@
         </div>        
         <!-- END APP WRAPPER -->                
         
-        <!-- CODEMIRROR -->
-        <script type="text/javascript" src="js/vendor/syntaxhighlight/shCore.js"></script>
-        <script type="text/javascript" src="js/vendor/syntaxhighlight/shBrushXml.js"></script>
-        <!-- END CODEMIRROR -->
-        
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
@@ -333,19 +454,24 @@
         <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="js/vendor/rickshaw/rickshaw.min.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
         <script type="text/javascript" src="js/app_demo.js"></script>
         <!-- END APP SCRIPTS -->
-        <script>
-            $(document).ready(function(){
-                SyntaxHighlighter.all();
-                
-                setTimeout(function(){
-                    app.spy();
-                },200);
-            });
-        </script>
+        <script type="text/javascript" src="js/app_demo_dashboard.js"></script>
     </body>
 </html>
+<?php
+ob_flush();
+?>

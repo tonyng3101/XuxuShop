@@ -3,7 +3,7 @@
 session_start();
 //tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
 //nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['uid'])) {
 	 header('Location: login.php');
 }
 ?>
@@ -35,39 +35,7 @@ if (!isset($_SESSION['username'])) {
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
                     <!-- START APP HEADER -->
-                    <div class="app-header">
-                        <ul class="app-header-buttons">
-                            <li class="visible-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-toggle=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
-                            <li class="hidden-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-minimize=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
-                        </ul>
-                        <form class="app-header-search" action="" method="post">        
-                            <input type="text" name="keyword" placeholder="Search">
-                        </form>    
-                    
-                        <ul class="app-header-buttons pull-right">
-                            <li>
-                                <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
-                                    <img src="assets/images/users/user_1.jpg" alt="John Doe">
-                                    <div class="contact-container">
-                                        <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
-                                        <span>Administrator</span>
-                                    </div>
-                                    <div class="contact-controls">
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>                        
-                                            <ul class="dropdown-menu dropdown-left">
-                                                <li><a href="#"><span class="icon-cog"></span> Settings</a></li> 
-                                                <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
-                                                <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="logout.php"><span class="icon-exit"></span> Log Out</a></li> 
-                                            </ul>
-                                        </div>                    
-                                    </div>
-                                </div>
-                            </li>        
-                        </ul>
-                    </div>
+                    <?php include ('header.php'); ?>
                     <!-- END APP HEADER  -->
                     
                     <!-- START PAGE HEADING -->
@@ -122,7 +90,7 @@ if (!isset($_SESSION['username'])) {
 								}
 								else
 								{
-									$password=$_POST['password'];
+									$password=md5($_POST['password']);
 								}
 								if(trim($_POST['password'])!=trim($_POST['repassword']))
 								{
@@ -160,6 +128,7 @@ if (!isset($_SESSION['username'])) {
 								{
 									$diachi=$_POST['diachi'];
 								}
+								$status=$_POST['status'];
 								if(empty($error))
 								{
 									$query="SELECT username FROM admin WHERE username='{$username}' ";
@@ -176,8 +145,8 @@ if (!isset($_SESSION['username'])) {
 									}
 									else
 									{
-										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi)
-										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}')";
+										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi,status)
+										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}', 	{$status})";
 										$results_in=mysql_query($query_in);
 										if(mysql_affected_rows($conn)==1)
 										{
@@ -204,7 +173,7 @@ if (!isset($_SESSION['username'])) {
 									?>
                                     <h3>Thêm tài khoản</h3>
                                     <div class="form-group">
-                                    	<label> Tài khoản</label>
+                                    	<label> Tài khoản:</label>
                                         <input type="text" name="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>" class="form-control" placeholder="Tài khoản">
                                         <?php
 											if(isset($error) && in_array('username',$error))
@@ -214,7 +183,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Mật khẩu</label>
+                                    	<label>Mật khẩu:</label>
                                         <input type="password" name="password" value="" class="form-control" placeholder="Mật khẩu">
                                     	 <?php
 											if(isset($error) && in_array('password',$error))
@@ -224,7 +193,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Xác nhận mật khẩu</label>
+                                    	<label>Xác nhận mật khẩu:</label>
                                         <input type="password" name="repassword" value="" class="form-control" placeholder="">
                                          <?php
 											if(isset($error) && in_array('repassword',$error))
@@ -234,7 +203,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Họ tên</label>
+                                    	<label>Họ tên:</label>
                                         <input type="text" name="hoten" value="<?php if(isset($_POST['hoten'])){echo $_POST['hoten'];} ?>" class="form-control" placeholder="Họ tên">
                                          <?php
 											if(isset($error) && in_array('hoten',$error))
@@ -244,7 +213,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Điện thoại</label>
+                                    	<label>Điện thoại:</label>
                                         <input type="text" name="dienthoai" value="<?php if(isset($_POST['dienthoai'])){echo $_POST['dienthoai'];} ?>" class="form-control" placeholder="Điện thoại">
                                          <?php
 											if(isset($error) && in_array('dienthoai',$error))
@@ -254,7 +223,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Email</label>
+                                    	<label>Email:</label>
                                         <input type="text" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>" class="form-control" placeholder="Tài khoản">
                                          <?php
 											if(isset($error) && in_array('email',$error))
@@ -264,7 +233,7 @@ if (!isset($_SESSION['username'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Địa chỉ</label>
+                                    	<label>Địa chỉ:</label>
                                         <input type="text" name="diachi" value="<?php if(isset($_POST['diachi'])){echo $_POST['diachi'];} ?>" class="form-control" placeholder="Địa chỉ">
                                          <?php
 											if(isset($error) && in_array('diachi',$error))
@@ -272,6 +241,11 @@ if (!isset($_SESSION['username'])) {
 												echo "<p class='required'>Địa chỉ không để trống</p>";
 											}
 										?>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label style="display:block;">Trạng thái:</label>
+                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Kích hoạt</label>
+                                        <label class="radio-inline"><input type="radio" name="status" value="0">Không kích hoạt</label>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
                                 </form>

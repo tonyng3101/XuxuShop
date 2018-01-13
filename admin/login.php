@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if(isset($_SESSION['username']))
+if(isset($_SESSION['uid']))
 {
 	header('Location: index.php');
 }
@@ -177,39 +177,8 @@ body{
 		</div>
 		<br>
 		<div class="login">
-        <?php
-	//Gọi file connect.php 
-		include('connect.php');
-	// Kiểm tra nếu người dùng đã ân nút đăng nhập thì mới xử lý
-	if (isset($_POST["btn_submit"])) {
-		// lấy thông tin người dùng
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-		//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt 
-		//mà người dùng cố tình thêm vào để tấn công theo phương thức sql injection
-		$username = strip_tags($username);
-		$username = addslashes($username);
-		$password = strip_tags($password);
-		$password = addslashes($password);
-		if ($username == "" || $password =="") {
-			echo "username hoặc password bạn không được để trống!";
-		}else{
-			$sql = "select * from admin where username = '$username' and password = '$password' ";
-			$query = mysql_query($sql);
-			$num_rows = mysql_num_rows($query);
-			if ($num_rows==0) {
-				echo "tên đăng nhập hoặc mật khẩu không đúng !";
-			}else{
-				//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
-				$_SESSION['username'] = $username;
-                // Thực thi hành động sau khi lưu thông tin vào session
-                // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
-                header('Location: index.php');
-			}
-		}
-	}
-?>
 <?php
+include('connect.php');
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
 	$error=array();
@@ -227,11 +196,34 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 	}
 	else
 	{
-		$username=$_POST['password'];
+		$password=md5($_POST['password']);
+	}
+	if(empty($error))
+	{
+		$query="SELECT id,username,password,status FROM admin WHERE username='{$username}' AND password='{$password}' AND status='1'";
+		$result=mysql_query($query);
+		if(mysql_num_rows($result)==1)
+		{
+			list($id,$username,$password)=mysql_fetch_array($result,MYSQL_NUM);
+			$_SESSION['uid']=$id;
+			$_SESSION['username']=$username;
+			$_SESSION['password']=$password;
+			header('Location: index.php');
+		}
+		else
+		{
+			$message="<p class='required'> Tài khoản hoặc mật khẩu không đúng</p>";
+		}
 	}
 }
 ?>
-        	<form method="POST" action="login.php">
+							<?php
+								if(isset($message))
+								{
+									echo $message;	
+								}
+							?>
+        	<form method="POST" action="" name="frmlogin">
 				<input type="text" placeholder="username" name="username" id="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
                 <?php
 				if(isset($error) && in_array('username',$error))

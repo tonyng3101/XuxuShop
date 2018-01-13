@@ -1,7 +1,15 @@
 <!DOCTYPE html>
+<?php
+session_start();
+//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+if (!isset($_SESSION['uid'])) {
+	 header('Location: login.php');
+}
+?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Documentation</title>            
+        <title>Boooya - Revolution Admin Template</title>            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,15 +23,14 @@
         <link rel="stylesheet" href="css/styles.css">
         <!-- EOF CSS INCLUDE -->
     </head>
-    <body>
+    <body>        
+        
         <!-- APP WRAPPER -->
         <div class="app">           
 
             <!-- START APP CONTAINER -->
             <div class="app-container">
-                <!-- START SIDEBAR -->
                 <?php include ('nvar-bar.php'); ?>
-                <!-- END SIDEBAR -->
                 
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
@@ -32,10 +39,13 @@
                     <!-- END APP HEADER  -->
                     
                     <!-- START PAGE HEADING -->
-                    <div class="app-heading app-heading-bordered app-heading-page">                        
+                    <div class="app-heading app-heading-bordered app-heading-page">
+                        <div class="icon icon-lg">
+                            <span class="icon-laptop-phone"></span>
+                        </div>
                         <div class="title">
-                            <h1>Đơn hàng</h1>
-                            <p>Read this before you start using template</p>
+                            <h1>Boooya - Admin Template</h1>
+                            <p>The revolution in admin template build</p>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -44,17 +54,82 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li class="active">Đơn hàng</li>
+                            <li><a href="#">Application</a></li>                                                     
+                            <li class="active">Dashboard</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                        
-                        aaaa
-
+						<div class="row">
+                        <?php
+						include('connect.php');
+						if($_SERVER['REQUEST_METHOD']=='POST')
+						{
+							$oldpassword=$_POST['oldpassword'];
+							$newpassword=md5(trim($_POST['newpassword']));
+							$query="SELECT id,password FROM admin WHERE password=md5('{$oldpassword}') AND id={$_SESSION['uid']}";
+							$results=mysql_query($query);
+							if(mysql_num_rows($results) == 1)
+							{
+								if(trim($_POST['newpassword'])!=trim($_POST['renewpassword']))
+								{
+									$message="<p class='required'>Mật khẩu mới không giống nhau</p>";
+								}
+								else
+								{
+									$query_up="UPDATE admin
+												SET password='{$newpassword}'
+												WHERE
+													id={$_SESSION['uid']}
+												";	
+									$results_up=mysql_query($query_up);
+									if(mysql_affected_rows($conn)==1)
+									{
+										$message="<p style='color:green'>Đổi mật khẩu thành công</p>";
+									}
+									else
+									{
+										$message="<p class='required'>Đổi mật khảu không thành công</p>";	
+									}
+								}
+							}
+							else
+							{
+								$message="<p class='required'>Mật khẩu cũ không đúng</p>";
+							}
+						}
+						?>
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <?php
+								if(isset($message))
+								{
+									echo $message;	
+								}
+							?>
+                            	<form name="frmdoimatkhau" method="POST">
+                                	<h3> Đổi mật khẩu</h3>
+                                    <div class="form-group">
+                                    	<label>Tài khoản:</label>
+                                        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" class="form-control" disabled="true">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Mật khẩu cũ:</label>
+                                        <input type="password" name="oldpassword" value="" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Mật khẩu mới:</label>
+                                        <input type="password" name="newpassword" value="" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>Xác nhận mật khẩu mới:</label>
+                                        <input type="password" name="renewpassword" value="" class="form-control">
+                                    </div>
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Đổi mật khẩu">
+                                </form>
+                            </div>
+                        </div>    
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -62,100 +137,6 @@
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->
-                        
-            <!-- START APP FOOTER -->
-            <div class="app-footer app-footer-default" id="footer">
-            
-                <div class="alert alert-primary alert-dismissible alert-inside text-center">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="icon-cross"></span></button>
-                    We use cookies to offer you the best experience on our website. Continuing browsing, you accept our cookies policy.
-                </div>
-            
-                <div class="app-footer-line extended">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-4">
-                            <h3 class="title"><img src="/img/logo-footer.png" alt="boooyah"> Boooya</h3>                            
-                            <p>The innovation in admin template design. You will save hundred hours while working with our template. That is based on latest technologies and understandable for all.</p>
-                            <p><strong>How?</strong><br>This template included with thousand of best components, that really help you to build awesome design.</p>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <h3 class="title"><span class="icon-clipboard-text"></span> About Us</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#">About</a></li>                                                                
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Why use us?</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-2 col-sm-4">                            
-                            <h3 class="title"><span class="icon-lifebuoy"></span> Need Help?</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#">FAQ</a></li>                                                                
-                                <li><a href="#">Community</a></li>
-                                <li><a href="#">Contacts</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-6 clear-mobile">
-                            <h3 class="title"><span class="icon-reading"></span> Latest News</h3>
-            
-                            <div class="row app-footer-articles">
-                                <div class="col-md-3 col-sm-4">
-                                    <img src="/assets/images/preview/img-1.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <a href="#">Best way to increase vocabulary</a>
-                                    <p>Quod quam magnum sit fictae veterum fabulae declarant, in quibus tam multis.</p>
-                                </div>
-                            </div>
-            
-                            <div class="row app-footer-articles">
-                                <div class="col-md-3 col-sm-4">
-                                    <img src="/assets/images/preview/img-2.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <a href="#">Best way to increase vocabulary</a>
-                                    <p>In quibus tam multis tamque variis ab ultima antiquitate repetitis tria.</p>
-                                </div>
-                            </div>
-            
-                        </div>
-                        <div class="col-md-2 col-sm-6">
-                            <h3 class="title"><span class="icon-thumbs-up"></span> Social Media</h3>
-            
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-youtube"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="#" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
-                                <i class="fa fa-feed"></i>
-                            </a>
-            
-                            <h3 class="title"><span class="icon-paper-plane"></span> Subscribe</h3>
-            
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="E-mail...">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary">GO</button>
-                                </div>
-                            </div> 
-                        </div>                        
-                    </div>                    
-                </div>
-                <div class="app-footer-line darken">                
-                    <div class="copyright wide text-center">&copy; 2016 Boooya. All right reserved in the Ukraine and other countries.</div>                
-                </div>
-            </div>
-            <!-- END APP FOOTER -->
             
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
@@ -321,11 +302,6 @@
         </div>        
         <!-- END APP WRAPPER -->                
         
-        <!-- CODEMIRROR -->
-        <script type="text/javascript" src="js/vendor/syntaxhighlight/shCore.js"></script>
-        <script type="text/javascript" src="js/vendor/syntaxhighlight/shBrushXml.js"></script>
-        <!-- END CODEMIRROR -->
-        
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
@@ -333,19 +309,21 @@
         <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script type="text/javascript" src="js/vendor/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
+        
+        <script type="text/javascript" src="js/vendor/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="js/vendor/rickshaw/rickshaw.min.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/app_plugins.js"></script>
         <script type="text/javascript" src="js/app_demo.js"></script>
         <!-- END APP SCRIPTS -->
-        <script>
-            $(document).ready(function(){
-                SyntaxHighlighter.all();
-                
-                setTimeout(function(){
-                    app.spy();
-                },200);
-            });
-        </script>
+        <script type="text/javascript" src="js/app_demo_dashboard.js"></script>
     </body>
 </html>
