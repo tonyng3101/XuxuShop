@@ -23,7 +23,7 @@
           if ($pass != $row['password']) {
             header('Location: ../../index.php?function=log-in&error=unknowpass');
           }else{
-            $_SESSION['username'] = $user;
+            $_SESSION['id'] = $user;
             header('Location: ../../index.php');
           }
         }
