@@ -24,6 +24,7 @@ body {
 }
 
 
+
 /* Text About */
 
 .text-about {
@@ -50,7 +51,7 @@ h5 {
     background-color: #3e3e3e;
     background-image: none;
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: center center;
     background-size: cover;
     float: left;
 }
@@ -61,7 +62,7 @@ h5 {
     background-color: #3e3e3e;
     background-image: none;
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: center center;
     background-size: cover;
     float: left;
 }
@@ -91,6 +92,7 @@ h5 {
     background-color: #fff;
     color: #B97F6D;
 }
+
 
 
 /* Form Contact */
@@ -200,6 +202,7 @@ div#contact {
 }
 
 
+
 /* Footer Of Website */
 
 footer .glyphicon {
@@ -259,6 +262,7 @@ div#map {
 }
 
 
+
 /* Navigation bar */
 
 .navbar {
@@ -277,21 +281,21 @@ div#map {
 }
 
 @media (min-width: 1400px) {
-  .container {
-    width: 1285px;
-  }
+    .container {
+        width: 1285px;
+    }
 }
 
 @media (min-width: 1600px) {
-  .container {
-    width: 1485px;
-  }
+    .container {
+        width: 1485px;
+    }
 }
 
 @media (min-width: 1920px) {
-  .container {
-    width: 1805px;
-  }
+    .container {
+        width: 1805px;
+    }
 }
 
 
@@ -332,6 +336,7 @@ div#map {
 }
 
 
+
 /*Slide An Image */
 
 .slideanim {
@@ -348,6 +353,7 @@ div#map {
     /* Make the element visible */
     visibility: visible;
 }
+
 
 
 /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
@@ -373,6 +379,7 @@ div#map {
         -webkit-transform: translateY(0%);
     }
 }
+
 
 
 /* Parallax Scrolling Effect */
@@ -408,6 +415,7 @@ div#contact {
     height: 800px;
     margin-top: 50px;
 }
+
 
 
 /* Sim Button (Button Header) */
@@ -503,6 +511,7 @@ div#contact {
 }
 
 
+
 /* Dropdown Navbar */
 
 .dropdown-menu {
@@ -585,13 +594,92 @@ input.form-login {
     float: left;
 }
 
+
 /* Product Site */
-div#main-prod{
+
+div#main-prod {
+    margin: 50px 0 50px 0;
     width: 100%;
-    height: 100px;
+    height: 1000px;
+    background-color: #B97F6D;
 }
 
-.filter{
-    height: 100px;
-    border-right: 1px solid #B97F6D;
+.filter {
+    height: auto;
+}
+
+.prod {
+    background-color: #efefef;
+    height: 1000px;
+}
+
+.caption-style-2 {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Open Sans Condensed', sans-serif;
+    float: left;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    width: 450px;
+    height: 300px;
+    float: left;
+}
+
+.caption-style-2:hover .caption {
+    opacity: 1;
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);
+}
+
+.caption-style-2 .caption {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 350px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.caption-style-2 .blur {
+    background-color: rgba(239, 239, 239, 1);
+    height: 50px;
+    width: 450px;
+    z-index: 5;
+    position: absolute;
+}
+
+.caption-style-2 .caption-text h1 {
+    font-size: 20px;
+    margin-top: -5px;
+    color: #B97F6D;
+}
+
+.caption-style-2 .caption-text h1#name {
+    padding-left: 10px;
+    float: left;
+}
+
+.caption-style-2 .caption-text h1#price {
+    padding-right: 10px;
+    float: right;
+}
+
+.caption-style-2 .caption-text {
+    z-index: 10;
+    color: #fff;
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    text-align: center;
+    top: 20px;
 }
