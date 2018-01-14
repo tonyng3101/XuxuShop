@@ -109,19 +109,6 @@ h5 {
     padding: 0;
 }
 
-.container {
-    padding-left: auto;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-
-@media (min-width: 1200px) {
-    .container {
-        width: 1600px;
-    }
-}
-
 .product {
     height: 615px;
     padding: 50px 0px 0px 0px;
@@ -287,6 +274,24 @@ div#map {
 .navbar .navbar-brand {
     font-family: 'GroteskBoldCond';
     color: #B97F6D !important;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1285px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    width: 1485px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    width: 1805px;
+  }
 }
 
 
