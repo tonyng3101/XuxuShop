@@ -200,16 +200,13 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 	}
 	if(empty($error))
 	{
-		$query="SELECT id,username,password,hoten,status FROM admin WHERE username='{$username}' AND password='{$password}' AND status='1'";
+		$query="SELECT id,username,password,status FROM admin WHERE username='{$username}' AND password='{$password}' AND status='1'";
 		$result=mysql_query($query);
-		
-
 		if(mysql_num_rows($result)==1)
 		{
-			list($id,$username,$password,$hoten)=mysql_fetch_array($result,MYSQL_NUM);
-			$row=mysql_fetch_array($result);
+			list($id,$username,$password)=mysql_fetch_array($result,MYSQL_NUM);
 			$_SESSION['uid']=$id;
-			$_SESSION['username']=$hoten;
+			$_SESSION['username']=$username;
 			$_SESSION['password']=$password;
 			header('Location: index.php');
 		}
@@ -219,7 +216,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 		}
 	}
 }
-?>
+?> 
 							<?php
 								if(isset($message))
 								{
