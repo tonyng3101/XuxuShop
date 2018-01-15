@@ -35,7 +35,7 @@ body {
     top: 50%;
 }
 
-h3 {
+.text-about h3 {
     letter-spacing: 7px;
 }
 
@@ -70,10 +70,6 @@ h5 {
 .red-bg {
     background-color: #B97F6D;
     color: #fff;
-}
-
-.col-sm-5 {
-    width: 800px;
 }
 
 .View-Shop {
@@ -113,7 +109,7 @@ h5 {
 
 .product {
     height: 615px;
-    padding: 50px 0px 0px 0px;
+    padding: 50px 10px 0px 10px;
 }
 
 .text-inside {
@@ -184,13 +180,6 @@ h5 {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}
-
-@media screen and (max-width: 768px) {
-    .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
-    }
 }
 
 div#about {
@@ -600,20 +589,26 @@ input.form-login {
 div#main-prod {
     margin: 50px 0 50px 0;
     width: 100%;
-    height: 1000px;
+    min-height: 1820px;
     background-color: #B97F6D;
 }
 
 .filter {
     height: auto;
+    color: #fff;
+}
+
+.filter h4{
+    margin-top: 30px;
 }
 
 .prod {
     background-color: #efefef;
-    height: 1000px;
+    height: auto;
 }
 
 .caption-style-2 {
+    color: #efefef;
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -624,10 +619,13 @@ div#main-prod {
     padding: 0px;
     position: relative;
     overflow: hidden;
-    width: 450px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     float: left;
+    margin-bottom: 40px;
+    margin-left: 40px;
 }
+
 
 .caption-style-2:hover .caption {
     opacity: 1;
@@ -642,7 +640,7 @@ div#main-prod {
     cursor: pointer;
     position: absolute;
     opacity: 0;
-    top: 350px;
+    top: 345px;
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     -o-transition: all 0.15s ease-in-out;
@@ -651,27 +649,27 @@ div#main-prod {
 }
 
 .caption-style-2 .blur {
-    background-color: rgba(239, 239, 239, 1);
-    height: 50px;
+    background-color: rgba(185, 127, 109, 1);
+    height: 160px;
     width: 450px;
     z-index: 5;
     position: absolute;
 }
 
-.caption-style-2 .caption-text h1 {
+.caption-style-2 .caption-text h2 {
+    font-size: 22px;
+    margin-top: -5px;
+}
+
+.caption-style-2 .caption-text h3 {
     font-size: 20px;
     margin-top: -5px;
-    color: #B97F6D;
+    letter-spacing: 0;
+    color: #fff;
 }
 
-.caption-style-2 .caption-text h1#name {
-    padding-left: 10px;
-    float: left;
-}
-
-.caption-style-2 .caption-text h1#price {
-    padding-right: 10px;
-    float: right;
+.caption-style-2 .caption-text h3 strike {
+    color: #EBD7CD;
 }
 
 .caption-style-2 .caption-text {
@@ -682,4 +680,71 @@ div#main-prod {
     height: 300px;
     text-align: center;
     top: 20px;
+}
+
+.caption-style-2 .deal{
+    width: 60px;
+    height: 40px;
+    background-color: #B97F6D;
+    color: #efefef;
+    margin: 0;
+    letter-spacing: 0;
+    padding: 10px 15px;
+}
+
+
+@media (min-width: 1920px){
+    .caption-style-2 {
+        width: 455.5px !important;
+    }
+
+    .caption-style-2 .caption-text {
+        width: 455.5px !important;
+    }
+
+    .caption-style-2 .blur{
+        width: 455.5px !important;
+    }
+}
+
+@media (min-width: 1600px){
+    .caption-style-2{
+        width: 391px;
+    }
+
+    .caption-style-2 .caption-text {
+        width: 391px;
+    }
+}
+
+/* @media (min-width: 1400px) {
+    .caption-style-2 {
+        width: 335.5px;
+    }
+
+    .caption-style-2 .caption-text {
+        width: 335.5px;
+    }
+}
+*/
+
+.pagination a, .pagination span{
+    padding: 15px 25px;
+    border: 1px solid #B97F6D;
+}
+
+.pagination a{
+    color: #B97F6D;
+    transition: background 0.5s ease-out;
+}
+
+.pagination a:hover{
+    text-decoration: none;
+    background: #d0b0a6;
+    color: #fff;
+}
+
+.pagination span{
+    background-color: #B97F6D;
+    color: #efefef;
 }
