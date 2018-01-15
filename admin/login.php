@@ -209,7 +209,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 			list($id,$username,$password,$hoten)=mysql_fetch_array($result,MYSQL_NUM);
 			$row=mysql_fetch_array($result);
 			$_SESSION['uid']=$id;
-			$_SESSION['username']=$hoten;
+			$_SESSION['username']=$hoten; 
 			$_SESSION['password']=$password;
 			header('Location: index.php');
 		}
