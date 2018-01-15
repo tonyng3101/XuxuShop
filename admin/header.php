@@ -12,7 +12,7 @@
                                 <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
                                     <img src="assets/images/users/user_1.jpg" alt="John Doe">
                                     <div class="contact-container">
-                                        <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
+                                        <a href="#"><?php if(isset($_SESSION['hoten'])){echo $_SESSION['hoten'];} ?></a>
                                         <span>Administrator</span>
                                     </div>
                                     <div class="contact-controls">
