@@ -21,7 +21,7 @@
   		<div class="diamond"></div>
   		<div class="text-inside">
   			<h4 class="title big-title text-center">SON THỎI</h4>
-  			<hr  width="10px" color="#B97F6D" style="border:2px solid #B97F6D" />
+  			<hr  width="10px" style="border:2px solid #666" />
   			<h4 class="title text-center">Xem Ngay</h4>
   		</div>
     </div>
@@ -35,7 +35,7 @@
   		<div class="diamond"></div>
   		<div class="text-inside">
   			<h4 class="title big-title text-center">SON KEM</h4>
-  			<hr  width="10px" color="#B97F6D" style="border:2px solid #B97F6D" />
+  			<hr  width="10px" style="border:2px solid #666" />
   			<h4 class="title text-center">Xem Ngay</h4>
   		</div>
     </div>
@@ -49,7 +49,7 @@
   		<div class="diamond"></div>
   		<div class="text-inside">
   			<h4 class="title big-title text-center">SON DƯỠNG</h4>
-  			<hr  width="10px" color="#B97F6D" style="border:2px solid #B97F6D" />
+  			<hr  width="10px" style="border:2px solid #666" />
   			<h4 class="title text-center">Xem Ngay</h4>
   		</div>
     </div>
@@ -65,7 +65,7 @@
 			<div class="col-sm-6">
           <div class="text-about text-center">
             <h3>XUXU LIPSTICK</h3>
-            <hr  width="10px" color="#B97F6D" style="border:2px solid #B97F6D" />
+            <hr  width="10px" style="border:2px solid #000" />
             <h5>XUXU LIPSTICK là dòng son tươi thiên nhiên cao cấp, 100% không chì. Chất son siêu lì, mịn, bôi đến đâu từng lớp son như ngấm vào môi. Đặc biệt rất an toàn và có thể ăn được.</h5><br/>
             <h5>Cực mềm môi, chỉ cần mím môi lại sau khi tô là có thể cảm nận được độ mềm mướt, nói không với bong tróc.</h5><br>
             <h5>Son giữ màu được từ 6- 8 tiếng, cực lâu trôi. Dưỡng môi, trị thâm rất hiệu quả.</h5> 
@@ -85,7 +85,7 @@
     		</div>
     		<div class="col-sm-6 text-center" style="padding-left: 0px;">
           <div class="red-bg" style="padding: 145px 0 100px 0; height: 525px">
-              <h1 style="font-family: 'GroteskBoldCond'; font-weight: 400; font-size: 97px;letter-spacing: -3px; color: #fff;">SALE 10% OFF !</h1>
+              <h1 style="font-family: 'GroteskBoldCond'; font-weight: 400; font-size: 97px;letter-spacing: -3px;">SALE 10% OFF !</h1>
               <a href="index.php?function=san-pham"><input type="button" name="button" class="View-Shop" value="Shop Now"></a>
           </div>
     		</div>
@@ -115,7 +115,7 @@
       <textarea  style="resize: none; overflow: hidden;" class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br/>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" style="width: 100%; border-radius: 0;border-color: #B97F6D;  background-color: #B97F6D; color: #fff" type="submit" onclick="return confirm('Cảm ơn bạn đã góp ý với chúng tôi!')">Send</button>
+          <button class="btn btn-default pull-right" style="width: 100%; border-radius: 0;border-color: #000;  background-color: #000; color: #fff" type="submit" onclick="return confirm('Cảm ơn bạn đã góp ý với chúng tôi!')">Send</button>
         </div>
       </div> 
       </form>

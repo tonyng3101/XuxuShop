@@ -16,10 +16,10 @@
 
 body {
     line-height: 1.8;
-    color: #B97F6D;
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    background-color: #efefef;
+    background-color: #A5A5A5;
     margin: 0px 50px 0px 50px;
 }
 
@@ -28,11 +28,13 @@ body {
 /* Text About */
 
 .text-about {
-    height: 250px;
+    height: 455px;
     font-family: 'Montserrat', sans-serif;
     padding: 50px 170px 0px 170px;
     position: absolute;
     top: 50%;
+    background-color: #fff;
+    color: #000;
 }
 
 .text-about h3 {
@@ -68,25 +70,25 @@ h5 {
 }
 
 .red-bg {
-    background-color: #B97F6D;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
 }
 
 .View-Shop {
     font-family: 'AvenirLTStd-Light';
     font-size: 15px;
     letter-spacing: 2px;
-    Background-color: rgba(0, 0, 0, 0.00);
-    border: 1.5px solid #fff;
+    background-color: rgba(0, 0, 0, 0.00);
+    border: 1.5px solid #000;
     padding: 5px 35px;
-    color: white;
+    color: #000;
     margin-top: 38px;
     transition: background 0.5s ease-out;
 }
 
 .View-Shop:hover {
-    background-color: #fff;
-    color: #B97F6D;
+    background-color: #000;
+    color: #fff;
 }
 
 
@@ -109,7 +111,7 @@ h5 {
 
 .product {
     height: 615px;
-    padding: 50px 10px 0px 10px;
+    padding: 50px 25px 0px 25px;
 }
 
 .text-inside {
@@ -147,7 +149,7 @@ h5 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 15px;
-    color: #B97F6D;
+    color: #666;
     margin: 0;
     -webkit-transition: color 0.3s ease-out;
     -moz-transition: color 0.3s ease-out;
@@ -200,7 +202,7 @@ footer .glyphicon {
 }
 
 .add-wb {
-    background-color: #B97F6D;
+    background-color: #000;
     height: 450px;
     position: relative;
 }
@@ -256,7 +258,7 @@ div#map {
 
 .navbar {
     margin-bottom: 0;
-    background-color: #efefef;
+    background-color: #000;
     z-index: 9999;
     border: 0;
     font-size: 14px !important;
@@ -266,7 +268,7 @@ div#map {
 
 .navbar .navbar-brand {
     font-family: 'GroteskBoldCond';
-    color: #B97F6D !important;
+    color: #fff !important;
 }
 
 @media (min-width: 1400px) {
@@ -283,7 +285,7 @@ div#map {
 
 @media (min-width: 1920px) {
     .container {
-        width: 1805px;
+        width: 1795px;
     }
 }
 
@@ -291,7 +293,7 @@ div#map {
 .navbar li a {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 15px;
-    color: #B97F6D !important;
+    color: #fff !important;
     -webkit-transition: color 0.3s ease-out;
     -moz-transition: color 0.3s ease-out;
     -o-transition: color 0.3s ease-out;
@@ -300,7 +302,7 @@ div#map {
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
-    color: #d0b0a6 !important;
+    color: #999 !important;
 }
 
 .navbar-default .navbar-toggle {
@@ -506,10 +508,11 @@ div#contact {
 .dropdown-menu {
     border: 0px;
     border-radius: 0px;
-    background-color: #efefef;
+    background-color: #000;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300;
     box-shadow: 0px 0px;
+    min-width: 80px;
 }
 
 .dropdown-menu>li>a {
@@ -555,21 +558,21 @@ div#goTop {
 
 
 .form-control::-webkit-input-placeholder {
-    color: #B97F6D;
+    color: #000;
 }
 
 .form-control:-moz-placeholder {
     /* Firefox 18- */
-    color: #B97F6D;
+    color: #000;
 }
 
 .form-control::-moz-placeholder {
     /* Firefox 19+ */
-    color: #B97F6D;
+    color: #000;
 }
 
 .form-control:-ms-input-placeholder {
-    color: #B97F6D;
+    color: #000;
 }
 
 .form-login {
@@ -589,13 +592,16 @@ input.form-login {
 div#main-prod {
     margin: 50px 0 50px 0;
     width: 100%;
-    min-height: 1820px;
-    background-color: #B97F6D;
+    min-height: 500px;
+    display: inline-block;
+    background-color: #fff;
 }
 
 .filter {
     height: auto;
-    color: #fff;
+    color: #000;
+    background-color: #fff;
+    border-right: 0.25px double #000;
 }
 
 .filter h4{
@@ -603,8 +609,8 @@ div#main-prod {
 }
 
 .prod {
-    background-color: #efefef;
     height: auto;
+    display: inline-block;
 }
 
 .caption-style-2 {
@@ -622,7 +628,7 @@ div#main-prod {
     width: 400px;
     height: 400px;
     float: left;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     margin-left: 40px;
 }
 
@@ -640,7 +646,7 @@ div#main-prod {
     cursor: pointer;
     position: absolute;
     opacity: 0;
-    top: 345px;
+    top: 100px;
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     -o-transition: all 0.15s ease-in-out;
@@ -649,8 +655,8 @@ div#main-prod {
 }
 
 .caption-style-2 .blur {
-    background-color: rgba(185, 127, 109, 1);
-    height: 160px;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 400px;
     width: 450px;
     z-index: 5;
     position: absolute;
@@ -695,25 +701,29 @@ div#main-prod {
 
 @media (min-width: 1920px){
     .caption-style-2 {
-        width: 455.5px !important;
+        width: 331.8px !important;
+        height: 331.8px;
     }
 
     .caption-style-2 .caption-text {
-        width: 455.5px !important;
+        width: 331.8px !important;
+        height: 331.8px;
     }
 
     .caption-style-2 .blur{
-        width: 455.5px !important;
+        width: 331.8px !important;
     }
 }
 
-@media (min-width: 1600px){
+@media (min-width: 1366px){
     .caption-style-2{
-        width: 391px;
+        width: 301.8px;
+        height: 301.8px;
     }
 
     .caption-style-2 .caption-text {
-        width: 391px;
+        width: 301.8px;
+        height: 301.8px;
     }
 }
 
