@@ -100,7 +100,6 @@ if (!isset($_SESSION['uid'])) {
                             				<th>Giới thiệu sản phẩm</th>
                             				<th>Mô tả</th>
                             				<th>Hình ảnh</th>
-                            				<th>Danh sách hình ảnh</th>
                             				<th>Tình trạng</th>
                            				 	<th>Cập nhật</th>
                             				<th>Xóa</th>
@@ -126,7 +125,6 @@ if (!isset($_SESSION['uid'])) {
                             			<td><?php echo $row['gioithieu_sp']; ?></td>
                             			<td><?php echo $row['mota_sp']; ?></td>
                             			<td><?php echo $row['hinhanh_sp']; ?></td>
-                            			<td><?php echo $row['ds_hinhanh']; ?></td>
                             			<td><?php echo $status; ?></td>
                             			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
                             			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>

@@ -198,6 +198,14 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 	{
 		$password=md5($_POST['password']);
 	}
+	if(empty($_POST['hoten']))
+	{
+		$error[]='hoten';
+	}
+	else
+	{
+		$hoten=$_POST['hoten'];
+	}
 	if(empty($error))
 	{
 
