@@ -1,8 +1,11 @@
 <?php
 			//Xử lí phân trang
 			$sql = "SELECT count(id_sp) as total from san_pham";
+
 			$query = mysql_query($sql);
+
 			$row = mysql_fetch_assoc($query);
+
 			$total_records = $row['total'];
 
 			$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -35,7 +38,7 @@
 <div id="main-prod">
 	<div class="filter col-sm-2 text-center">
 		<h4>By Catalogue</h4>
-		<hr  width="10px" color="#fff" style="border:2px solid #fff" />
+		<hr  width="10px" style="border:2px solid #000" />
 	</div>
 	<div class="prod col-sm-10" style="padding-right: 0px;">
 
@@ -72,7 +75,7 @@
 			<?php 
 				//Nút Prev
 				if ($current_page > 1 && $total_page > 1){
-                	echo '<a href="index.php?>function=san-pham?page='.($current_page-1).'">Prev</a> ';
+                	echo '<a href="index.php?function=san-pham&page='.($current_page-1).'">Prev</a> ';
             	}
 
             	for ($i = 1; $i <= $total_page; $i++){
@@ -82,13 +85,13 @@
                     	echo '<span>'.$i.'</span> ';
                 	}
                 	else{
-                    	echo '<a href="index.php?function=san-pham?page='.$i.'">'.$i.'</a> ';
+                    	echo '<a href="index.php?function=san-pham&page='.$i.'">'.$i.'</a> ';
                 	}
             	}
 
             	//Nút Next
             	if ($current_page < $total_page && $total_page > 1){
-                	echo '<a href="index.php?function=san-pham?page='.($current_page+1).'">Next</a>';
+                	echo '<a href="index.php?function=san-pham&page='.($current_page+1).'">Next</a>';
             	}
 			?>
 		</div>
