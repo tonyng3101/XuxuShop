@@ -66,8 +66,8 @@
           <div class="text-about text-center">
             <h3>XUXU LIPSTICK</h3>
             <hr  width="10px" style="border:2px solid #000" />
-            <h5>XUXU LIPSTICK là dòng son tươi thiên nhiên cao cấp, 100% không chì. Chất son siêu lì, mịn, bôi đến đâu từng lớp son như ngấm vào môi. Đặc biệt rất an toàn và có thể ăn được.</h5><br/>
-            <h5>Cực mềm môi, chỉ cần mím môi lại sau khi tô là có thể cảm nận được độ mềm mướt, nói không với bong tróc.</h5><br>
+            <h5>XUXU LIPSTICK là dòng son tươi thiên nhiên cao cấp, 100% không chì. Chất son siêu lì, mịn, bôi đến đâu từng lớp son như ngấm vào môi. Đặc biệt rất an toàn và có thể ăn được.</h5>
+            <h5>Cực mềm môi, chỉ cần mím môi lại sau khi tô là có thể cảm nận được độ mềm mướt, nói không với bong tróc.</h5>
             <h5>Son giữ màu được từ 6- 8 tiếng, cực lâu trôi. Dưỡng môi, trị thâm rất hiệu quả.</h5> 
           </div>
     		</div>
