@@ -25,8 +25,17 @@
       <ul class="nav navbar-nav navbar-right">
       <?php 
        if (isset($_SESSION['id'])){
-           echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  Xin chào, '.$_SESSION['id']. '</a></li>';
-           echo '<li><a href="index.php?function=log-out"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
+      ?>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="Index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['id']; ?></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Đơn Mua</a></li>
+            <li><a href="#">Tài Khoản Của Tôi</a></li>
+            <li><hr style="margin: 0px; border: 1px solid #333"></li>
+            <li><a href="Index.php?function=log-out">Đăng Xuất</a></li>
+          </ul>
+        </li>
+      <?php 
        }
        else{
            echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';

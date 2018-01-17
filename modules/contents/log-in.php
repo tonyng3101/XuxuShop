@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if (isset($_SESSION['id'])) {
+		header('Location: Index.php');
+	}
+?>
 <div id="login" class="parallax text-center">
 	<h1 style="font-family: 'GroteskBoldCond'; font-size: 112px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;"> SIGN IN</h1>
 	<hr  width="10px" color="#fff" style="border:2px solid #fff" />

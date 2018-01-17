@@ -123,12 +123,17 @@ body {
     left: 35%;
 }
 
+.text-inside hr{
+    border: 1px solid #fff;
+}
+
 .diamond {
     /*Dinamon*/
     width: 200px;
     height: 200px;
     opacity: 0.7;
-    background: #fff;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid #fff;
     position: absolute;
     /* Rotate */
     -webkit-transform: rotate(-45deg);
@@ -150,7 +155,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 15px;
-    color: #666;
+    color: #fff;
     margin: 0;
     -webkit-transition: color 0.3s ease-out;
     -moz-transition: color 0.3s ease-out;
@@ -419,7 +424,7 @@ div#contact {
     margin-right: auto;
     margin-left: auto;
     margin-top: 100px;
-    width: 12%;
+    width: 200px;
     cursor: pointer;
     font-size: 16px;
     font-family: 'AvenirLTStd-Light';
@@ -714,6 +719,10 @@ div#main-prod {
     .caption-style-2 .blur{
         width: 331.8px !important;
     }
+
+    .text-about{
+        padding: 50px 170px 0 170px !important;
+    }
 }
 
 @media (min-width: 1366px){
@@ -725,6 +734,10 @@ div#main-prod {
     .caption-style-2 .caption-text {
         width: 301.8px;
         height: 301.8px;
+    }
+
+    .text-about{
+        padding: 50px 50px 0 50px;
     }
 }
 
