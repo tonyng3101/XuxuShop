@@ -211,7 +211,6 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 
 		$query="SELECT id,username,password,hoten,status FROM admin WHERE username='{$username}' AND password='{$password}' AND status='1'";
 		$result=mysql_query($query);
-		
 
 		if(mysql_num_rows($result)==1)
 		{
