@@ -96,11 +96,8 @@ if (!isset($_SESSION['uid'])) {
                             				<th>STT</th>
                             				<th>Tên sản phẩm</th>
                             				<th>Giá sản phẩm</th>
-                            				<th>Giảm giá</th>
-                            				<th>Giới thiệu sản phẩm</th>
-                            				<th>Mô tả</th>
-                            				<th>Hình ảnh</th>
                             				<th>Tình trạng</th>
+                                            <th>Chi tiết</th>
                            				 	<th>Cập nhật</th>
                             				<th>Xóa</th>
                         				</tr>
@@ -121,11 +118,9 @@ if (!isset($_SESSION['uid'])) {
                             			<td><?php echo $row['id_sp']; ?></td>
                             			<td><?php echo $row['ten_sp']; ?></td>
                             			<td><?php echo $row['gia_sp']; ?></td>
-                            			<td><?php echo $row['giam_gia']; ?></td>
-                            			<td><?php echo $row['gioithieu_sp']; ?></td>
-                            			<td><?php echo $row['mota_sp']; ?></td>
-                            			<td><?php echo $row['hinhanh_sp']; ?></td>
                             			<td><?php echo $status; ?></td>
+
+                                        <td><a href="" onclick="javascript:void window.open('capnhatsanpham.php?id=<?php echo $row['id_sp'] ?>     ','1353463131339','toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">View</a></td>
                             			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
                             			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
                         			</tr>
