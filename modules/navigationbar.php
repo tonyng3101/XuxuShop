@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
       <?php 
        if (isset($_SESSION['id'])){
-           echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  Xin chào, '.$_SESSION['id']. '</a></li>';
+           echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  Xin chào, '.$_SESSION['username']. '</a></li>';
            echo '<li><a href="index.php?function=log-out"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
        }
        else{
