@@ -1,6 +1,22 @@
 <?php
+	if (isset($_GET['c'])) {
+		$catalogue = $_GET['c'];
+	}else{
+		$catalogue = '';
+	}
+
+	if ($catalogue == '') {
+		$sql = "SELECT count(id_sp) as total from san_pham";
+	}elseif ($catalogue == 'son-thoi') {
+		$sql = "SELECT count(id_sp) as total from san_pham where id_loai='1'";
+	}elseif ($catalogue == 'son-kem') {
+		$sql = "SELECT count(id_sp) as total from san_pham where id_loai='2'";
+	}elseif ($catalogue == 'son-duong') {
+		$sql = "SELECT count(id_sp) as total from san_pham where id_loai='3'";
+	}
+
+
 			//Xử lí phân trang
-			$sql = "SELECT count(id_sp) as total from san_pham";
 
 			$query = mysql_query($sql);
 
@@ -25,20 +41,67 @@
         	//Start
         	$start = ($current_page - 1) * $limit;
 
-        	$query = mysql_query("SELECT * FROM san_pham LIMIT $start, $limit");
+        	if ($catalogue == '') {
+				$query = mysql_query("SELECT * FROM san_pham LIMIT $start, $limit");
+			}elseif ($catalogue == 'son-thoi') {
+				$query = mysql_query("SELECT * FROM san_pham where id_loai='1' LIMIT $start, $limit");
+			}elseif ($catalogue == 'son-kem') {
+				$query = mysql_query("SELECT * FROM san_pham where id_loai='2' LIMIT $start, $limit");
+			}elseif ($catalogue == 'son-duong') {
+				$query = mysql_query("SELECT * FROM san_pham where id_loai='3' LIMIT $start, $limit");
+			}
         ?>
 
 <div id="header-title" class="text-center" style="background-image: url('image/bg.jpg');">
-	<h2 style="font-family: 'GroteskBoldCond'; font-size: 100px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;">XUXU LIPSTICK</h2>
+	<div class="title-header-bg"></div>
+		<h2 style="font-family: 'Open Sans Condensed', sans-serif; font-size: 100px; color: #fff; letter-spacing: 13.5px; padding-top: 100px;">
+		<?php
+			if ($catalogue == '') {
+				echo "XuxuLipstick";
+			}elseif ($catalogue == 'son-thoi') {
+				echo "Son Thỏi";
+			}elseif ($catalogue == 'son-kem') {
+				echo "Son Kem";
+			}elseif ($catalogue == 'son-duong') {
+				echo "Son Dưỡng";
+			}
+		?>
+	</h2>
 	<hr  width="10px" color="#fff" style="border:2px solid #fff" />
-	<h3 style="font-family: 'Montserrat', sans-serif; letter-spacing:0px; color: #fff; font-size: 18px">XuxuLipstick là dòng son tươi thiên nhiên cao cấp, 100% không chì</h3>
-	<h3 style="font-family: 'Montserrat', sans-serif; letter-spacing:0px; color: #fff; font-size: 18px">Chất son siêu lì, mịn, bôi đến đâu từng lớp son như ngấm vào môi</h3>
+	<h3 style="font-family: 'Open Sans Condensed', sans-serif; letter-spacing:0px; color: #fff; font-size: 22px">XuxuLipstick là dòng son tươi thiên nhiên cao cấp, 100% không chì</h3>
+	<h3 style="font-family: 'Open Sans Condensed', sans-serif; letter-spacing:0px; color: #fff; font-size: 22px">Chất son siêu lì, mịn, bôi đến đâu từng lớp son như ngấm vào môi</h3>
 </div>
 
 <div id="main-prod">
 	<div class="filter col-sm-2 text-center">
+		<form>
+			<div class="form-group">
+				<input type="text" name="search" class="form-control" placeholder="Tìm kiếm...">
+				<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+			</div>
+		</form>
+		<hr>
 		<h4>By Catalogue</h4>
-		<hr  width="10px" style="border:2px solid #000" />
+
+		<hr  width="15px" style="border:1px solid #000" />
+
+		<a href="Index.php?function=san-pham&c=son-thoi">Son Thỏi</a>
+		<a href="Index.php?function=san-pham&c=son-kem">Son Kem</a>
+		<a href="Index.php?function=san-pham&c=son-duong">Son Dưỡng</a>
+
+		<hr>
+
+		<h4>By Price</h4>
+		<hr  width="15px" style="border:1px solid #000" />
+		<div data-role="main" class="ui-content">
+    		<form>
+      		<div data-role="rangeslider">
+        		<input type="range" name="price-min" id="price-min" value="1" min="0" max="180000">
+        		<input type="range" name="price-max" id="price-max" value="180000" min="0" max="180000">
+      		</div>
+        		<input class="btn btn-default" type="submit" data-inline="true" value="Submit">
+      		</form>
+  		</div>
 	</div>
 	<div class="prod col-sm-10" style="padding-right: 0px;">
 
@@ -58,8 +121,9 @@
 					$deal = number_format($row['gia_sp'],0,',','.');
 				}
 			?>
-			
+			<div class="diamond"></div>
 			<div class="caption">
+				
 				<div class="blur"></div>
 				<div class="caption-text">
 					<h2 id="name"><?php echo $row['ten_sp']; ?></h2>

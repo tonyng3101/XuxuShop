@@ -14,9 +14,9 @@
         <li class="dropdown">
           <a class="dropdown-toggle" href="Index.php?function=san-pham">Sản phẩm <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li><a href="Index.php?function=son-thoi">Son Thỏi</a></li>
-          <li><a href="Index.php?function=son-kem">Son Kem</a></li>
-          <li><a href="Index.php?function=son-duong">Son Dưỡng</a></li>
+          <li><a href="Index.php?function=san-pham&c=son-thoi">Son Thỏi</a></li>
+          <li><a href="Index.php?function=san-pham&c=son-kem">Son Kem</a></li>
+          <li><a href="Index.php?function=san-pham&c=son-duong">Son Dưỡng</a></li>
         </ul>
         </li>
         <li><a href="index.php#about">Giới thiệu</a></li>
@@ -31,7 +31,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">Đơn Mua</a></li>
             <li><a href="#">Tài Khoản Của Tôi</a></li>
-            <li><hr style="margin: 0px; border: 1px solid #333"></li>
+            <li><hr style="margin: 0px; border: 0.5px solid #333"></li>
             <li><a href="Index.php?function=log-out">Đăng Xuất</a></li>
           </ul>
         </li>
