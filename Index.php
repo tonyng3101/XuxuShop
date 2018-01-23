@@ -20,6 +20,10 @@ session_start();
   <!--Font Awesome -->
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!--Font Awesome -->
+  <!-- Image Zoom -->
+ <script type="text/javascript" src="js/jquery.zoom.js" defer=”defer”></script>
+ <script type="text/javascript" src="js/jquery.zoom.min.js" defer=”defer”></script>
+  <!-- Image Zoom -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
   <script src="js/bootstrap.min.js"></script>
