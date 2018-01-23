@@ -86,6 +86,24 @@ body{
 	z-index: 2;
 }
 
+.login input[type=submit]{
+	padding: 8px;
+	background-color: rgba(0,0,0,0);
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	margin-top: 10px;
+	color: #fff;
+	font-size: 16px;
+	font-family: 'Exo', sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.login input[type=submit]:hover{
+	background-color: #fff;
+	color: #999;
+}
+
 .login input[type=text]{
 	width: 250px;
 	height: 30px;
@@ -228,14 +246,14 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 								}
 							?>
         	<form method="POST" action="" name="frmlogin">
-				<input type="text" placeholder="username" name="username" id="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
+				<input type="text" placeholder="Username" name="username" id="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
                 <?php
 				if(isset($error) && in_array('username',$error))
 				{
 					echo "<p class='required'>Tài khoản không đc để trống</p>";
 				}
 				?>
-				<input type="password" placeholder="password" name="password" id="password"><br>
+				<input type="password" placeholder="Password" name="password" id="password"><br>
                 <?php
 				if(isset($error) && in_array('password',$error))
 				{
