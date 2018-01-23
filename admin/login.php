@@ -11,7 +11,8 @@ if(isset($_SESSION['uid']))
 
 <head>
   <meta charset="UTF-8">
-  <title>XuxuShop</title>
+  <title>XUXU LIPSTICKS | Manage</title>
+  <link rel="icon" href="../image/logo-black.png" type="image/x-icon">
   
 
   
@@ -191,7 +192,7 @@ body{
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div><b>Xuxu<span>Shop</span></b></div>
+			<div><b>Xuxu<span>Lipstick</span></b></div>
 		</div>
 		<br>
 		<div class="login">
