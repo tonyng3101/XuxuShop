@@ -12,11 +12,18 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href="index.php#home">Trang chủ</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" href="Index.php?function=san-pham">Sản phẩm <span class="caret"></span></a>
+          <a class="dropdown-toggle" href="Index.php?f=san-pham">Sản phẩm <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li><a href="Index.php?function=son-thoi">Son Thỏi</a></li>
-          <li><a href="Index.php?function=son-kem">Son Kem</a></li>
-          <li><a href="Index.php?function=son-duong">Son Dưỡng</a></li>
+            <?php 
+              $sql = "SELECT * From loai_sanpham";
+              $query = mysql_query($sql);
+
+              while ($row = mysql_fetch_array($query)) {
+                ?>
+                <li><a href="Index.php?f=san-pham&c=<?php echo $row['id_loai'] ?>"><?php echo $row['ten_loai']; ?></a></li>
+                <?php
+              }
+             ?>
         </ul>
         </li>
         <li><a href="index.php#about">Giới thiệu</a></li>
@@ -25,14 +32,23 @@
       <ul class="nav navbar-nav navbar-right">
       <?php 
        if (isset($_SESSION['id'])){
-           echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  Xin chào, '.$_SESSION['username']. '</a></li>';
-           echo '<li><a href="index.php?function=log-out"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>';
+      ?>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="Index.php?f=log-in"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['id']; ?></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Đơn Mua</a></li>
+            <li><a href="#">Tài Khoản Của Tôi</a></li>
+            <li><hr style="margin: 0px; border: 0.5px solid #333"></li>
+            <li><a href="Index.php?f=log-out">Đăng Xuất</a></li>
+          </ul>
+        </li>
+      <?php 
        }
        else{
-           echo '<li><a href="index.php?function=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';
+           echo '<li><a href="index.php?f=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';
        }
        ?>
-      <li><a href="#"><span id="cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 15px;"></span></a></li>
+      <li><a href="#"><span id="cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 15px;"></span> 1 Sản phẩm</a></li>
     </ul>
     </div>
   </div>

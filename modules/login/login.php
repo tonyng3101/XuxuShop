@@ -9,7 +9,7 @@
   		if ($user == '' || $pass == '') {
   			header('Location: ../../index.php?function=log-in&error=unknow');
   		}else{
-        $sql = "SELECT id_kh, username, password, ten_kh from khach_hang where username='".$user."'";
+        $sql = "SELECT username, password, ten_kh from khach_hang where username='".$user."'";
 
         $query = mysql_query($sql);
         $numrow = mysql_num_rows($query) ;
@@ -22,8 +22,7 @@
           if ($pass != $row['password']) {
             header('Location: ../../index.php?function=log-in&error=unknowpass');
           }else{
-            $_SESSION['id'] = $row['id_kh'];
-            $_SESSION['username'] = $row['ten_kh'];
+            $_SESSION['id'] = $row['ten_kh'];
             header('Location: ../../index.php');
           }
         }

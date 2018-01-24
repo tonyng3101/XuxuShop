@@ -11,7 +11,8 @@ if(isset($_SESSION['uid']))
 
 <head>
   <meta charset="UTF-8">
-  <title>XuxuShop</title>
+  <title>XUXU LIPSTICKS | Manage</title>
+  <link rel="icon" href="../image/logo-black.png" type="image/x-icon">
   
 
   
@@ -84,6 +85,24 @@ body{
 	width: 350px;
 	padding: 10px;
 	z-index: 2;
+}
+
+.login input[type=submit]{
+	padding: 8px;
+	background-color: rgba(0,0,0,0);
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	margin-top: 10px;
+	color: #fff;
+	font-size: 16px;
+	font-family: 'Exo', sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.login input[type=submit]:hover{
+	background-color: #fff;
+	color: #999;
 }
 
 .login input[type=text]{
@@ -173,7 +192,7 @@ body{
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div><b>Xuxu<span>Shop</span></b></div>
+			<div><b>Xuxu<span>Lipstick</span></b></div>
 		</div>
 		<br>
 		<div class="login">
@@ -228,14 +247,14 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 								}
 							?>
         	<form method="POST" action="" name="frmlogin">
-				<input type="text" placeholder="username" name="username" id="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
+				<input type="text" placeholder="Username" name="username" id="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
                 <?php
 				if(isset($error) && in_array('username',$error))
 				{
 					echo "<p class='required'>Tài khoản không đc để trống</p>";
 				}
 				?>
-				<input type="password" placeholder="password" name="password" id="password"><br>
+				<input type="password" placeholder="Password" name="password" id="password"><br>
                 <?php
 				if(isset($error) && in_array('password',$error))
 				{
