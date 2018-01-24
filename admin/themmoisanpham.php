@@ -62,7 +62,7 @@ if (!isset($_SESSION['uid'])) {
                     
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                     <form class="form-horizontal" name="form1" method="post" action="add.php">
+                     <form name="form1" method="post" action="add.php" enctype="multipart/form-data">
                      <div class="form-group">
    						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
    							<div class="col-sm-10">          
@@ -84,11 +84,29 @@ if (!isset($_SESSION['uid'])) {
                         <div class="form-group">
    						 <label class="control-label col-sm-2">Giảm giá:</label>
    							<div class="col-sm-10">          
-        						<input type="text" class="form-control"  placeholder="21432423" name="txtgiam" id="txtgiam">
+        						<input type="text" class="form-control"  placeholder="21432423" name="txtgiamgia" id="txtgiamgia">
       						</div>
   						</div>
-                        <button type="submit" class="btn btn-primary center-block">Submit</button>
-					</form>                                             
+                        <div class="form-group">
+                         <label class="control-label col-sm-2">Giới thiệu:</label>
+                            <div class="col-sm-10">          
+                                <input type="text" class="form-control"  placeholder="abc" name="txtgioithieu" id="txtgioithieu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                         <label class="control-label col-sm-2">Mô tả:</label>
+                            <div class="col-sm-10">          
+                                <input type="text" class="form-control"  placeholder="abc" name="txtmota" id="txtmota">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                         <label class="control-label col-sm-2">Hình ảnh:</label>
+                            <div class="col-sm-10">          
+                                <input name="bookimage" type="file">
+                            </div>
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
+					</form>                                         
                     </div>
                     <!-- END PAGE CONTAINER -->
                     

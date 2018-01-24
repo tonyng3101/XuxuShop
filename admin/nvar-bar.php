@@ -1,3 +1,8 @@
+
+<?php 
+include('connect.php');
+?>
+
 <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
                     <a href="index.php" class="app-navigation-logo">
                         Boooya - Revolution Admin Template
@@ -17,26 +22,25 @@
                             </li>
                             <li>
                                 <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Sản phẩm </a>
-                                <ul>                                
-                                    <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span> Danh sách sản phẩm</a></li>
-                                    <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm sản phẩm</a></li>          
-                                    <li>
-                                        <a href="#"><span class="nav-icon-hexa">Ls</span> Loại sản phẩm </a>
-                                        <ul>                
-                                            <li><a href="components-tables-sortable.html"><span class="nav-icon-hexa">Ds</span> Danh sách loại</a></li>                        
-                                            <li><a href="pages-payment-pricing.html"><span class="nav-icon-hexa">Tm</span> Thêm loại</a></li>                        
-                                        </ul>
-                                    </li>
+                                <ul>                
+                                  <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span>Danh sách</a></li>                               
+                                  <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm mới</a></li>                                
                                 </ul>
                             </li>
                             <li>
-                            <a href="#"><span class="nav-icon-hexa text-orange-100">Tk</span> Tài khoản </a>
-                                <ul>
-                                    <li><a href="danhsachtaikhoan.php"><span class="nav-icon-hexa text-bloody-100">Ds</span>Danh sách</a></li>
-                                    <li><a href="themtaikhoan.php"><span class="nav-icon-hexa text-bloody-100">Tm</span>Thêm mới</a></li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Ls</span> Loại sản phẩm </a>
+                                <ul>                
+                                  <li><a href="danhsachloai.php"><span class="nav-icon-hexa">Ds</span>Danh sách</a></li>                               
+                                  <li><a href="themmoiloaisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm mới</a></li>                                
                                 </ul>
-                                </li>                
-                            
+                            </li>
+                            <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Tài khoản </a>
+                                <ul>                
+                                  <li><a href="danhsachtaikhoan.php"><span class="nav-icon-hexa">Ds</span>Danh sách</a></li>                               
+                                  <li><a href="themtaikhoan.php"><span class="nav-icon-hexa">Tm</span> Thêm mới</a></li>                                
+                                </ul>
+                            </li>
                             <li class="title">PHẦN KHÁCH HÀNG</li>
                             <li><a href="cauhoikhachhang.php"><span class="nav-icon-hexa text-bloody-100">Ch</span>Câu hỏi khách hàng</a></li>
                             <li>

@@ -124,7 +124,7 @@ if (!isset($_SESSION['username'])) {
                             			<td><?php echo $row['diachi']; ?></td>
                             			<td><?php echo $status; ?></td>
                             			<td><a href="capnhatuser.php?id=<?php echo $row['id']; ?>">Cập nhật</a></td>
-                            			<td><a href="delete_user.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');">Xóa sách</a></td>
+                            			<td><a href="delete_user.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');">Xóa </a></td>
                         			</tr>
                         			<?php } ?>
                    			 	</tbody>

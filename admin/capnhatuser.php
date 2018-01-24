@@ -1,6 +1,3 @@
-<?php
-ob_start();
-?>
 <!DOCTYPE html>
 <?php
 session_start();
@@ -38,39 +35,7 @@ if (!isset($_SESSION['uid'])) {
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
                     <!-- START APP HEADER -->
-                    <div class="app-header">
-                        <ul class="app-header-buttons">
-                            <li class="visible-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-toggle=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
-                            <li class="hidden-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-minimize=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
-                        </ul>
-                        <form class="app-header-search" action="" method="post">        
-                            <input type="text" name="keyword" placeholder="Search">
-                        </form>    
-                    
-                        <ul class="app-header-buttons pull-right">
-                            <li>
-                                <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
-                                    <img src="assets/images/users/user_1.jpg" alt="John Doe">
-                                    <div class="contact-container">
-                                        <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
-                                        <span>Administrator</span>
-                                    </div>
-                                    <div class="contact-controls">
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>                        
-                                            <ul class="dropdown-menu dropdown-left">
-                                                <li><a href="#"><span class="icon-cog"></span> Settings</a></li> 
-                                                <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
-                                                <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="logout.php"><span class="icon-exit"></span> Log Out</a></li> 
-                                            </ul>
-                                        </div>                    
-                                    </div>
-                                </div>
-                            </li>        
-                        </ul>
-                    </div>
+                    <?php include ('header.php'); ?>
                     <!-- END APP HEADER  -->
                     
                     <!-- START PAGE HEADING -->
@@ -251,6 +216,15 @@ if (!isset($_SESSION['uid'])) {
 												echo "<p class='required'>Địa chỉ không để trống</p>";
 											}
 										?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Chọn quyền:</label>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <input type="checkbox" name="chkfull" onclick="checkall('chrole', this)">
+                                                <label>Full quyền</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                     	<label style="display:block;">Trạng thái:</label>
@@ -472,6 +446,3 @@ if (!isset($_SESSION['uid'])) {
         <script type="text/javascript" src="js/app_demo_dashboard.js"></script>
     </body>
 </html>
-<?php
-ob_flush();
-?>
