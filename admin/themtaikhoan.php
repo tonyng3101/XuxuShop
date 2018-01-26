@@ -145,8 +145,8 @@ if (!isset($_SESSION['uid'])) {
 									}
 									else
 									{
-										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi,status)
-										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}', 	{$status})";
+										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi,role,status)
+										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}',{$status})";
 										$results_in=mysql_query($query_in);
 										if(mysql_affected_rows($conn)==1)
 										{
