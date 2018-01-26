@@ -23,6 +23,16 @@
 	<div class="col-sm-7">
 		<h2 style="text-transform: uppercase;"><?php echo $row['ten_sp']; ?></h2>
 		<h5><?php echo $row['gioithieu_sp']; ?></h5>
+		<h2><strong>
+			<?php 
+			if ($row['giam_gia'] > 0) {
+						$price = $row['gia_sp'] - ($row['giam_gia'] * $row['gia_sp'])/100;
+						echo $deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'</strike> '.number_format($price,0,',','.');
+					}else{
+						echo $deal = number_format($row['gia_sp'],0,',','.');
+					}
+			 ?>
+		</strong></h2>
 		<br>
 		<div class="input-group spinner">
 		    <input type="text" class="form-control" value="0">
@@ -44,7 +54,12 @@
 			 	<li><i class="fa fa-dollar"></i>Thanh Toán Khi Nhận Hàng</li>
 			</ul>
 		</div>
-		
+	</div>
+	<br>
+	<div class="col-sm-12 describe">
+		<p>Mô tả</p>
+		<hr>
+		<div class="des-content"><?php echo $row['mota_sp']; ?></div>
 	</div>
 </div>
 
