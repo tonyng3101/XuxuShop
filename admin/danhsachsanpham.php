@@ -121,7 +121,7 @@ if (!isset($_SESSION['uid'])) {
                             			<td><?php echo $row['ten_sp']; ?></td>
                             			<td><?php echo $row['gia_sp']; ?></td>
                                         <td><?php echo $row['giam_gia']; ?>%</td>
-                                        <td><img width="50px" height="50px" src="img/<?php echo $row['hinhanh_sp']; ?>" /></td>
+                                        <td><img width="50px" height="50px" src="../image/<?php echo $row['hinhanh_sp']; ?>" /></td>
                             			<td><?php echo $status; ?></td>
 
                                         <td><a href="" onclick="javascript:void window.open('chitietsanpham.php?id=<?php echo $row['id_sp'] ?>     ','1353463131339','toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">View</a></td>

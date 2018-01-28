@@ -23,7 +23,7 @@
 	<div class="col-sm-7">
 		<h2 style="text-transform: uppercase;"><?php echo $row['ten_sp']; ?></h2>
 		<h5><?php echo $row['gioithieu_sp']; ?></h5>
-		<h2><strong>
+		<h3>
 			<?php 
 			if ($row['giam_gia'] > 0) {
 						$price = $row['gia_sp'] - ($row['giam_gia'] * $row['gia_sp'])/100;
@@ -32,7 +32,7 @@
 						echo $deal = number_format($row['gia_sp'],0,',','.');
 					}
 			 ?>
-		</strong></h2>
+		</h3>
 		<br>
 		<div class="input-group spinner">
 		    <input type="text" class="form-control" value="0">
@@ -42,7 +42,7 @@
 		    </div>
 		</div>
 		<button class="btn btn-primary" style="margin-left: 5px;"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
-		<button class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span> Add to favorite</button>
+		<button class="btn btn-danger"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu thích</button>
 		<hr>
 		<div class="action-group">
 			<button class="btn btn-success btn-lg"> Mua ngay</button>
