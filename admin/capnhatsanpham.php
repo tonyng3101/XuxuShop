@@ -9,16 +9,17 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Gallery</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Cập nhật sản phẩm</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->           
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
+
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
         <!-- EOF CSS INCLUDE -->
@@ -43,8 +44,7 @@ if (!isset($_SESSION['uid'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Cập nhật sản phẩm</h1>
-                            <p>Image listing with preview</p>
+                            <h1 style="font-size: 20px;">Cập nhật sản phẩm</h1>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -53,124 +53,31 @@ if (!isset($_SESSION['uid'])) {
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
+                            <li><a href="index.php">Trang chủ</a></li>
                             <li><a href="#">Sản phẩm</a></li>
-                            <li><a href="#">Danh sách sản phẩm</a></li>
+                            <li><a href="danhsachsanpham.php">Danh sách</a></li>
                             <li class="active">Cập nhật sản phẩm</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
    
                     <!-- START PAGE CONTAINER -->
-                    <style type="text/css">
-                    .required
-                    {
-                        color:red;
-                    }
-                    </style>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                     <?php
-						include('connect.php');
-						$id = $_GET['id'];
-						$sql = "select * from san_pham where id_sp = {$id}";
-						$recordset = mysql_query($sql);
-						$row = mysql_fetch_array($recordset);
-					?>
-                    <?php
-                            include('connect.php');
-                            if(isset($_GET['id']) && filter_var($_GET['id'],FILTER_VALIDATE_INT,array('min_range'=>1)))
-                            {
-                                $id = $_GET['id'];
-                            }
-                            else
-                            {
-                                header('Location: danhsachsanpham.php');
-                                exit();
-                                
-                            }
-                            if($_SERVER['REQUEST_METHOD']=='POST')
-                            {
-                                $error=array();
-                                
-                                if(empty($_POST['hoten']))
-                                {
-                                    $error[]='hoten';
-                                }
-                                else
-                                {
-                                    $hoten=$_POST['hoten'];
-                                }
-                                if(empty($_POST['dienthoai']))
-                                {
-                                    $error[]='dienthoai';
-                                }
-                                else
-                                {
-                                    $dienthoai=$_POST['dienthoai'];
-                                }
-                                if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)==TRUE)
-                                {
-                                    $email=mysql_real_escape_string($_POST['email']);
-                                }
-                                else
-                                {
-                                    $error[]='email';
-                                }
-                                if(empty($_POST['diachi']))
-                                {
-                                    $error[]='diachi';
-                                }
-                                else
-                                {
-                                    $diachi=$_POST['diachi'];
-                                }
-                                $status=$_POST['status'];
-                                if(empty($error))
-                                {
-                                        $query_in="UPDATE admin
-                                                    SET hoten='{$hoten}',
-                                                        dienthoai='{$dienthoai}',
-                                                        email='{$email}',
-                                                        diachi='{$diachi}',
-                                                        status={$status}
-                                                    WHERE id={$id}
-                                                    ";
-                                        $results_in=mysql_query($query_in);
-                                        if(mysql_affected_rows($conn)==1)
-                                        {
-                                            echo "<p style='color:green;'> Sửa  thành công</p>";
-                                        }
-                                        else
-                                        {
-                                            echo "<p class='required'>Sửa không thành công</p>";
-                                        }
-                                }
-                                else
-                                {
-                                    $message="<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
-                                }
-                            }
-                            $query_id="SELECT username,hoten,dienthoai,email,diachi FROM admin WHERE id={$id}";
+                        include('connect.php');
+                        $id = $_GET['id'];
+                        $sql = "select * from san_pham where id_sp = {$id}";
     
-                            $results_id=mysql_query($query_id);
-                            
-                            //Kiểm tra ID có tồn tại không
-                            if(mysql_num_rows($results_id)==1)
-                            {
-                                list($username,$hoten,$dienthoai,$email,$diachi)=mysql_fetch_array($results_id, MYSQL_NUM);
-                            }
-                            else
-                            {
-                                $message="<p class='required'>ID user không tồn tại</p>";
-                            }
-                            ?>
-                     <form class="form-horizontal" name="form1" method="post" action="update.php">
+                        $recordset = mysql_query($sql);
+                        $row = mysql_fetch_array($recordset);
+                        $status = $row['status'];
+                        
+                    ?>
+                     <form name="form1" method="post" action="update.php">
                      <div class="form-group">
    						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
    							<div class="col-sm-10">          
-        					  <input type="text" class="form-control" name="txtid" id="txtid" value="<?php echo $row['id_sp']; ?>" disabled>
+        					  <input type="text" class="form-control" name="txtid" value="<?php echo $row['id_sp']; ?>">
       						</div>
   						</div>
   						<div class="form-group">
@@ -205,34 +112,33 @@ if (!isset($_SESSION['uid'])) {
                         </div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Hình ảnh sản phẩm:</label>
-                            <div class="col-sm-10">          
-                                <img width="100px" height="100px" src="images/<?php echo $row['hinhanh_sp']; ?>" />
+                            <div class="col-sm-10">  
+                                <img src="img/<?php echo $row['hinhanh_sp'] ?>" width="50px" height="50px">        
+                                <input name="bookimage" type="file">
                             </div>
                         </div>
                         <div class="form-group">
-                                        <label class="control-label col-sm-2">Trạng thái:</label>
-                                        <?php
-                                            if(isset($status)==1)
-                                            {
-                                        ?>
-                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Kích hoạt</label>
-                                        <label class="radio-inline"><input type="radio" name="status" value="0">Không kích hoạt</label>
-                                        <?php
-                                            }
-                                            else
-                                            {
-                                                ?>
-                                                    <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
-                                                    <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
-                                                <?php
-                                            }
-                                        ?>
-                                    </div>
+                            <label class="control-label col-sm-2">Trạng thái:</label>
+                            <?php
+                                if(isset($status)==1)
+                                {
+                            ?>
+                            <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
+                            <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
+                            <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
+                                        <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
+                                    <?php
+                                }
+                            ?>
+                        </div>
                         <button type="submit" class="btn btn-primary center-block">Cập nhật</button>
 					</form>
                 </div>
-            </div>                                             
-        </div>
                     <!-- END PAGE CONTAINER -->
                     
                 </div>
@@ -417,7 +323,13 @@ if (!isset($_SESSION['uid'])) {
             
         </div>        
         <!-- END APP WRAPPER -->                
-        
+        <!-- CKE SCRIPTS -->
+        <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('txtgioithieu');
+        </script>
+        <!-- END CKE SCRIPTS -->
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>

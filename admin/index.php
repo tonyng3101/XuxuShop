@@ -8,16 +8,17 @@ if (!isset($_SESSION['uid'])) {
 }
 ?>
 <html lang="en">
-    <head>                        
-        <title>Boooya - Revolution Admin Template</title>            
+    <head>    
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Manage</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -71,10 +72,17 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile">
                                             <div class="line">
-                                                <div class="title">Sales Per Month</div>
+                                                <div class="title">Số sản phẩm</div>
                                                 <div class="title pull-right"><span class="label label-success label-ghost label-bordered">+14.2%</span></div>
                                             </div>                                        
-                                            <div class="intval">9,427</div>                                        
+                                            <div class="intval">
+                                                <?php 
+                                                    $query="SELECT * FROM san_pham";
+                                                    $result=mysql_query($query);
+
+                                                    echo mysql_num_rows($result);
+                                                ?>
+                                            </div>                                        
                                             <div class="line">
                                                 <div class="subtitle">Total items sold</div>
                                                 <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span> good</div>
@@ -115,10 +123,16 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile">
                                             <div class="line">
-                                                <div class="title">Outlay</div>
+                                                <div class="title">Số lượng tk</div>
                                                 <div class="title pull-right text-success">-12.7%</div>
                                             </div>                                        
-                                            <div class="intval">45,385<small>usd</small></div>
+                                            <div class="intval">
+                                                <?php 
+                                                    $query="SELECT * FROM admin";
+                                                    $result=mysql_query($query);
+
+                                                    echo mysql_num_rows($result);
+                                                ?></div>
                                             <div class="line">
                                                 <div class="subtitle">Statistic per year</div>                                                
                                             </div>

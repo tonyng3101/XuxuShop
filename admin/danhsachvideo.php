@@ -9,15 +9,15 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Sortable Tables</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Danh sách video</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->           
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -27,13 +27,6 @@ if (!isset($_SESSION['uid'])) {
 <?php
 	//nhung noi dung cua file connect.php vao trang
 	include('connect.php');
-	
-	$username = '';
-	
-	if(isset($_SESSION['username']))
-		$username = $_SESSION['username'];
-	else
-		$username = 'khách';
 	
 	//Tao cau truy van va thuc thi cau truy van
 	$sql = 'select * from video';
@@ -59,8 +52,7 @@ if (!isset($_SESSION['uid'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Danh sách video</h1>
-                            <p>Frequently Asked Questions</p>
+                            <h1 style="font-size: 20px;">Danh sách video</h1>
                         </div>
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -69,9 +61,9 @@ if (!isset($_SESSION['uid'])) {
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Video</a></li>
-                            <li class="active">Danh sách video</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li class="active">Video</li>
+                            <li class="active">Danh sách</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->                 
@@ -81,10 +73,9 @@ if (!isset($_SESSION['uid'])) {
                         <div class="block block-condensed">
                             <!-- START HEADING -->
                             <div class="app-heading app-heading-small">
-                                <div class="title">
-                                    <h5>Danh sách video</h5>
-                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
-                                </div>
+                                <!-- <div class="title">
+                                    <h2 >Danh sách video</h2>
+                                </div> -->
                             </div>
                             <!-- END HEADING -->
                             
@@ -109,10 +100,10 @@ if (!isset($_SESSION['uid'])) {
 										$stt = $row['status'];
 										$status = '';
 		
-											if($stt == 0)
-												$status = 'Hết hàng';
+											if($stt == 1)
+												$status = 'Hiển thị';
 											else
-												$status = 'Còn hàng';
+												$status = 'Không hiển thị';
 									?>
                         			<tr>
                             			<td><?php echo $row['id']; ?></td>
@@ -120,8 +111,8 @@ if (!isset($_SESSION['uid'])) {
                             			<td><?php echo $row['link']; ?></td>
                             			<td><?php echo $row['ordernum']; ?></td>
                             			<td><?php echo $status; ?></td>
-                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id']; ?>">Cập nhật</a></td>
-                            			<td><a href="deletevideo.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
+                            			<td><a href="capnhatvideo.php?id=<?php echo $row['id']; ?>"><span class="icon-pencil"></span></a></td>
+                            			<td><a href="deletevideo.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa sản phẩm này không ?');"><span class="icon-trash"></span></a></td>
                         			</tr>
                         			<?php } ?>
                    			 	</tbody>

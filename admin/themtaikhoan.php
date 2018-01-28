@@ -145,16 +145,16 @@ if (!isset($_SESSION['uid'])) {
 									}
 									else
 									{
-										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi,role,status)
+										$query_in="INSERT INTO admin(username,password,hoten,dienthoai,email,diachi,status)
 										VALUES('{$username}','{$password}','{$hoten}','{$dienthoai}','{$email}','{$diachi}',{$status})";
 										$results_in=mysql_query($query_in);
 										if(mysql_affected_rows($conn)==1)
 										{
-											echo "<p class='required'> Thêm mới thành công</p>";
+											echo "<p style='color:green;'> Thêm mới thành công</p>";
 										}
 										else
 										{
-											echo "<p class='required'>Thêm mới không thanh công</p>";
+											echo "<p class='required'>Thêm mới không thành công</p>";
 										}
 									}
 								}

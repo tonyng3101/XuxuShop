@@ -120,6 +120,7 @@ if (!isset($_SESSION['uid'])) {
 									$diachi=$_POST['diachi'];
 								}
 								$status=$_POST['status'];
+                                $rank=$_POST['rank'];
 								if(empty($error))
 								{
 										$query_in="UPDATE admin
@@ -127,7 +128,8 @@ if (!isset($_SESSION['uid'])) {
 														dienthoai='{$dienthoai}',
 														email='{$email}',
 														diachi='{$diachi}',
-														status={$status}
+														status={$status},
+                                                        rank={$rank}
 													WHERE id={$id}
 													";
 										$results_in=mysql_query($query_in);
@@ -218,15 +220,6 @@ if (!isset($_SESSION['uid'])) {
 										?>
                                     </div>
                                     <div class="form-group">
-                                        <label>Chọn quyền:</label>
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                <input type="checkbox" name="chkfull" onclick="checkall('chrole', this)">
-                                                <label>Full quyền</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                     	<label style="display:block;">Trạng thái:</label>
                                         <?php
 											if(isset($status)==1)
@@ -244,6 +237,25 @@ if (!isset($_SESSION['uid'])) {
                                                 <?php
 											}
 										?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="display:block;">Cấp:</label>
+                                        <?php
+                                            if(isset($rank)==1)
+                                            {
+                                        ?>
+                                        <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="1">Admin</label>
+                                        <label class="radio-inline"><input type="radio" name="rank" value="0">Nhân viên</label>
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                    <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="1">Admin</label>
+                                                    <label class="radio-inline"><input type="radio" name="rank" value="0">Nhân viên</label>
+                                                <?php
+                                            }
+                                        ?>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-primary" value="Cập nhật">
                                 </form>

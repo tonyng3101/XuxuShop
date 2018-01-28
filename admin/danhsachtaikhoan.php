@@ -99,8 +99,18 @@ if (!isset($_SESSION['username'])) {
                             				<th>Email</th>
                             				<th>Địa chỉ</th>
                             				<th>Tình trạng</th>
+                                            <th>Cấp</th>
+                                            <?php
+                                            $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
+                                            $results_rank=mysql_query($query_rank);
+                                            $row_rank= mysql_fetch_array($results_rank);
+                                            if($row_rank['rank']==1)
+                                            {
+                                            ?>
+                                            <th>Reset pass</th>
                            				 	<th>Cập nhật</th>
                             				<th>Xóa</th>
+                                            <?php } ?>
                         				</tr>
                     				</thead>
                     			<tbody>
@@ -114,6 +124,14 @@ if (!isset($_SESSION['username'])) {
 												$status = 'Chưa kích hoạt';
 											else
 												$status = 'Kích hoạt';
+                                            //rank
+                                        $stt = $row['rank'];
+                                        $rank = '';
+        
+                                            if($stt == 1)
+                                                $rank = 'Admin';
+                                            else
+                                                $rank = 'Nhân viên';
 									?>
                         			<tr>
                                     	<td><?php echo $row['id']; ?></td>
@@ -123,8 +141,15 @@ if (!isset($_SESSION['username'])) {
                             			<td><?php echo $row['email']; ?></td>
                             			<td><?php echo $row['diachi']; ?></td>
                             			<td><?php echo $status; ?></td>
-                            			<td><a href="capnhatuser.php?id=<?php echo $row['id']; ?>">Cập nhật</a></td>
-                            			<td><a href="delete_user.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');">Xóa </a></td>
+                                        <td><?php echo $rank; ?></td>
+                                        <?php
+                                            if($row_rank['rank']==1)
+                                            {
+                                        ?>
+                                        <td><a href="reset_user.php?id=<?php echo $row['id']; ?>"><span class="icon-sync"></span></a></td>
+                            			<td><a href="capnhatuser.php?id=<?php echo $row['id']; ?>"><span class="icon-pencil"></span></a></td>
+                            			<td><a href="delete_user.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');"><span class="icon-trash"></span></a></td>
+                                        <?php } ?>
                         			</tr>
                         			<?php } ?>
                    			 	</tbody>
