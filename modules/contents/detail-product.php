@@ -27,9 +27,9 @@
 			<?php 
 			if ($row['giam_gia'] > 0) {
 						$price = $row['gia_sp'] - ($row['giam_gia'] * $row['gia_sp'])/100;
-						echo $deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'</strike> '.number_format($price,0,',','.');
+						echo $deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'</strike> <strong>'.number_format($price,0,',','.').'</strong>';
 					}else{
-						echo $deal = number_format($row['gia_sp'],0,',','.');
+						echo $deal = '<strong>'.number_format($row['gia_sp'],0,',','.').'</strong>';
 					}
 			 ?>
 		</h3>
@@ -57,7 +57,7 @@
 	</div>
 	<br>
 	<div class="col-sm-12 describe">
-		<p>Mô tả</p>
+		<h4>Mô tả</h4>
 		<hr>
 		<div class="des-content"><?php echo $row['mota_sp']; ?></div>
 	</div>

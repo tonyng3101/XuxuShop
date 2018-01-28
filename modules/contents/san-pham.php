@@ -178,15 +178,7 @@
 
 		<h4>By Price</h4>
 		<hr  width="15px" style="border:1px solid #000" />
-		<div data-role="main" class="ui-content">
-    		<form>
-      		<div data-role="rangeslider">
-        		<input type="range" name="price-min" id="price-min" value="1" min="0" max="180000">
-        		<input type="range" name="price-max" id="price-max" value="180000" min="0" max="180000">
-      		</div>
-        		<input class="btn btn-default" type="submit" data-inline="true" value="Submit">
-      		</form>
-  		</div>
+		
 	</div>
 
 <!-- List Sản phẩm -->

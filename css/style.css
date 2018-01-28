@@ -17,7 +17,7 @@
 body {
     line-height: 1.8;
     color: #fff;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300;
     background-color: #A5A5A5;
     margin: 0px 50px 0px 50px;
@@ -635,12 +635,12 @@ input.form-login {
 /* Product Site */
 
 div#main-prod {
-    margin: 50px 0 50px 0;
+    margin: 0px 0 50px 0;
     width: 100%;
     min-height: 500px;
-    display: flex;
+    display: inline-block;
     background-color: #fff;
-    padding: 15px 0;
+    padding: 50px 0;
     color: #000;
 }
 
@@ -676,6 +676,10 @@ div#main-prod {
     display: block;
     margin-top: 340px;
     color: #000;
+}
+
+.title-prod h3{
+    font-weight: 300;
 }
 
 .title-prod h4 {
@@ -932,7 +936,7 @@ div#main-prod {
 }
 
 .detail-product .col-sm-7 {
-    max-width: 800px;
+    max-width: 770px;
 }
 
 .detail-product h5 {
@@ -974,11 +978,14 @@ div#main-prod {
 }
 
 .describe {
-    max-width: 1000px;
-    margin: 0;
-    display: block;
     background-color: rgba(165,165,165,0.05);
-    padding: 10px 10px;
+    width: 100%;
+}
+
+.des-content{
+    border: 1px solid #eee;
+    padding: 20px;
+    font-weight: 500;
 }
 
 #main-prod .col-sm-7 h3{
@@ -996,7 +1003,7 @@ div#main-prod {
 #main-prod .col-sm-7 .btn-primary{
     background-color: rgba(165,165,165,0.1); 
     border: 1px solid #a5a5a5;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
     color: #a5a5a5;
 }
 
@@ -1009,7 +1016,7 @@ div#main-prod {
     background-color: rgba(210,50,45,0.07);
     border: 1px solid #d2322d;
     color: #d2322d;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 #main-prod .col-sm-7 .btn-danger:hover{
@@ -1026,4 +1033,19 @@ div#main-prod {
 #main-prod .col-sm-7 .btn-success:hover{
     background-color: rgba(230,75,70,1);
     border: 1px solid rgba(230,75,70,1);
+}
+
+@media (min-width: 1366px) {
+    .describe {
+        width: 1250px;
+        padding: 30px 60px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .describe{
+        width: 1810px;
+        padding: 50px 285px 50px 285px;
+        margin: 50px 0 0 0;
+    }
 }

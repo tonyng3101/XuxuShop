@@ -58,8 +58,8 @@ if (!isset($_SESSION['username'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Danh sách sản phẩm</h1>
-                            <p>Frequently Asked Questions</p>
+                            <h1>Tài khoản</h1>
+                            <p>Tài khoản trang quản trị</p>
                         </div>
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -81,8 +81,7 @@ if (!isset($_SESSION['username'])) {
                             <!-- START HEADING -->
                             <div class="app-heading app-heading-small">
                                 <div class="title">
-                                    <h5>Danh sách sản phẩm</h5>
-                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
+                                    <h5>Danh sách tài khoản</h5>
                                 </div>
                             </div>
                             <!-- END HEADING -->
