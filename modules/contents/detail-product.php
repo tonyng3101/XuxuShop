@@ -2,26 +2,42 @@
 	$id = $_GET['id'];
 
 	$sql = "SELECT * from san_pham where id_sp = '$id'";
+	$row = mysql_fetch_array(mysql_query($sql));
 
-	$query = mysql_query($sql);
-
-	$row = mysql_fetch_array($query);
+	$sqllsp = "SELECT * from loai_sanpham where id_loai='{$row['id_loai']}'";
+	$rowlsp = mysql_fetch_array(mysql_query($sqllsp));
+	
 ?>
+
+<!-- Comment -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1538529646266833&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Comment -->
 
 <div id="header-title" class="text-center" style="background-image: url('image/bg.jpg');">
 	<div class="header-text">
-		<h2 style="text-transform: uppercase;"><?php echo $row['ten_sp']; ?></h2>
+		<h2 style="text-transform: uppercase;"><?php echo $rowlsp['ten_loai']; ?> - <?php echo $row['ten_sp']; ?></h2>
 	</div>
 </div>
 
 <div id="main-prod" class="detail-product">
 	<div class="col-sm-5">
 		<span class='zoom' id='zoom'>
-			<img class="img-responsive" src='image/<?php echo $row['hinhanh_sp']; ?>' width='450' alt='<?php echo $row['ten_sp']; ?>'/>
+			<img class="img-responsive" src='image/<?php echo $row['hinhanh_sp']; ?>' width='450' alt='<?php echo $rowlsp['ten_loai'] ?>-<?php echo $row['ten_sp']; ?>'/>
 		</span>
 	</div>
 	<div class="col-sm-7">
-		<h2 style="text-transform: uppercase;"><?php echo $row['ten_sp']; ?></h2>
+		<h2 style="text-transform: uppercase;">
+			<?php 
+				echo $rowlsp['ten_loai']. ' - ' .$row['ten_sp'];
+			 ?>
+		</h2>
 		<h5><?php echo $row['gioithieu_sp']; ?></h5>
 		<h3>
 			<?php 
@@ -57,9 +73,11 @@
 	</div>
 	<br>
 	<div class="col-sm-12 describe">
-		<h4>Mô tả</h4>
-		<hr>
+		<div class="arrow_box">
+			<h4>Mô tả</h4>
+		</div>
 		<div class="des-content"><?php echo $row['mota_sp']; ?></div>
+		<div class="fb-comments" data-href="http://localhost:8080/xuxu-shop/xuxushop/index.php?f=detail-product&id=<?php echo $row['id_sp'] ?>" data-width="1240" data-numposts="5"></div>
 	</div>
 </div>
 

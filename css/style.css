@@ -232,7 +232,7 @@ footer .glyphicon {
 }
 
 .ltsp-add {
-    letter-spacing: 7px;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
@@ -242,12 +242,20 @@ footer .glyphicon {
     width: 50%;
 }
 
+.oph-str h4, .oph-str h6{
+    font-weight: 300;
+}
+
 .add-str {
     float: left;
     height: 150px;
     width: 50%;
     padding: 0 20px;
     border-right: 1px solid #fff;
+}
+
+.add-str h4, .add-str h6{
+    font-weight: 300;
 }
 
 .subsc {
@@ -435,8 +443,9 @@ div#header-title {
 }
 
 .header-text h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 90px;
+    font-weight: 300;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 60px;
     color: #fff;
     letter-spacing: 13.5px;
     margin: 0;
@@ -598,8 +607,12 @@ div#goTop {
     bottom: 5%;
     width: 44px;
     z-index: 1000;
+    transition: all 0.2s ease;
 }
 
+div#goTop:hover{
+    background-color: #333;
+}
 
 .form-control::-webkit-input-placeholder {
     color: #000;
@@ -640,7 +653,7 @@ div#main-prod {
     min-height: 500px;
     display: inline-block;
     background-color: #fff;
-    padding: 50px 0;
+    padding: 50px 0 0 0;
     color: #000;
 }
 
@@ -666,7 +679,7 @@ div#main-prod {
 
 .product-show {
     width: 450px;
-    height: auto;
+    min-height: 500px;
     margin-bottom: 50px;
     margin-left: 40px;
     float: left;
@@ -982,10 +995,17 @@ div#main-prod {
     width: 100%;
 }
 
+.describle h4 i{
+    top: 10px;
+    right: 15px;
+    display: inline-block;
+}
+
 .des-content{
     border: 1px solid #eee;
     padding: 20px;
     font-weight: 500;
+    margin-bottom: 30px;
 }
 
 #main-prod .col-sm-7 h3{
@@ -1049,3 +1069,26 @@ div#main-prod {
         margin: 50px 0 0 0;
     }
 }
+
+.arrow_box {
+    position: relative;
+    background: rgba(0,0,0,0);
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.arrow_box:after {
+    top: 110%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000;
+    border-width: 5px;
+    margin-left: -10px;
+}
+
