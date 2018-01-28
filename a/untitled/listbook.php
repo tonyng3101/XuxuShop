@@ -55,7 +55,7 @@
         <td><?php echo $row['giam_gia']; ?></td>
         <td><?php echo $status; ?></td>
         <td><img width="50px" height="50px" src="images/<?php echo $row['images']; ?>" /> </td>
-        <td><a href="formeditbook.php?id=<?php echo $row['id']; ?>">Cập nhật</a></td>
+        <td><a href="formeditbook.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
         <td><a href="deletebook.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
         <td><input type="checkbox" name="delete[]" value="<?php echo $row['id']; ?>" /></td>
     </tr>

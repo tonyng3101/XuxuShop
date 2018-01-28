@@ -90,7 +90,7 @@ if (!isset($_SESSION['uid'])) {
                         <div class="form-group">
                          <label class="control-label col-sm-2">Giới thiệu:</label>
                             <div class="col-sm-10">          
-                                <input type="text" class="form-control"  placeholder="abc" name="txtgioithieu" id="txtgioithieu">
+                                <textarea  class="form-control"  placeholder="abc" name="txtgioithieu" id="txtgioithieu"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -292,7 +292,13 @@ if (!isset($_SESSION['uid'])) {
             
         </div>        
         <!-- END APP WRAPPER -->                
-        
+        <!-- CKE SCRIPTS -->
+        <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('txtgioithieu');
+        </script>
+        <!-- END CKE SCRIPTS -->
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>

@@ -9,16 +9,17 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Sortable Tables</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Danh sách sản phẩm</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
+
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
         <!-- EOF CSS INCLUDE -->
@@ -27,13 +28,6 @@ if (!isset($_SESSION['uid'])) {
 <?php
 	//nhung noi dung cua file connect.php vao trang
 	include('connect.php');
-	
-	$username = '';
-	
-	if(isset($_SESSION['username']))
-		$username = $_SESSION['username'];
-	else
-		$username = 'khách';
 	
 	//Tao cau truy van va thuc thi cau truy van
 	$sql = 'select * from san_pham';
@@ -59,8 +53,7 @@ if (!isset($_SESSION['uid'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Danh sách sản phẩm</h1>
-                            <p>Frequently Asked Questions</p>
+                            <h1 style="font-size: 20px;">Danh sách sản phẩm</h1>
                         </div>
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -69,9 +62,9 @@ if (!isset($_SESSION['uid'])) {
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li class="active">Danh sách sản phẩm</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li class="active">Sản phẩm</li>
+                            <li class="active">Danh sách</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->                 
@@ -81,10 +74,9 @@ if (!isset($_SESSION['uid'])) {
                         <div class="block block-condensed">
                             <!-- START HEADING -->
                             <div class="app-heading app-heading-small">
-                                <div class="title">
-                                    <h5>Danh sách sản phẩm</h5>
-                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
-                                </div>
+                                <!-- <div class="title">
+                                    <h2 >Danh sách sản phẩm</h2>
+                                </div> -->
                             </div>
                             <!-- END HEADING -->
                             
@@ -125,8 +117,8 @@ if (!isset($_SESSION['uid'])) {
                             			<td><?php echo $status; ?></td>
 
                                         <td><a href="" onclick="javascript:void window.open('chitietsanpham.php?id=<?php echo $row['id_sp'] ?>     ','1353463131339','toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">View</a></td>
-                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>">Cập nhật</a></td>
-                            			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');">Xóa sách</a></td>
+                            			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>"><span class="icon-pencil"></span></a></td>
+                            			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn quất ?');"><span class="icon-trash"></a></td>
                         			</tr>
                         			<?php } ?>
                    			 	</tbody>
