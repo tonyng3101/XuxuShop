@@ -59,44 +59,54 @@ if (!isset($_SESSION['uid'])) {
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
-                    
+                    <?php 
+                    include 'connect.php';
+                    $sql = mysql_query('SELECT * from loai_sanpham');
+                     ?>
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                     <form name="form1" method="post" action="add.php" enctype="multipart/form-data">
-                     <div class="form-group">
-   						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
-   							<div class="col-sm-10">          
-        						<input type="text" class="form-control"  placeholder="" name="txtid" id="txtid">
-      						</div>
-  						</div>
+                     <form name="form1" method="post" action="add.php ?>" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Loại sản phẩm:</label>
+                            <div class="col-sm-2">
+                                <select name="type" class="bs-select" data-live-search="true">
+                                    <?php 
+                                    while ($row = mysql_fetch_array($sql)) {
+                                         ?>
+                                         <option value="<?php echo $row['id_loai']; ?>"><?php echo $row['ten_loai']; ?></option>
+                                         <?php
+                                     } ?>
+                                </select>
+                            </div>
+                        </div>
   						<div class="form-group">
    						 <label class="control-label col-sm-2">Tên sản phẩm:</label>
    							<div class="col-sm-10">          
-        						<input type="text" class="form-control"  placeholder="Tên sản phẩm" name="txtten" id="txtten">
+        						<input type="text" class="form-control"  placeholder="Tên sản phẩm..." name="txtten" id="txtten">
       						</div>
   						</div>
                         <div class="form-group">
    						 <label class="control-label col-sm-2">Giá sản phẩm:</label>
    							<div class="col-sm-10">          
-        						<input type="text" class="form-control"  placeholder="21432423" name="txtgia" id="txtgia">
+        						<input type="text" class="form-control"  placeholder="Giá sản phẩm..." name="txtgia" id="txtgia">
       						</div>
   						</div>
                         <div class="form-group">
    						 <label class="control-label col-sm-2">Giảm giá:</label>
    							<div class="col-sm-10">          
-        						<input type="text" class="form-control"  placeholder="21432423" name="txtgiamgia" id="txtgiamgia">
+        						<input type="text" class="form-control"  placeholder="Giảm giá..." name="txtgiamgia" id="txtgiamgia">
       						</div>
   						</div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Giới thiệu:</label>
                             <div class="col-sm-10">          
-                                <textarea  class="form-control"  placeholder="abc" name="txtgioithieu" id="txtgioithieu"></textarea>
+                                <textarea name="txtgioithieu" id="txtgioithieu"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Mô tả:</label>
                             <div class="col-sm-10">          
-                                <input type="text" class="form-control"  placeholder="abc" name="txtmota" id="txtmota">
+                                <textarea name="txtmota" id="txtmota"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -297,6 +307,7 @@ if (!isset($_SESSION['uid'])) {
         <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
         <script type="text/javascript">
             CKEDITOR.replace('txtgioithieu');
+            CKEDITOR.replace('txtmota');
         </script>
         <!-- END CKE SCRIPTS -->
         <!-- IMPORTANT SCRIPTS -->
@@ -307,7 +318,10 @@ if (!isset($_SESSION['uid'])) {
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- THIS PAGE SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/isotope/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-select/bootstrap-select.js"></script>
+        <script type="text/javascript" src="js/vendor/select2/select2.full.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-daterange/daterangepicker.js"></script>
         <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>

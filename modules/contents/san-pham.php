@@ -127,7 +127,7 @@
 			<?php
 
 		}elseif ($catalogue != '') {
-			$cat = "SELECT ten_loai,anh_nen from loai_sanpham where id_loai='$catalogue'";
+			$cat = "SELECT id_loai, ten_loai, anh_nen from loai_sanpham where id_loai='$catalogue'";
 			$catquery = mysql_query($cat);
 
 			while ($rowc = mysql_fetch_assoc($catquery)) {
@@ -178,15 +178,7 @@
 
 		<h4>By Price</h4>
 		<hr  width="15px" style="border:1px solid #000" />
-		<div data-role="main" class="ui-content">
-    		<form>
-      		<div data-role="rangeslider">
-        		<input type="range" name="price-min" id="price-min" value="1" min="0" max="180000">
-        		<input type="range" name="price-max" id="price-max" value="180000" min="0" max="180000">
-      		</div>
-        		<input class="btn btn-default" type="submit" data-inline="true" value="Submit">
-      		</form>
-  		</div>
+		
 	</div>
 
 <!-- List Sản phẩm -->
@@ -226,7 +218,16 @@
 			<div class="title-prod text-center">
 				<h3>
 					<a href="index.php?f=detail-product&id=<?php echo $row['id_sp'] ?>" style="text-transform: uppercase;">
-					<?php echo $row['ten_sp']; ?></a>
+					<?php
+						$sqllsp = "SELECT * From loai_sanpham";
+	              		$querylsp = mysql_query($sqllsp);
+						while ($rowlsp = mysql_fetch_array($querylsp)) {
+							if ($row['id_loai'] == $rowlsp['id_loai']) {
+								echo $rowlsp['ten_loai']. ' - ' .$row['ten_sp'];
+							}
+						}
+					 ?>
+					</a>
 				</h3>
 				<h4>
 					<?php echo $deal; ?>

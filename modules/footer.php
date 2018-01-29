@@ -2,15 +2,15 @@
 <div class="container-fluid text-center add-wb">
 	<div class="content-footer text-center col-sm-6">
 		<div class="add-str">
-			<h4 class="ltsp-add">OUR STORE</h4>
-			<H6>Address 1: 25T2 Hoàng Đạo Thuý, Cầu Giấy, Hà Nội</H6>
-			<h6>Address 2: Đ4, Cát Thuế, Vân Côn, Hoài Đức, Hà Nội</h6>
-			<h6>Phone: 01652-694-897</h6>
+			<h4 class="ltsp-add">Địa chỉ cửa hàng</h4>
+			<h6>Địa chỉ 1: 25T2 Hoàng Đạo Thuý, Cầu Giấy, Hà Nội</h6>
+			<h6>Địa chỉ 2: Đ4, Cát Thuế, Vân Côn, Hoài Đức, Hà Nội</h6>
+			<h6>Điện thoại: 01652-694-897</h6>
 			<h6>Email: XuxuLipstick8397@gmail.com</h6>
 		</div>
 		<div class="oph-str">
-			<H4 class="ltsp-add">OPENING HOURS</H4>
-			<h6>All Days Of The Week</h6>
+			<h4 class="ltsp-add">Giờ mở cửa</h4>
+			<h6>Các Ngày Trong Tuần</h6>
 			<h6>8.am - 10.pm</h6>
 		</div>
 		

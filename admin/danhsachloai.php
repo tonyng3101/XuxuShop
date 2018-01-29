@@ -357,7 +357,6 @@
                             <div class="app-heading app-heading-small">
                                 <div class="title">
                                     <h5>Danh sách loại sản phẩm</h5>
-                                    <p>Add class <code>datatable-extended</code> to get full-featured sortable table.</p>
                                 </div>
                             </div>
                             <!-- END HEADING -->

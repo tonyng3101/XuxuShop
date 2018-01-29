@@ -66,20 +66,30 @@ if (!isset($_SESSION['uid'])) {
                     <?php
                         include('connect.php');
                         $id = $_GET['id'];
-                        $sql = "select * from san_pham where id_sp = {$id}";
+                        $sql = "SELECT * from san_pham where id_sp = {$id}";
+                        $loai = mysql_query('SELECT * from loai_sanpham');
     
                         $recordset = mysql_query($sql);
                         $row = mysql_fetch_array($recordset);
                         $status = $row['status'];
                         
                     ?>
-                     <form name="form1" method="post" action="update.php">
-                     <div class="form-group">
-   						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
-   							<div class="col-sm-10">          
-        					  <input type="text" class="form-control" name="txtid" value="<?php echo $row['id_sp']; ?>">
-      						</div>
-  						</div>
+                     <form name="form1" method="post" action="update.php?id=<?php echo $row['id_sp']; ?>" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Loại sản phẩm:</label>
+                            <div class="col-sm-2">
+                                <select name="type" class="bs-select" data-live-search="true">
+                                    <?php 
+                                    while ($rowloai = mysql_fetch_array($loai)) {
+                                         ?>
+                                        <option value="<?php echo $rowloai['id_loai']; ?>" <?php if($rowloai['id_loai'] == $row['id_loai']){echo 'selected="selected"';}?>>
+                                        <?php echo $rowloai['ten_loai'];?>
+                                        </option>   
+                                         <?php
+                                     } ?>
+                                </select>
+                            </div>
+                        </div>
   						<div class="form-group">
    						 <label class="control-label col-sm-2">Tên sản phẩm:</label>
    							<div class="col-sm-10">          
@@ -87,34 +97,34 @@ if (!isset($_SESSION['uid'])) {
       						</div>
   						</div>
                         <div class="form-group">
-   						 <label class="control-label col-sm-2">Giá sản phẩm:</label>
+   						 <label class="control-label col-sm-2">Giá sản phẩm (VNĐ):</label>
    							<div class="col-sm-10">          
         						<input type="text" class="form-control" name="txtgia" id="txtgia" value="<?php echo $row['gia_sp']; ?>">
       						</div>
   						</div>
                         <div class="form-group">
-   						 <label class="control-label col-sm-2">Giảm giá:</label>
+   						 <label class="control-label col-sm-2">Giảm giá (%):</label>
    							<div class="col-sm-10">          
-        						<input type="text" class="form-control" name="txtgiam" id="txtgiam" value="<?php echo $row['giam_gia']; ?>%">
+        						<input type="text" class="form-control" name="txtgiam" id="txtgiam" value="<?php echo $row['giam_gia']; ?>">
       						</div>
   						</div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Giới thiệu:</label>
                             <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txtgioithieu" id="txtgioithieu" value="<?php echo $row['gioithieu_sp']; ?>">
+                                <textarea name="txtgioithieu" id="txtgioithieu"><?php echo $row['gioithieu_sp'] ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Mô tả:</label>
                             <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txtmota" id="txtmota" value="<?php echo $row['mota_sp']; ?>">
+                                <textarea name="txtmota" id="txtmota"><?php echo $row['mota_sp'] ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                          <label class="control-label col-sm-2">Hình ảnh sản phẩm:</label>
                             <div class="col-sm-10">  
-                                <img src="img/<?php echo $row['hinhanh_sp'] ?>" width="50px" height="50px">        
-                                <input name="bookimage" type="file">
+                                <img src="../image/<?php echo $row['hinhanh_sp']; ?>" width="50px" height="50px">        
+                                <input type="file" name="bookimage" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -328,6 +338,7 @@ if (!isset($_SESSION['uid'])) {
         <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
         <script type="text/javascript">
             CKEDITOR.replace('txtgioithieu');
+            CKEDITOR.replace('txtmota');
         </script>
         <!-- END CKE SCRIPTS -->
         <!-- IMPORTANT SCRIPTS -->
@@ -338,7 +349,10 @@ if (!isset($_SESSION['uid'])) {
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- THIS PAGE SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/isotope/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-select/bootstrap-select.js"></script>
+        <script type="text/javascript" src="js/vendor/select2/select2.full.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-daterange/daterangepicker.js"></script>
         <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>
