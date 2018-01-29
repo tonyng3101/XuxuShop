@@ -77,7 +77,7 @@
 			<h4>Mô tả</h4>
 		</div>
 		<div class="des-content"><?php echo $row['mota_sp']; ?></div>
-		<div class="fb-comments" data-href="http://localhost:8080/xuxu-shop/xuxushop/index.php?f=detail-product&id=<?php echo $row['id_sp'] ?>" data-width="1240" data-numposts="5"></div>
+		<div class="fb-comments" data-href="http://localhost:8080/xuxu-shop/xuxushop/index.php?f=detail-product&id=<?php echo $row['id_sp'] ?>" data-width="auto" data-numposts="5"></div>
 	</div>
 </div>
 
