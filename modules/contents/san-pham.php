@@ -151,7 +151,7 @@
 
 <!-- Filter/Lọc -->
 
-	<div class="filter col-sm-2 text-center">
+	<div class="filter col-sm-3 text-center">
 		<form action="" method="post">
 			<div class="form-group">
 				<input type="text" name="search" class="form-control" placeholder="Tìm kiếm...">
@@ -159,7 +159,7 @@
 			</div>
 		</form>
 		<hr>
-		<h4>By Catalogue</h4>
+		<h4>Lọc theo loại</h4>
 
 		<hr  width="15px" style="border:1px solid #000" />
 
@@ -175,15 +175,12 @@
              ?>
 
 		<hr>
-
-		<h4>By Price</h4>
-		<hr  width="15px" style="border:1px solid #000" />
 		
 	</div>
 
 <!-- List Sản phẩm -->
 
-	<div class="prod col-sm-10">
+	<div class="prod col-sm-9">
 	
         <?php
 			//Vòng lặp in sản phẩm
@@ -216,19 +213,13 @@
 				</div>
 			
 			<div class="title-prod text-center">
-				<h3>
+				<h4>
 					<a href="index.php?f=detail-product&id=<?php echo $row['id_sp'] ?>" style="text-transform: uppercase;">
 					<?php
-						$sqllsp = "SELECT * From loai_sanpham";
-	              		$querylsp = mysql_query($sqllsp);
-						while ($rowlsp = mysql_fetch_array($querylsp)) {
-							if ($row['id_loai'] == $rowlsp['id_loai']) {
-								echo $rowlsp['ten_loai']. ' - ' .$row['ten_sp'];
-							}
-						}
+						echo $row['ten_sp'];
 					 ?>
 					</a>
-				</h3>
+				</h4>
 				<h4>
 					<?php echo $deal; ?>
 				</h4>
