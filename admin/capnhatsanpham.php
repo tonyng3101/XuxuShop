@@ -130,19 +130,19 @@ if (!isset($_SESSION['uid'])) {
                         <div class="form-group">
                             <label class="control-label col-sm-2">Trạng thái:</label>
                             <?php
-                                if(isset($status)==1)
+                                if(($status)==1)
                                 {
-                            ?>
-                            <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
-                            <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
-                            <?php
+                                ?>
+                                <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
+                                <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
+                                <?php
                                 }
                                 else
                                 {
-                                    ?>
-                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Còn hàng</label>
-                                        <label class="radio-inline"><input type="radio" name="status" value="0">Hết hàng</label>
-                                    <?php
+                                ?>
+                                <label class="radio-inline"><input type="radio" name="status" value="1">Còn hàng</label>
+                                <label class="radio-inline"><input checked="checked" type="radio" name="status" value="0">Hết hàng</label>
+                                <?php
                                 }
                             ?>
                         </div>

@@ -3,15 +3,16 @@
 session_start();
 //tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
 //nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['uid'])) {
 	 header('Location: login.php');
 }
 ?>
 <html lang="en">
     <head>                        
-        <title>XUXU LIPSTICKS | Danh sách tài khoản</title>
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Thêm mới loại sản phẩm</title>
         <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
-        <!-- END TITLE -->            
+        <!-- END TITLE -->           
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -23,22 +24,15 @@ if (!isset($_SESSION['username'])) {
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>        
-<?php
-	//nhung noi dung cua file connect.php vao trang
-	include('connect.php');
-	//Tao cau truy van va thuc thi cau truy van
-	$sql = 'select * from admin';
-	
-	//thuc thi cau truy van
-	$recordset = mysql_query($sql);
-?>       
+        
         <!-- APP WRAPPER -->
-        <div class="app">            
-            
+        <div class="app">           
+
             <!-- START APP CONTAINER -->
-            <div class="app-container">  
-                          
+            <div class="app-container">
+                <!-- START SIDEBAR -->
                 <?php include ('nvar-bar.php'); ?>
+                <!-- END SIDEBAR -->
                 
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
@@ -49,9 +43,8 @@ if (!isset($_SESSION['username'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1 style="font-size: 20px;">Danh sách tài khoản</h1>
-                            <p>Tài khoản trang quản trị</p>
-                        </div>
+                            <h1 style="font-size: 20px;">Thêm mới loại sản phẩm</h1>
+                        </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
                             <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
@@ -60,94 +53,94 @@ if (!isset($_SESSION['username'])) {
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
                             <li><a href="index.php">Trang chủ</a></li>
-                            <li class="active">Tài khoản</li>
-                            <li class="active">Danh sách tài khoản</li>
+                            <li class="active">Loại sản phẩm</li>
+                            <li class="active">Thêm mới loại sản phẩm</li>
                         </ul>
                     </div>
-                    <!-- END PAGE HEADING -->                 
-                    
+                    <!-- END PAGE HEADING -->
+                    <?php 
+                    include 'connect.php';
+                    $sql = mysql_query('SELECT * from loai_sanpham');
+                     ?>
+                     <style type="text/css">
+                    .required
+                    {
+                        color:red;
+                    }
+                    </style>
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                        <div class="block block-condensed">
-                            <!-- START HEADING -->
-                            <div class="app-heading app-heading-small">
-                                <div class="title">
-                                    <h5>Danh sách tài khoản</h5>
-                                </div>
+                        <?php
+                            include('connect.php');
+                            if($_SERVER['REQUEST_METHOD']=='POST')
+                            {
+                                $error=array();
+                                if(empty($_POST['txttenloai']))
+                                {
+                                    $error[]='txttenloai';
+                                }
+                                else
+                                {
+                                    $tenloai=$_POST['txttenloai'];
+                                }
+                                $hinhanh = $_FILES['bookimage']['name'];
+                                if(empty($error))
+                                {
+                                    $query="SELECT ten_loai FROM loai_sanpham WHERE ten_loai='{$tenloai}' ";
+                                    $results=mysql_query($query);
+                                    if(mysql_num_rows($results)==1)
+                                    {
+                                        $message="<p class='required'> Tên loại đã tồn tại, yêu cầu nhập lại tên loại sản phẩm</p>";
+                                    }
+                                    else
+                                    {
+                                        $query_in="INSERT INTO loai_sanpham(ten_loai,anh_nen)
+                                        VALUES('{$tenloai}','{$hinhanh}')";
+                                        move_uploaded_file($_FILES['bookimage']['tmp_name'], '..\image\loai\\' . $hinhanh);
+                                        $results_in=mysql_query($query_in);
+                                        if(mysql_affected_rows($conn)==1)
+                                        {
+                                            echo "<p style='color:green;'> Thêm mới thành công</p>";
+                                        }
+                                        else
+                                        {
+                                            echo "<p class='required'>Thêm mới không thành công</p>";
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    $message="<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
+                                }
+                            }
+                            ?>
+                     <form name="frmloaisanpham" method="post"  enctype="multipart/form-data">
+                        <?php
+                            if(isset($message))
+                            {
+                                echo $message;
+                            }
+                        ?>
+  						<div class="form-group">
+   						 <label class="control-label col-sm-2">Tên loại sản phẩm:</label>
+   							<div class="col-sm-10">          
+        						<input type="text" class="form-control" value="<?php if(isset($_POST['txttenloai'])){echo $_POST['txttenloai'];} ?>"  placeholder="Tên loại sản phẩm..." name="txttenloai">
+                                <?php
+                                    if(isset($error) && in_array('ten_loai',$error))
+                                    {
+                                        echo "<p class='required'> Tên loại sản phẩm không để trống</p>";
+                                    }
+                                ?>
+      						</div>
+  						</div>
+                        <div class="form-group">
+                         <label class="control-label col-sm-2">Hình ảnh:</label>
+                            <div class="col-sm-10">          
+                                <input name="bookimage" type="file">
                             </div>
-                            <!-- END HEADING -->
-                            
-                            <div class="block-content">
-                                
-                         		<table class="table table-striped table-bordered datatable-extended">
-                           			<thead>
-                            			<tr>
-                            				<th>STT</th>
-                            				<th>Tài khoản</th>
-                            				<th>Họ tên</th>
-                            				<th>Điện thoại</th>
-                            				<th>Email</th>
-                            				<th>Địa chỉ</th>
-                            				<th>Tình trạng</th>
-                                            <th>Cấp</th>
-                                            <?php
-                                            $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
-                                            $results_rank=mysql_query($query_rank);
-                                            $row_rank= mysql_fetch_array($results_rank);
-                                            if($row_rank['rank']==1)
-                                            {
-                                            ?>
-                                            <th>Reset pass</th>
-                           				 	<th>Cập nhật</th>
-                            				<th>Xóa</th>
-                                            <?php } ?>
-                        				</tr>
-                    				</thead>
-                    			<tbody>
-                    				<?php
-										//xu ly ket qua tra ve
-										while($row = mysql_fetch_array($recordset)) {
-										$stt = $row['status'];
-										$status = '';
-		
-											if($stt == 0)
-												$status = 'Chưa kích hoạt';
-											else
-												$status = 'Kích hoạt';
-                                            //rank
-                                        $stt = $row['rank'];
-                                        $rank = '';
-        
-                                            if($stt == 1)
-                                                $rank = 'Admin';
-                                            else
-                                                $rank = 'Nhân viên';
-									?>
-                        			<tr>
-                                    	<td><?php echo $row['id']; ?></td>
-                            			<td><?php echo $row['username']; ?></td>
-                            			<td><?php echo $row['hoten']; ?></td>
-                            			<td><?php echo $row['dienthoai']; ?></td>
-                            			<td><?php echo $row['email']; ?></td>
-                            			<td><?php echo $row['diachi']; ?></td>
-                            			<td><?php echo $status; ?></td>
-                                        <td><?php echo $rank; ?></td>
-                                        <?php
-                                            if($row_rank['rank']==1)
-                                            {
-                                        ?>
-                                        <td><a href="reset_user.php?id=<?php echo $row['id']; ?>"><span class="icon-sync"></span></a></td>
-                            			<td><a href="capnhatuser.php?id=<?php echo $row['id']; ?>"><span class="icon-pencil"></span></a></td>
-                            			<td><a href="delete_user.php?id=<?php echo $row['id']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');"><span class="icon-trash"></span></a></td>
-                                        <?php } ?>
-                        			</tr>
-                        			<?php } ?>
-                   			 	</tbody>
-                			</table>   
-                            </div>
-                            
                         </div>
-                        
+                        <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
+					</form>                                         
                     </div>
                     <!-- END PAGE CONTAINER -->
                     
@@ -155,8 +148,8 @@ if (!isset($_SESSION['username'])) {
                 <!-- END APP CONTENT -->
                                 
             </div>
-            <!-- END APP CONTAINER -->            
-            
+            <!-- END APP CONTAINER -->
+
             <!-- START APP SIDEPANEL -->
             <div class="app-sidepanel scroll" data-overlay="show">                
                 <div class="container">
@@ -318,9 +311,29 @@ if (!isset($_SESSION['username'])) {
             <!-- APP OVERLAY -->
             <div class="app-overlay"></div>
             <!-- END APP OVERLAY -->
+            
+            <!-- MODAL PREVIEW -->
+            <div class="modal fade" id="preview" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+                    
+                    <div class="modal-content">
+                        <div class="modal-body padding-5"></div>
+                    </div>
+                </div>            
+            </div>
+            <!-- END MODAL PREVIEW -->
+            
         </div>        
         <!-- END APP WRAPPER -->                
-        
+        <!-- CKE SCRIPTS -->
+        <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('txtgioithieu');
+            CKEDITOR.replace('txtmota');
+        </script>
+        <!-- END CKE SCRIPTS -->
         <!-- IMPORTANT SCRIPTS -->
         <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
@@ -329,8 +342,10 @@ if (!isset($_SESSION['username'])) {
         <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- THIS PAGE SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/vendor/datatables/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-select/bootstrap-select.js"></script>
+        <script type="text/javascript" src="js/vendor/select2/select2.full.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-daterange/daterangepicker.js"></script>
         <!-- END THIS PAGE SCRIPTS -->
         <!-- APP SCRIPTS -->
         <script type="text/javascript" src="js/app.js"></script>

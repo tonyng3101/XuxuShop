@@ -1,15 +1,23 @@
 <!DOCTYPE html>
+<?php
+session_start();
+//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+if (!isset($_SESSION['uid'])) {
+     header('Location: login.php');
+}
+?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Gallery</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Thêm mới video</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->            
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -35,8 +43,7 @@
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Thêm mới video</h1>
-                            <p>Image listing with preview</p>
+                            <h1 style="font-size: 20px;">Thêm mới video</h1>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -45,9 +52,9 @@
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Video</a></li>
-                            <li class="active">Thêm video</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li class="active">Video</li>
+                            <li class="active">Thêm mới video</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
@@ -142,7 +149,7 @@
                                         }
                                     ?>
                                 <div class="form-group">
-                                    	<label>ID</label>
+                                    	<label>ID:</label>
                                         <input type="text" name="txtid" value="<?php if(isset($_POST['txtid'])){echo $_POST['txtid'];} ?>" class="form-control" placeholder="ID">
                                         <?php 
                                             if (isset($error) && in_array('txtid', $error)) 
@@ -152,7 +159,7 @@
                                         ?>
                                     </div>
                                 	<div class="form-group">
-                                    	<label>Tiêu đề</label>
+                                    	<label>Tiêu đề:</label>
                                         <input type="text" name="txttitle" value="<?php if(isset($_POST['txttitle'])){echo $_POST['txttitle'];} ?>" class="form-control" placeholder="Title">
                                         <?php 
                                             if (isset($error) && in_array('txttitle', $error)) 
@@ -162,7 +169,7 @@
                                         ?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Link</label>
+                                    	<label>Link:</label>
                                         <input type="text" name="txtlink" value="<?php if(isset($_POST['txtlink'])){echo $_POST['txtlink'];} ?>" class="form-control" placeholder="Video">
                                         <?php 
                                             if (isset($error) && in_array('txtlink', $error)) 
@@ -172,13 +179,13 @@
                                         ?>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Thứ tự</label>
+                                    	<label>Thứ tự:</label>
                                         <input type="text" name="txtordernum" value="<?php if(isset($_POST['txtordernum'])){echo $_POST['txtordernum'];} ?>" class="form-control" placeholder="Thứ tự">
                                     </div>
                                     <div class="form-group">
                                         <label style="display:block;">Trạng thái:</label>
-                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Kích hoạt</label>
-                                        <label class="radio-inline"><input type="radio" name="status" value="0">Không kích hoạt</label>
+                                        <label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Hiển thị</label>
+                                        <label class="radio-inline"><input type="radio" name="status" value="0">Không hiển thị</label>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
                                 </form>

@@ -9,15 +9,15 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Gallery</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Thêm mới sản phẩm</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->           
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -43,8 +43,7 @@ if (!isset($_SESSION['uid'])) {
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">                        
                         <div class="title">
-                            <h1>Thêm mới sản phẩm</h1>
-                            <p>Image listing with preview</p>
+                            <h1 style="font-size: 20px;">Thêm mới sản phẩm</h1>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -53,9 +52,9 @@ if (!isset($_SESSION['uid'])) {
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
                         <ul class="breadcrumb">
-                            <li><a href="#">Phần sản phẩm</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li class="active">Thêm sản phẩm</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li class="active">Sản phẩm</li>
+                            <li class="active">Thêm mới sản phẩm</li>
                         </ul>
                     </div>
                     <!-- END PAGE HEADING -->
