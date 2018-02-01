@@ -17,7 +17,7 @@
                                         include('connect.php');
                                         $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['username']}'");
                                         $row = mysql_fetch_array($query);
-                                        if($row['rank']=1)
+                                        if(isset($row['rank'])==1)
                                         {
                                             echo '<p>Admin</p>';
                                         }
