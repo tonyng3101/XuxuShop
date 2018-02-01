@@ -15,13 +15,13 @@
                                         <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
                                         <?php
                                         include('connect.php');
-                                        $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['username']}'");
+                                        $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['uid']}'");
                                         $row = mysql_fetch_array($query);
-                                        if(isset($row['rank'])==1)
+                                        if($row['rank']==1)
                                         {
                                             echo '<p>Admin</p>';
                                         }
-                                        else
+                                        else 
                                         {
                                             echo '<p>Nhân viên</p>';
                                         }
