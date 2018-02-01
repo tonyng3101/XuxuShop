@@ -9,15 +9,15 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Revolution Admin Template</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Danh sách loại sản phẩm</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->              
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -44,8 +44,7 @@ if (!isset($_SESSION['uid'])) {
                             <span class="icon-laptop-phone"></span>
                         </div>
                         <div class="title">
-                            <h1>Thêm mới</h1>
-                            <p>The revolution in admin template build</p>
+                            <h1 style="font-size: 20px;">Thêm mới tài khoản</h1>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>

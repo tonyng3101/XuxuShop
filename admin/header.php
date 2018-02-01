@@ -14,13 +14,18 @@
                                     <div class="contact-container">
                                         <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
                                         <?php
-                                        $rank = '';
-                                            if($rank == 0)
-                                                $rank = 'Admin';
-                                            else
-                                                $rank = 'Nhân viên';
+                                        include('connect.php');
+                                        $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['username']}'");
+                                        $row = mysql_fetch_array($query);
+                                        if($row['rank']=1)
+                                        {
+                                            echo '<p>Admin</p>';
+                                        }
+                                        else
+                                        {
+                                            echo '<p>Nhân viên</p>';
+                                        }
                                         ?>
-                                        <span><?php echo $rank; ?></span>
                                     </div>
                                     <div class="contact-controls">
                                         <div class="dropdown">
