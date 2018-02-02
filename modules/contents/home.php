@@ -93,6 +93,23 @@
 	</div>
 </div>
 <!-- End About -->
+<div class="box">
+  <div class="box_top">
+    <p>Video</p>
+  </div>
+  <div class="box_man">
+    <div id="video">
+      <div id="content_video">
+        <iframe width="100%" height="200px" class="embed-player" src="" frameborder="0" allowfullscreen></iframe>
+          <br />
+          <ul class="list-video">
+            
+          </ul>
+      </div>
+      
+    </div>
+  </div>  
+</div>
 
 <!-- Contact Of Website -->
 <div id="contact" class="parallax container-fluid">

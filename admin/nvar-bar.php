@@ -14,7 +14,16 @@ include('connect.php');
                                 
                             <li class="title">PHẦN SẢN PHẨM</li>
                             <li><a href="index.php"><span class="nav-icon-hexa text-bloody-100">Tk</span> Thống kê</a></li>
-                            <li><a href="documentation.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng <span class="label label-success label-bordered label-ghost">+2</span></a></li>
+                            <li><a href="donhang.php"><span class="nav-icon-hexa text-yellow-100">Dh</span> Đơn hàng 
+                                <span class="label label-success label-bordered label-ghost">+2</span>
+                            </a></li>
+                            <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Tt</span> Tin tức </a>
+                                <ul>                
+                                  <li><a href="danhsachsanpham.php"><span class="nav-icon-hexa">Ds</span>Danh sách</a></li>                               
+                                  <li><a href="themmoisanpham.php"><span class="nav-icon-hexa">Tm</span> Thêm mới</a></li>                                
+                                </ul>
+                            </li>
                             <?php
                                 $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
                                 $results_rank=mysql_query($query_rank);
@@ -52,10 +61,31 @@ include('connect.php');
                                 {
                             ?>
                             <li>
-                                <a href="#"><span class="nav-icon-hexa text-orange-100">Sp</span> Tài khoản </a>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Tk</span> Tài khoản </a>
                                 <ul>                
                                   <li><a href="danhsachtaikhoan.php"><span class="nav-icon-hexa">Ds</span>Danh sách</a></li>                               
                                   <li><a href="themtaikhoan.php"><span class="nav-icon-hexa">Tm</span> Thêm mới</a></li>                                
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="#"><span class="nav-icon-hexa text-orange-100">Tk</span> Tài khoản khách hàng
+                                    
+                                </a>
+
+                                <ul>                
+                                  <li>
+                                    <a href="danhsachtaikhoanclient.php"><span class="nav-icon-hexa">Ds</span>Danh sách
+                                        <span class="label label-success label-bordered label-ghost">
+                                        <?php 
+                                            $query="SELECT * FROM khach_hang";
+                                            $result=mysql_query($query);
+
+                                            echo mysql_num_rows($result);
+                                        ?>
+                                        </span> 
+                                    </a>
+                                </li>      
                                 </ul>
                             </li>
                             <?php } ?>
