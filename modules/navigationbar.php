@@ -48,7 +48,18 @@
            echo '<li><a href="index.php?f=log-in"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>';
        }
        ?>
-      <li><a href="#"><span id="cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 15px;"></span> 1 Sản phẩm</a></li>
+      <li>
+        <a href="#" class="cart">
+          <?php 
+            if (isset($_SESSION['cart'])) {
+              echo '<p>'.count($_SESSION['cart']).'</p>';
+            }else{
+              echo '<p>0</p>';
+            }
+           ?>
+        </a>
+      </li>
+
     </ul>
     </div>
   </div>
