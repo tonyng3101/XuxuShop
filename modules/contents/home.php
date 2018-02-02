@@ -2,9 +2,9 @@
 <!-- Header Of Website -->
 <div id="home" class="parallax text-center">
 	<img src="image/logo-white.png" width="15%" style="margin-top: 80px;">
-	<h1 style="font-family: 'GroteskBoldCond'; font-size: 112px; color: #fff; letter-spacing: 13.5px"> XUXU LIPSTICK</h1>
+	<h1 style="font-family: 'GroteskBoldCond'; font-size: 100px; color: #fff; letter-spacing: 13.5px"> XUXU LIPSTICK</h1>
 	<hr style="width: 350px; margin: 2 auto;">
-	<h3 style="font-family: 'AvenirLTStd-Light'; color: #fff; letter-spacing: 7px; font-size: 20px">ULTRA MATTE LIP-MATTE LIP CREAM</h3>
+	<h3 style="font-family: 'AvenirLTStd-Light'; color: #fff; letter-spacing: 7px; font-size: 16px">ULTRA MATTE LIP-MATTE LIP CREAM</h3>
 
 	<a href="index.php?f=san-pham" style="text-decoration: none;"><div class="sim-button button28"><span>Shop Now</span></div></a>
 </div>
