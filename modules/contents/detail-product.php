@@ -51,7 +51,7 @@
 		</h3>
 		<br>
 		<div class="input-group spinner">
-		    <input type="text" class="form-control" value="0">
+		    <input type="text" name="product_qty" class="form-control" value="1">
 		    <div class="input-group-btn-vertical">
 		      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
 		      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>

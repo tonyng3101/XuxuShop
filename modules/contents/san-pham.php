@@ -1,7 +1,8 @@
 <?php
 
 	//Tìm kiếm trong trang.
-
+	//Nếu tồn tại post search thì sẽ list ra sản phẩm theo từ khóa
+	//Nếu không tồn tại hoặc empty thì sẽ ra list sản phẩm
 	if (isset($_POST['search'])) {
 		$search = addslashes($_POST['search']);
 		if (empty($search)) {
@@ -9,6 +10,7 @@
 				$id = $_GET['c'];
 				$catalogue = $id;
 			}else{
+				//Biến này dùng để phân loại sản phẩm
 				$catalogue = '';
 			}
 
@@ -77,7 +79,7 @@
 
         	if (isset($_POST['search'])) {
         		$search = addslashes($_POST['search']);
-
+        		//Phân trang nếu có search
         		if (empty($search)) {
         			if ($catalogue == '') {
 						$query = mysql_query("SELECT * FROM san_pham ORDER BY id_sp DESC LIMIT $start, $limit");
@@ -89,8 +91,9 @@
         			$query = mysql_query("SELECT * from san_pham where ten_sp like '%$search%' ORDER BY id_sp DESC");
         		}
         		
-
-        	}else {
+        	}
+        	//Phân trang nếu không có biến search
+        	else {
         		$search = '';
         		if ($catalogue == '') {
 					$query = mysql_query("SELECT * FROM san_pham ORDER BY id_sp DESC LIMIT $start, $limit");
@@ -224,7 +227,7 @@
 					<?php echo $deal; ?>
 				</h4>
 				<h5>
-					<button class="btn btn-default">Thêm vào giỏ</button>
+					<a href="index.php?f=addcart&id=<?php echo $row['id_sp'] ?>"><button class="btn btn-default">Thêm vào giỏ</button></a>
 					<button class="btn btn-danger">Mua ngay</button>
 				</h5>
 			</div>
