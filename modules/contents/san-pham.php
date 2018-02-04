@@ -57,7 +57,7 @@
 			$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 			//Giới hạn sản phẩm của 1 trang
-        	$limit = 12;
+        	$limit = 5;
 
         	//Tổng số trang
         	$total_page = ceil($total_records / $limit);

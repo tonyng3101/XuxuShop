@@ -681,6 +681,14 @@ div#main-prod {
     padding: 50px 0 0 0;
     color: #000;
 }
+div#main-prod-home {
+    margin: 0px 0 50px 0;
+    width: 100%;
+    min-height: 500px;
+    display: inline-block;
+    padding: 50px 0 0 0;
+    color: #000;
+}
 
 
 

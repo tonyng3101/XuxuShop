@@ -48,14 +48,9 @@
 <?php } ?> 	
 </div>
 <!-- End Product -->
-  <div id="ultimate-heading-67195a7541fb81846" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-67195a7541fb81846 uvc-2522 " data-hspacer="line_only" data-halign="center" style="text-align:center">
-    <div class="uvc-main-heading ult-responsive" data-ultimate-target=".uvc-heading.ultimate-heading-67195a7541fb81846 h2" data-responsive-json-new="{&quot;font-size&quot;:&quot;desktop:36px;&quot;,&quot;line-height&quot;:&quot;&quot;}">
-      <h2 class="" style="font-family:'Lato';font-weight:300;">Hình ảnh mới 2018</h2>
-    </div>
-  </div>
-<div id="product" class="container-fluid text-center">
-  a
-</div>
+<?php
+    include 'sanphammoi.php';
+  ?>
 <!-- About Website -->
 <div id="about">
 	<div class="container-fluid bg-white">
