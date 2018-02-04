@@ -49,7 +49,7 @@
        }
        ?>
       <li>
-        <a href="index.php?f=cart" class="cart">
+        <a href="#" class="cart">
           <?php 
             if (isset($_SESSION['cart'])) {
               echo '<p>'.count($_SESSION['cart']).'</p>';

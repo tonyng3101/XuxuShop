@@ -21,10 +21,9 @@
 		elseif ($tam == 'detail-product') {
 			include 'modules/contents/detail-product.php';
 		}
-		elseif ($tam == 'cart') {
-			include 'modules/contents/cart.php';
+		elseif ($tam == 'addcart') {
+			header('Location: modules/cart/addcart.php');
 		}
-		
 
 	?>
 </div>

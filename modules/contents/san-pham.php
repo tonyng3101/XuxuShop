@@ -38,11 +38,14 @@
 		}elseif ($catalogue != '' ) {
 			$catalogue = $id;
 			$sql = "SELECT count(id_sp) as total from san_pham where id_loai='$catalogue'";
-		}
 	}
-
-	$current_url = base64_encode($_SERVER['REQUEST_URI']);
+	}
 	
+	//Get id loại sản phẩm.
+	
+	
+
+
 			//Xử lí phân trang
 
 			$query = mysql_query($sql);
@@ -112,13 +115,6 @@
 			<div id="header-title" class="text-center" style="background-image: url('image/bg.jpg');">
 				<div class="header-text">
 					<h2>Search Results - <?php echo $search; ?></h2>
-					<h4>
-						<a href="index.php">HOME</a>
-						<span>></span>
-						<a href="index.php?f=san-pham">SẢN PHẨM</a>
-						<span>></span>
-						Search: <?php echo $search; ?>
-					</h4>
 				</div>
 			</div>
 		<?php
@@ -129,11 +125,6 @@
 			<div id="header-title" class="text-center" style="background-image: url('image/bg.jpg');">
 				<div class="header-text">
 					<h2>XuxuLipstick</h2>
-					<h4>
-						<a href="index.php">HOME</a>
-						<span>></span>
-						SẢN PHẨM
-					</h4>
 				</div>
 			</div>
 			<?php
@@ -145,16 +136,9 @@
 			while ($rowc = mysql_fetch_assoc($catquery)) {
 		
 			?>
-			<div id="header-title" class="text-center" style="background-image: url('image/loai/<?php echo $rowc['anh_nen'] ?>');">
+			<div id="header-title" class="text-center" style="background-image: url('image/<?php echo $rowc['anh_nen'] ?>');">
 				<div class="header-text">
 					<h2><?php echo $rowc['ten_loai'] ?></h2>
-					<h4>
-						<a href="index.php">HOME</a>
-						<span>></span>
-						<a href="index.php?f=san-pham">SẢN PHẨM</a>
-						<span>></span>
-						<?php echo $rowc['ten_loai'] ?>
-					</h4>
 				</div>
 			</div>
 			<?php
@@ -215,10 +199,10 @@
 
 					if ($row['giam_gia'] > 0) {
 						$price = $row['gia_sp'] - ($row['giam_gia'] * $row['gia_sp'])/100;
-						$deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'₫</strike> '.number_format($price,0,',','.').'₫';
+						$deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'</strike> '.number_format($price,0,',','.');
 						echo '<h4 class="deal">-'.$row['giam_gia'].'%</h4>';
 					}else{
-						$deal = number_format($row['gia_sp'],0,',','.').'₫';
+						$deal = number_format($row['gia_sp'],0,',','.');
 					}
 				?>
 				
@@ -243,10 +227,9 @@
 					<?php echo $deal; ?>
 				</h4>
 				<h5>
-					<a class="addcart" href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>">THÊM VÀO GIỎ</a>
-					<a class="buynow" href="#">MUA NGAY</a>
+					<a href="index.php?f=addcart&id=<?php echo $row['id_sp'] ?>"><button class="btn btn-default">Thêm vào giỏ</button></a>
+					<button class="btn btn-danger">Mua ngay</button>
 				</h5>
-				<input type="hidden" name="return_url" value="<?php echo $current_url ?>" />
 			</div>
 		</div>
 		<?php
@@ -257,7 +240,7 @@
 			<?php 
 				//Nút Prev
 				if ($current_page > 1 && $total_page > 1){
-                	echo '<a href="index.php?f=san-pham&page='.($current_page-1).'">< Trang trước</a> ';
+                	echo '<a href="index.php?f=san-pham&page='.($current_page-1).'">Prev</a> ';
             	}
 
             	for ($i = 1; $i <= $total_page; $i++){
@@ -273,7 +256,7 @@
 
             	//Nút Next
             	if ($current_page < $total_page && $total_page > 1){
-                	echo '<a href="index.php?f=san-pham&page='.($current_page+1).'">Trang sau ></a>';
+                	echo '<a href="index.php?f=san-pham&page='.($current_page+1).'">Next</a>';
             	}
 			?>
 		</div>
