@@ -15,8 +15,15 @@
 	if($hinhanh == ''){
 		$sql = "UPDATE san_pham set id_loai = '{$loai}', ten_sp = '{$ten}', gia_sp = {$gia}, giam_gia = '{$giamgia}', gioithieu_sp = '{$gioithieu}', mota_sp = '{$mota}', status = '{$status}' where id_sp = {$id}";
 	}else{
-		//Upload file
-		move_uploaded_file($_FILES['bookimage']['tmp_name'] , '..\image\\'.$hinhanh);
+		$query = mysql_query("SELECT * from san_pham where id_sp = '{$id}'");
+		$row = mysql_fetch_array($query);
+
+		if (file_exists('../image/'.$row['hinhanh_sp']))
+		{
+		    unlink('../image/'.$row['hinhanh_sp']);
+		}
+
+		move_uploaded_file($_FILES['bookimage']['tmp_name'] , '../image/'.$hinhanh);
 		
 		$sql = "UPDATE san_pham set id_loai = '{$loai}', ten_sp = '{$ten}', gia_sp = {$gia}, giam_gia = '{$giamgia}', gioithieu_sp = '{$gioithieu}', mota_sp = '{$mota}', hinhanh_sp = '{$hinhanh}', status = '{$status}' where id_sp = {$id}";
 	}

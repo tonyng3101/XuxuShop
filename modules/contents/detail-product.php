@@ -5,7 +5,7 @@
 	$row = mysql_fetch_array(mysql_query($sql));
 
 	$sqllsp = "SELECT * from loai_sanpham where id_loai='{$row['id_loai']}'";
-	$rowlsp = mysql_fetch_array(mysql_query($sqllsp));
+	$rowllsp = mysql_fetch_array(mysql_query($sqllsp));
 	
 ?>
 
@@ -22,7 +22,16 @@
 
 <div id="header-title" class="text-center" style="background-image: url('image/bg.jpg');">
 	<div class="header-text">
-		<h2 style="text-transform: uppercase;"><?php echo $rowlsp['ten_loai']; ?> - <?php echo $row['ten_sp']; ?></h2>
+		<h2 style="text-transform: uppercase;"><?php echo $row['ten_sp']; ?></h2>
+		<h4>
+			<a href="index.php">HOME</a>
+			<span>></span>
+			<a href="index.php?f=san-pham">SẢN PHẨM</a>
+			<span>></span>
+			<a href="index.php?f=san-pham&c=<?php echo $row['id_loai'] ?>"><?php echo $rowllsp['ten_loai']; ?></a>
+			<span>></span>
+			<?php echo $row['ten_sp']; ?>
+		</h4>
 	</div>
 </div>
 
@@ -33,29 +42,28 @@
 		</span>
 	</div>
 	<div class="col-sm-7">
-		<h2 style="text-transform: uppercase;">
+		<h1 style="text-transform: uppercase;">
 			<?php 
-				echo $rowlsp['ten_loai']. ' - ' .$row['ten_sp'];
+				echo $row['ten_sp'];
 			 ?>
-		</h2>
-		<h5><?php echo $row['gioithieu_sp']; ?></h5>
-		<h3>
+		</h1>
+		<h4><?php echo $row['gioithieu_sp']; ?></h4>
+		<h2>
 			<?php 
 			if ($row['giam_gia'] > 0) {
 						$price = $row['gia_sp'] - ($row['giam_gia'] * $row['gia_sp'])/100;
-						echo $deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'</strike> <strong>'.number_format($price,0,',','.').'</strong>';
+						echo $deal = '<strike>'.number_format($row['gia_sp'],0,',','.').'₫</strike> '.number_format($price,0,',','.').'₫';
 					}else{
-						echo $deal = '<strong>'.number_format($row['gia_sp'],0,',','.').'</strong>';
+						echo $deal = number_format($row['gia_sp'],0,',','.').'₫';
 					}
 			 ?>
-		</h3>
+		</h2>
 		<br>
-		<div class="input-group spinner">
-		    <input type="text" name="product_qty" class="form-control" value="1">
-		    <div class="input-group-btn-vertical">
-		      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-		      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-		    </div>
+		<div class="quantity">
+			<div class="quantity">
+				<input type="number" min="1" max="10" step="1" value="1">
+				<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
+			</div>
 		</div>
 		<button class="btn btn-primary" style="margin-left: 5px;"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
 		<button class="btn btn-danger"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu thích</button>
@@ -81,16 +89,36 @@
 	</div>
 </div>
 
-<script>
-	$(document).ready(function(){
-		$('#zoom').zoom();
-	});
-	(function ($) {
-	  $('.spinner .btn:first-of-type').on('click', function() {
-	    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-	  });
-	  $('.spinner .btn:last-of-type').on('click', function() {
-	    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-	  });
-	})(jQuery);
+<script type="text/javascript">
+	jQuery('.quantity').each(function() {
+      var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnUp = spinner.find('.quantity-up'),
+        btnDown = spinner.find('.quantity-down'),
+        min = input.attr('min'),
+        max = input.attr('max');
+
+      btnUp.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue + 0.5;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+      btnDown.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue - 0.5;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+    });
 </script>
