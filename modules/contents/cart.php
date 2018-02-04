@@ -66,14 +66,14 @@
 					<tr class="pcart">
 						<td><img src="image/<?php echo $row['hinhanh_sp']; ?>" width=120px;></td>
 						<td>
-							<h4><?php echo $row['ten_sp']; ?></h4>
+							<h4 style="font-weight: 500"><?php echo $row['ten_sp']; ?></h4>
 							<?php 
 							if ($row['status'] == 1) {
 								echo '<h5 style="color: #298A08"><i class="fa fa-check-circle"></i> Còn hàng</h5>';
 							}
 							 ?>
 						</td>
-						<td><h4><?php echo $row['gia_sp'] ?> ₫</h4></td>
+						<td><h4><?php echo number_format($row['gia_sp'],0,',','.'); ?> ₫</h4></td>
 						<td>
 							<div class="quantity">
 							  <input type="number" min="1" max="10" step="1" name="qty[<?php echo $row['id_sp']; ?>]" value="<?php echo $_SESSION['cart'][$row['id_sp']]; ?>" onchange="document.getElementById('submit').click();">
@@ -106,13 +106,13 @@
 			<hr>
 			<div class="total-prod">
 				<p style="float: left;">Tạm tính:</p>
-				<p style="float: right;"><?php echo number_format($total,2); ?> ₫</p>
+				<p style="float: right;"><?php echo number_format($total,0,',','.'); ?> ₫</p>
 			</div>
 			<hr>
 			<div class="total-prod">
 				<p style="float: left;"><strong>Tổng tiền</strong> (Đã bao gồm VAT):</p>
 				<?php $totalp = $total + ($total*10/100) ?>
-				<p style="float: right;"><?php echo number_format($totalp,2); ?> ₫</p>
+				<p style="float: right;"><?php echo number_format($totalp,0,',','.'); ?> ₫</p>
 			</div>
 			<br>
 			<a href="#" style="font-size: 16px">THANH TOÁN</a>
