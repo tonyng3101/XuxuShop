@@ -56,6 +56,7 @@
                     
                      <form class="form-horizontal" name="form1" method="post" action="update.php">
                         <h3>Chi tiết sản phẩm</h3>
+                        <td><img width="300px" height="300px" src="../image/<?php echo $row['hinhanh_sp']; ?>" /></td>
                         <div class="form-group">
    						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
    							<div class="col-sm-10">          
