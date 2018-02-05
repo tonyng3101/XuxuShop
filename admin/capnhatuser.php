@@ -9,15 +9,15 @@ if (!isset($_SESSION['uid'])) {
 ?>
 <html lang="en">
     <head>                        
-        <title>Boooya - Revolution Admin Template</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Cập nhật tài khoản</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->              
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -219,6 +219,13 @@ if (!isset($_SESSION['uid'])) {
 											}
 										?>
                                     </div>
+                                    <!-- <div class="form-group">
+                                        <label>Địa chỉ</label>
+                                        <div>  
+                                            <img src="../image/anhtaikhoan<?php echo $row['anh_daidien']; ?>" width="100px" height="100px">        
+                                            <input type="file" name="avartarimage" />
+                                        </div>
+                                    </div> -->
                                     <div class="form-group">
                                     	<label style="display:block;">Trạng thái:</label>
                                         <?php
@@ -243,17 +250,17 @@ if (!isset($_SESSION['uid'])) {
                                         <?php
                                             if(isset($rank)==1)
                                             {
-                                        ?>
-                                        <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="1">Admin</label>
-                                        <label class="radio-inline"><input type="radio" name="rank" value="0">Nhân viên</label>
-                                        <?php
+                                            ?>
+                                            <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="1">Admin</label>
+                                            <label class="radio-inline"><input type="radio" name="rank" value="0">Nhân viên</label>
+                                            <?php
                                             }
                                             else
                                             {
-                                                ?>
-                                                    <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="1">Admin</label>
-                                                    <label class="radio-inline"><input type="radio" name="rank" value="0">Nhân viên</label>
-                                                <?php
+                                            ?>
+                                            <label class="radio-inline"><input type="radio" name="rank" value="1">Admin</label>
+                                            <label class="radio-inline"><input checked="checked" type="radio" name="rank" value="0">Nhân viên</label>
+                                            <?php
                                             }
                                         ?>
                                     </div>
