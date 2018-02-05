@@ -116,7 +116,7 @@ if (!isset($_SESSION['uid'])) {
                                         <td><img width="50px" height="50px" src="../image/<?php echo $row['hinhanh_sp']; ?>" /></td>
                             			<td><?php echo $status; ?></td>
 
-                                        <td><a href="" onclick="javascript:void window.open('chitietsanpham.php?id=<?php echo $row['id_sp'] ?>     ','1353463131339','toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">View</a></td>
+                                        <td><a href="chitietsanpham.php?id=<?php echo $row['id_sp']; ?>">View</a></td>
                             			<td><a href="capnhatsanpham.php?id=<?php echo $row['id_sp']; ?>"><span class="icon-pencil"></span></a></td>
                             			<td><a href="delete.php?id=<?php echo $row['id_sp']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa sản phẩm này không ?');"><span class="icon-trash"></a></td>
                         			</tr>
