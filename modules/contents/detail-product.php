@@ -6,7 +6,6 @@
 
 	$sqllsp = "SELECT * from loai_sanpham where id_loai='{$row['id_loai']}'";
 	$rowlsp = mysql_fetch_array(mysql_query($sqllsp));
-	
 ?>
 
 <!-- Comment -->
@@ -59,16 +58,19 @@
 			 ?>
 		</h2>
 		<br>
-		<div class="quantity">
-		  <input type="number" min="1" max="9" step="1" value="1">
-		  <div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
-		</div>
-		<button class="btn btn-primary" style="margin-left: 5px;"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
-		<button class="btn btn-danger"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu thích</button>
-		<hr>
-		<div class="action-group">
-			<button class="btn btn-success btn-lg"> Mua ngay</button>
-		</div>
+		<form action="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>" method="post">
+			<div class="quantity">
+			  <input type="number" min="1" max="10" step="1" value="1" name="qty">
+			  <div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
+			</div>
+			<button class="btn btn-primary" style="margin-left: 5px;" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
+			<button class="btn btn-danger"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu thích</button>
+			<hr>
+			<div class="action-group">
+				<button class="btn btn-success btn-lg"> Mua ngay</button>
+			</div>
+		</form>
+		
 		<hr>
 		<div class="service">
 			<ul class="custom-icon-box">

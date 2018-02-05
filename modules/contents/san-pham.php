@@ -40,12 +40,6 @@
 			$sql = "SELECT count(id_sp) as total from san_pham where id_loai='$catalogue'";
 	}
 	}
-	
-	//Get id loại sản phẩm.
-	
-	
-
-
 			//Xử lí phân trang
 
 			$query = mysql_query($sql);
@@ -101,6 +95,8 @@
 					$query = mysql_query("SELECT * FROM san_pham where id_loai='$catalogue' ORDER BY id_sp DESC LIMIT $start, $limit");
 				}
         	}
+
+        	$current_url = base64_encode($_SERVER['REQUEST_URI']);
 
         ?>
 <?php
@@ -246,7 +242,7 @@
 					<?php echo $deal; ?>
 				</h4>
 				<h5>
-					<a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>" class="addcart">Thêm vào giỏ</a>
+					<a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>&url=<?php echo $current_url ?>" class="addcart">Thêm vào giỏ</a>
 					<a href="" class="buynow">Mua ngay</a>
 				</h5>
 			</div>

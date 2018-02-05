@@ -7,6 +7,11 @@ if(!isset($_SESSION['cart']))
 }
 
 $id = $_GET['id'];
+if (isset($_POST['qty'])) {
+	$qty = $_POST['qty'];
+}else{
+	$qty = 1;
+}
 
 $quantity = 0;
 
@@ -15,14 +20,20 @@ $quantity = 0;
 //Chưa thì thêm vào giỏ
 if(isset($_SESSION['cart'][$id]))
 {
-    $quantity = $_SESSION['cart'][$id] + 1;
+    $quantity = $_SESSION['cart'][$id] + $qty;
 }
 else
 {
-    $quantity = 1;
+    $quantity = $qty;
 }
 
 $_SESSION['cart'][$id] = $quantity;
 
-header('Location:../../index.php?f=san-pham');
+if (isset($_GET['url'])) {
+	$url = base64_decode($_GET["url"]);
+	header('Location:'.$url);
+}else{
+	header('Location:../../index.php?f=cart');
+}
+
 ?>
