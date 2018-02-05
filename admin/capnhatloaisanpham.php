@@ -82,7 +82,7 @@ if (!isset($_SESSION['uid'])) {
                         <div class="form-group">
                          <label class="control-label col-sm-2">Hình ảnh sản phẩm:</label>
                             <div class="col-sm-10">  
-                                <img src="../image/loai/<?php echo $row['anh_nen']; ?>" width="50px" height="50px">        
+                                <img src="../image/loai/<?php echo $row['anh_nen']; ?>" width="100px" height="100px">        
                                 <input type="file" name="bookimage" />
                             </div>
                         </div>
