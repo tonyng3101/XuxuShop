@@ -70,12 +70,15 @@
 							<?php 
 							if ($row['status'] == 1) {
 								echo '<h5 style="color: #298A08"><i class="fa fa-check-circle"></i> Còn hàng</h5>';
+							}else{
+								echo '<h5 style="color: #DF0101"><i class="fa fa-exclamation-circle"></i> Đã hết hàng</h5>';
 							}
 							 ?>
+							
 						</td>
 						<td><h4><?php echo number_format($row['gia_sp'],0,',','.'); ?> ₫</h4></td>
 						<td>
-							<div class="quantity">
+							<div class="quantity"> 
 							  <input type="number" min="1" max="10" step="1" name="qty[<?php echo $row['id_sp']; ?>]" value="<?php echo $_SESSION['cart'][$row['id_sp']]; ?>" onchange="document.getElementById('submit').click();">
 							  <div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
 							</div>

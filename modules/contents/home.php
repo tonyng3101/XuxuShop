@@ -32,19 +32,21 @@
   //xu ly ket qua tra ve
   while($row = mysql_fetch_array($recordset)) {
 ?>
-	<a href="Index.php?f=san-pham&c=<?php echo $row['id_loai'] ?>">
+	
   	<div class="col-sm-4 product text-center">
     	<div id="zoom-catalogue" class="catalogue">
-    		<div class="background-cat" style="background-image: url(image/<?php echo $row['anh_nen']; ?>);"></div>
+    		<div class="background-cat" style="background-image: url(image/loai/<?php echo $row['anh_nen']; ?>);"></div>
     		<div class="diamond"></div>
     		<div class="text-inside">
     			<h4 class="title big-title text-center"><?php echo $row['ten_loai']; ?></h4>
     			<hr  width="15px"/>
+          <a href="Index.php?f=san-pham&c=<?php echo $row['id_loai'] ?>">
     			<h4 class="title text-center">Xem Ngay</h4>
+          </a>
     		</div>
       </div>
   	</div>
-	</a>
+	
 <?php } ?> 	
 </div>
 <!-- End Product -->

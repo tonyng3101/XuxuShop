@@ -40,13 +40,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3duY8e5uj0IaOw2waZvaGHep
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$(function(){
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 300) $('#goTop').fadeIn();
-		else $('#goTop').fadeOut();
+	$(document).ready(function(){
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 300) $('#goTop').fadeIn();
+			else $('#goTop').fadeOut();
+			});
+		$('#goTop').click(function () {
+		$('body,html').animate({scrollTop: 0}, 'slow');
 		});
-	$('#goTop').click(function () {
-	$('body,html').animate({scrollTop: 0}, 'slow');
-	});
 	});
 </script>

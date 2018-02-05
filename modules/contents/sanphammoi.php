@@ -1,6 +1,6 @@
  <div id="ultimate-heading-67195a7541fb81846" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-67195a7541fb81846 uvc-2522 " data-hspacer="line_only" data-halign="center" style="text-align:center">
     <div class="uvc-main-heading ult-responsive" data-ultimate-target=".uvc-heading.ultimate-heading-67195a7541fb81846 h2" data-responsive-json-new="{&quot;font-size&quot;:&quot;desktop:36px;&quot;,&quot;line-height&quot;:&quot;&quot;}">
-      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase;">Hình ảnh mới 2018</h2>
+      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase;">Sản phẩm mới 2018</h2>
     </div>
   </div>
 
