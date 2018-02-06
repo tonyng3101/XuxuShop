@@ -10,13 +10,21 @@
                         <ul class="app-header-buttons pull-right">
                             <li>
                                 <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
-                                    <img src="assets/images/users/user_1.jpg" alt="John Doe">
+                                    <?php 
+                                    include('connect.php');
+                                    $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['uid']}'");
+                                    $row = mysql_fetch_array($query);
+                                    if ($row['anh_daidien'] == '') {
+                                        $anh_daidien = 'assets/images/users/user_1.jpg';
+                                    }else{
+                                        $anh_daidien = '../image/anhtaikhoan/'.$row['anh_daidien'];
+                                    }
+                                     ?>
+                                    <img src="<?php echo $anh_daidien ?>" height="40px" alt="<?php echo $_SESSION['username']; ?>">
                                     <div class="contact-container">
                                         <a href="#"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a>
                                         <?php
-                                        include('connect.php');
-                                        $query=mysql_query("SELECT * FROM admin where id = '{$_SESSION['uid']}'");
-                                        $row = mysql_fetch_array($query);
+                                        
                                         if($row['rank']==1)
                                         {
                                             echo '<p>Admin</p>';

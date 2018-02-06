@@ -39,7 +39,13 @@
 
       ?>
         <li>
-          <div class="user-pic" style="background-image: url(image/user/<?php echo $rows['profile_picture']; ?>);"></div>
+          <?php if ($rows['profile_picture'] == '') {
+            $propic = 'default-user.png';
+          }else{
+            $propic = $rows['profile_picture'];
+          }
+           ?>
+          <div class="user-pic" style="background-image: url(image/user/<?php echo $propic; ?>);"></div>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" href="">

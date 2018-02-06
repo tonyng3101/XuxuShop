@@ -85,9 +85,10 @@ if (!isset($_SESSION['username'])) {
                             				<th>Tài khoản</th>
                                             <th>Địa chỉ</th>
                                             <th>Số điện thoại</th>
-                                            <th>Tổng giá tiền</th>
                                             <th>Trạng thái</th>
                                             <th>Ngày đặt hàng</th>
+                                            <th>Chi tiết</th>
+                                            <th>Hành động</th>
 
                                             <?php
                                             $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
@@ -106,50 +107,26 @@ if (!isset($_SESSION['username'])) {
                     				<?php
 										//xu ly ket qua tra ve
 										while($row = mysql_fetch_array($recordset)) {
-<<<<<<< HEAD
-                                            $stt = $row['status'];
-                                        $status = '';
-        
-                                            if($stt == 0)
-                                                $status = 'Hủy đơn hàng';
-                                            else
-                                                $status = 'Chờ xác nhận đơn hàng';
-									?>
-                        			<tr>
-                                    	<td><?php echo $row['id_dh']; ?></td>
-                            			<td><?php echo $row['username']; ?></td>
-                            			<td><?php echo $row['user_email']; ?></td>
-                                        <td><?php echo $row['user_phone']; ?></td>
-                            			<td><?php echo $row['amount']; ?></td>
-=======
-                                            $status = '';
-                                            if ($row['status'] == 0) {
-                                                $status = 'Hủy đơn hàng';
-                                            }elseif ($row['status'] == 1) {
-                                                $status = 'Chờ xác nhận';
-                                            }elseif ($row['status'] == 2) {
-                                                $status = 'Xác nhận đơn hàng';
-                                            }elseif ($row['status'] == 3) {
-                                                $status = 'Đã giao hàng';
-                                            }
+                                         $status = '';
+                                                    if ($row['status'] == 0) {
+                                                        $status = 'Hủy đơn hàng';
+                                                    }elseif ($row['status'] == 1) {
+                                                        $status = 'Chờ xác nhận';
+                                                    }elseif ($row['status'] == 2) {
+                                                        $status = 'Xác nhận đơn hàng';
+                                                    }elseif ($row['status'] == 3) {
+                                                        $status = 'Đã giao hàng';
+                                                    }
 									?>
                         			<tr>
                                     	<td><?php echo $row['id_ls']; ?></td>
                             			<td><?php echo $row['username']; ?></td>
                             			<td><?php echo $row['address']; ?></td>
                                         <td>(+84) <?php echo $row['phone']; ?></td>
-                            			<td><?php echo $row['amount']; ?> VND</td>
->>>>>>> 5cf96b7967048e8a501f5eaf8452acba2ca9489d
                             			<td><?php echo $status; ?></td>
                             			<td><?php echo $row['created']; ?></td>
-                                        <?php
-                                            if($row_rank['rank']==1)
-                                            {
-                                        ?>
-                                        <!-- <td><a href="reset_user.php?id=<?php echo $row['id_kh']; ?>"><span class="icon-sync"></span></a></td>
-                            			<td><a href="capnhatuser.php?id=<?php echo $row['id_kh']; ?>"><span class="icon-pencil"></span></a></td>
-                            			<td><a href="delete_user.php?id=<?php echo $row['id_kh']; ?>" onClick="return confirm('Bạn có thực sự muốn xóa không ?');"><span class="icon-trash"></span></a></td> -->
-                                        <?php } ?>
+                                        <td><a href="chitietdonhang.php?id=<?php echo $row['id_ls']; ?>">View</a></td>
+                            			<td><a href="capnhatuser.php?id=<?php echo $row['id_ls']; ?>"><span class="icon-pencil"></span></a></td>
                         			</tr>
                         			<?php } ?>
                    			 	</tbody>
