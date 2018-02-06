@@ -1,5 +1,5 @@
 <?php
-	if (isset($_SESSION['id'])) {
+	if (isset($_SESSION['idkh'])) {
 		header('Location: Index.php');
 	}
 ?>
@@ -28,13 +28,15 @@
 		?>
 		</span>
   		<form action="modules/login/login.php" method="post">
-    		<input type="text" name="user" placeholder="Username...">
-    		<input type="password" name="pass" maxlength="16" placeholder="Password...">
-    		<input type="submit" name="login" class="login login-submit" value="Login">
+  			<label for="user" class="lb">Tên đăng nhập</label>
+    		<input type="text" name="user" placeholder="Tên đăng nhập">
+    		<label for="pass" class="lb">Mật khẩu</label>
+    		<input type="password" name="pass" maxlength="16" placeholder="Mật khẩu">
+    		<input type="submit" name="login" class="login login-submit" value="Đăng nhập">
   		</form>
     
   	<div class="login-help">
-    	<a href="#">Register</a> • <a href="#">Forgot Password</a>
+    	<a href="index.php?f=register">Đăng kí</a> • <a href="#">Quên mật khẩu</a>
   	</div>
 </div>
 </div>

@@ -243,7 +243,7 @@
 				</h4>
 				<h5>
 					<a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>&url=<?php echo $current_url ?>" class="addcart">Thêm vào giỏ</a>
-					<a href="" class="buynow">Mua ngay</a>
+					<a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>" class="addcart" class="buynow">Mua ngay</a>
 				</h5>
 			</div>
 		</div>

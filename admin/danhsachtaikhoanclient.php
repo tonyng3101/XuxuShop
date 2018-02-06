@@ -84,7 +84,6 @@ if (!isset($_SESSION['username'])) {
                             				<th>STT</th>
                             				<th>Tài khoản</th>
                             				<th>Họ tên</th>
-                                            <th>Ngày sinh</th>
                             				<th>Điện thoại</th>
                             				<th>Email</th>
                             				<th>Địa chỉ</th>
@@ -106,15 +105,15 @@ if (!isset($_SESSION['username'])) {
                     				<?php
 										//xu ly ket qua tra ve
 										while($row = mysql_fetch_array($recordset)) {
+                                            $diachi = $row['dia_chi'].', '.$row['phuong'].', '.$row['quan'].', '.$row['tinh']; 
 									?>
                         			<tr>
                                     	<td><?php echo $row['id_kh']; ?></td>
                             			<td><?php echo $row['username']; ?></td>
                             			<td><?php echo $row['ten_kh']; ?></td>
-                                        <td><?php echo $row['ngaysinh_kh']; ?></td>
                             			<td><?php echo $row['sdt_kh']; ?></td>
                             			<td><?php echo $row['email_kh']; ?></td>
-                            			<td><?php echo $row['diachi_kh']; ?></td>
+                            			<td><?php echo $diachi; ?></td>
                                         <td>
                                             <a href="" onclick="javascript:void window.open('chitietsanpham.php?id=<?php echo $row['id_kh'] ?>     ','1353463131339','toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">View</a>
                                         </td>

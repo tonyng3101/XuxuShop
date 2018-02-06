@@ -102,7 +102,7 @@ body {
 /* Form Contact */
 
 .form-control {
-    color: #B97F6D;
+    color: #000;
     border-radius: 0;
     margin: auto;
 }
@@ -671,21 +671,21 @@ div#goTop:hover{
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #000;
+    color: #ccc;
 }
 
 .form-control:-moz-placeholder {
     /* Firefox 18- */
-    color: #000;
+    color: #ccc;
 }
 
 .form-control::-moz-placeholder {
     /* Firefox 19+ */
-    color: #000;
+    color: #ccc;
 }
 
 .form-control:-ms-input-placeholder {
-    color: #000;
+    color: #ccc;
 }
 
 .form-login {
@@ -1282,4 +1282,145 @@ input[type=number]
     display: block;
     height: 50px;
     width: auto;
+}
+
+.payment{
+    background-color: #fff;
+    display: block;
+    margin-top: 20px;
+    display: flex;
+    color: #000;
+    min-height: 900px;
+}
+
+.payment .col-sm-12{
+    max-width: 1200px;
+    margin:auto;
+    margin-top: 20px;
+}
+
+.payment .col-sm-8{
+    padding: 0 !important;
+}
+
+.payment h4{
+    font-weight: 300 !important;
+}
+
+.payment .head-pay{
+    font-weight: 700 !important;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+}
+
+.payment .form-group{
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 0;
+    height: auto;
+    background-color: rgba(165,165,165,0.08);
+}
+
+.payment label{
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    padding-left: 25px;
+    padding-right: 0;
+    margin: 0
+}
+
+.payment .form-control{
+    border-radius: 3px;
+}
+
+.payment .form-add{
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    height: 600px;
+    padding-top: 20px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: rgba(165,165,165,0.03);
+}
+
+.paymen input{
+    color: #000 !important;
+}
+
+.payment .row{
+    margin-top: 20px;
+}
+
+.payment .note-cart{
+    text-align: left;
+    padding-left: 55px;
+}
+
+.payment .form-detail{
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    height: auto;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.table-detail th{
+    font-weight: 700 !important;
+    padding: 10px 0;
+    font-size: 12px;
+    background-color: rgba(165,165,165,0.2);
+    color: #666;
+}
+
+.pay-cart td{
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.pay-total{
+    height: 45px;
+    padding: 10px;
+    background-color: rgba(165,165,165,0.2);
+}
+
+textarea{
+    overflow: hidden;
+}
+
+.coupon{
+    padding: 10px 0 10px 0;
+}
+
+.shipping{
+    height: 35px;
+    padding: 5px 10px;
+    border-top: 1px solid rgba(165,165,165,0.3);
+    border-bottom: 1px solid rgba(165,165,165,0.3);
+}
+
+.totalfn{
+    height: 55px;
+    padding: 10px;
+    background-color: rgba(165,165,165,0.2);
+}
+
+.btnpay{
+    color: #fff;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 7px 152.8px;
+    background-color: #d2322d;
+    border: 0;
+}
+
+.user-pic{
+    margin-top: 7px;
+    width: 35px;
+    height: 35px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
 }

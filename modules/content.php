@@ -9,13 +9,16 @@
 		if ($tam == '') {
 			include 'modules/contents/home.php';
 		}
-		else if ($tam == 'san-pham') {
+		elseif ($tam == 'san-pham') {
 			include 'modules/contents/san-pham.php';
 		}
-		else if ($tam == 'log-in') {
+		elseif ($tam == 'log-in') {
 			include 'modules/contents/log-in.php';
 		}
-		else if ($tam == 'log-out') {
+		elseif ($tam == 'register') {
+			include 'modules/contents/register.php';
+		}
+		elseif ($tam == 'log-out') {
 			header('Location: modules/login/logout.php');
 		}
 		elseif ($tam == 'detail-product') {
@@ -24,6 +27,11 @@
 		elseif ($tam == 'cart') {
 			include 'modules/contents/cart.php';
 		}
-
+		elseif ($tam == 'payment') {
+			include 'modules/contents/payment.php';
+		}
+		elseif ($tam == 'checkout') {
+			include 'modules/contents/checkout.php';
+		}
 	?>
 </div>
