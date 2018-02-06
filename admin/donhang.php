@@ -106,14 +106,21 @@ if (!isset($_SESSION['username'])) {
                     				<?php
 										//xu ly ket qua tra ve
 										while($row = mysql_fetch_array($recordset)) {
+                                            $stt = $row['status'];
+                                        $status = '';
+        
+                                            if($stt == 0)
+                                                $status = 'Hủy đơn hàng';
+                                            else
+                                                $status = 'Chờ xác nhận đơn hàng';
 									?>
                         			<tr>
-                                    	<td><?php echo $row['id_kh']; ?></td>
+                                    	<td><?php echo $row['id_dh']; ?></td>
                             			<td><?php echo $row['username']; ?></td>
                             			<td><?php echo $row['user_email']; ?></td>
                                         <td><?php echo $row['user_phone']; ?></td>
                             			<td><?php echo $row['amount']; ?></td>
-                            			<td><?php echo $row['status']; ?></td>
+                            			<td><?php echo $status; ?></td>
                             			<td><?php echo $row['created']; ?></td>
                                         <?php
                                             if($row_rank['rank']==1)
