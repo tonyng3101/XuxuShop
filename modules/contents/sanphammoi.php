@@ -1,10 +1,10 @@
  <div id="ultimate-heading-67195a7541fb81846" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-67195a7541fb81846 uvc-2522 " data-hspacer="line_only" data-halign="center" style="text-align:center">
     <div class="uvc-main-heading ult-responsive" data-ultimate-target=".uvc-heading.ultimate-heading-67195a7541fb81846 h2" data-responsive-json-new="{&quot;font-size&quot;:&quot;desktop:36px;&quot;,&quot;line-height&quot;:&quot;&quot;}">
-      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase;">Sản phẩm mới 2018</h2>
+      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase; margin-top: 30px;max-height: inherit;font-variant-position: normal;transition-timing-function: ease-in-out;">Sản phẩm mới 2018</h2>
     </div>
   </div>
 
-<div id="product" class="container-fluid text-center">
+<div id="product" class="container-fluid text-center" style="background-color: #fff">
   <?php
 
   //Tìm kiếm trong trang.
@@ -47,6 +47,8 @@
       $sql = "SELECT count(id_sp) as total from san_pham where id_loai='$catalogue'";
   }
   }
+
+  $current_url = base64_encode($_SERVER['REQUEST_URI']);
   
   //Get id loại sản phẩm.
   
@@ -64,7 +66,7 @@
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
       //Giới hạn sản phẩm của 1 trang
-          $limit = 4;
+          $limit = 5;
 
           //Tổng số trang
           $total_page = ceil($total_records / $limit);
@@ -114,7 +116,7 @@
 
 <!-- Phần thông tin chính -->
 
-<div id="main-prod-home">
+<div id="main-prod-home" style="padding: 20px 20px 0 130px;">
 <!-- List Sản phẩm -->
   <div class="prod col-sm-12">
         <?php
@@ -154,8 +156,8 @@
           <?php echo $deal; ?>
         </h4>
         <h5>
-          <a href="index.php?f=addcart&id=<?php echo $row['id_sp'] ?>"><button class="btn btn-default">Thêm vào giỏ</button></a>
-          <button class="btn btn-danger">Mua ngay</button>
+          <a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>&url=<?php echo $current_url ?>" class="addcart">Thêm vào giỏ</a>
+          <a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>" class="buynow">Mua ngay</a>
         </h5>
       </div>
     </div>

@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
 	//nhung noi dung cua file connect.php vao trang
 	include('connect.php');
 	//Tao cau truy van va thuc thi cau truy van
-	$sql = 'select * from don_hang';
+	$sql = 'SELECT * from don_hang';
 	
 	//thuc thi cau truy van
 	$recordset = mysql_query($sql);
@@ -81,13 +81,13 @@ if (!isset($_SESSION['username'])) {
                          		<table class="table table-striped table-bordered datatable-extended">
                            			<thead>
                             			<tr>
-                            				<th>STT</th>
+                            				<th>Mã đơn hàng</th>
                             				<th>Tài khoản</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Số lượng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Tổng giá tiền</th>
                                             <th>Trạng thái</th>
-                                            <th>Tạo</th>
+                                            <th>Ngày đặt hàng</th>
 
                                             <?php
                                             $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
@@ -106,6 +106,7 @@ if (!isset($_SESSION['username'])) {
                     				<?php
 										//xu ly ket qua tra ve
 										while($row = mysql_fetch_array($recordset)) {
+<<<<<<< HEAD
                                             $stt = $row['status'];
                                         $status = '';
         
@@ -120,6 +121,25 @@ if (!isset($_SESSION['username'])) {
                             			<td><?php echo $row['user_email']; ?></td>
                                         <td><?php echo $row['user_phone']; ?></td>
                             			<td><?php echo $row['amount']; ?></td>
+=======
+                                            $status = '';
+                                            if ($row['status'] == 0) {
+                                                $status = 'Hủy đơn hàng';
+                                            }elseif ($row['status'] == 1) {
+                                                $status = 'Chờ xác nhận';
+                                            }elseif ($row['status'] == 2) {
+                                                $status = 'Xác nhận đơn hàng';
+                                            }elseif ($row['status'] == 3) {
+                                                $status = 'Đã giao hàng';
+                                            }
+									?>
+                        			<tr>
+                                    	<td><?php echo $row['id_ls']; ?></td>
+                            			<td><?php echo $row['username']; ?></td>
+                            			<td><?php echo $row['address']; ?></td>
+                                        <td>(+84) <?php echo $row['phone']; ?></td>
+                            			<td><?php echo $row['amount']; ?> VND</td>
+>>>>>>> 5cf96b7967048e8a501f5eaf8452acba2ca9489d
                             			<td><?php echo $status; ?></td>
                             			<td><?php echo $row['created']; ?></td>
                                         <?php

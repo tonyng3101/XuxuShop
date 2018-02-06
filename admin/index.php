@@ -41,12 +41,8 @@ if (!isset($_SESSION['uid'])) {
                     
                     <!-- START PAGE HEADING -->
                     <div class="app-heading app-heading-bordered app-heading-page">
-                        <div class="icon icon-lg">
-                            <span class="icon-laptop-phone"></span>
-                        </div>
                         <div class="title">
-                            <h1>Boooya - Admin Template</h1>
-                            <p>The revolution in admin template build</p>
+                            <h1 style="font-size: 20px;">Thống kê</h1>
                         </div>               
                         <!--<div class="heading-elements">
                             <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
@@ -54,10 +50,7 @@ if (!isset($_SESSION['uid'])) {
                         </div>-->
                     </div>
                     <div class="app-heading-container app-heading-bordered bottom">
-                        <ul class="breadcrumb">
-                            <li><a href="#">Application</a></li>                                                     
-                            <li class="active">Dashboard</li>
-                        </ul>
+                        
                     </div>
                     <!-- END PAGE HEADING -->
                     
@@ -73,7 +66,7 @@ if (!isset($_SESSION['uid'])) {
                                         <div class="app-widget-tile">
                                             <div class="line">
                                                 <div class="title">Số sản phẩm</div>
-                                                <div class="title pull-right"><span class="label label-success label-ghost label-bordered">+14.2%</span></div>
+                                                <div class="title pull-right"></div>
                                             </div>                                        
                                             <div class="intval">
                                                 <?php 
@@ -84,7 +77,7 @@ if (!isset($_SESSION['uid'])) {
                                                 ?>
                                             </div>                                        
                                             <div class="line">
-                                                <div class="subtitle">Total items sold</div>
+                                                <div class="subtitle">Tổng số sản phẩm</div>
                                                 <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span> good</div>
                                             </div>
                                         </div>                                                                        
@@ -94,12 +87,19 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile">
                                             <div class="line">
-                                                <div class="title">Sales Per Year</div>
-                                                <div class="title pull-right text-success">+32.9%</div>
+                                                <div class="title">Loại sản phẩm</div>
+                                                <div class="title pull-right text-success"></div>
                                             </div>                                        
-                                            <div class="intval">24,834</div>
+                                            <div class="intval">
+                                                <?php 
+                                                    $query="SELECT * FROM loai_sanpham";
+                                                    $result=mysql_query($query);
+
+                                                    echo mysql_num_rows($result);
+                                                ?>
+                                            </div>
                                             <div class="line">
-                                                <div class="subtitle">Total items sold</div>
+                                                <div class="subtitle">Tổng số loại sản phẩm</div>
                                                 <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span> good</div>
                                             </div>
                                         </div>                                                                        
@@ -109,12 +109,19 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile">
                                             <div class="line">
-                                                <div class="title">Profit</div>
-                                                <div class="title pull-right text-success">+9.2%</div>
+                                                <div class="title">Đơn hàng</div>
+                                                <div class="title pull-right text-success"></div>
                                             </div>                                        
-                                            <div class="intval">539,277 <small>usd</small></div>
+                                            <div class="intval">
+                                                <?php 
+                                                    $query="SELECT * FROM don_hang";
+                                                    $result=mysql_query($query);
+
+                                                    echo mysql_num_rows($result);
+                                                ?>
+                                                <small></small></div>
                                             <div class="line">
-                                                <div class="subtitle">Frofit for the year</div>                                                
+                                                <div class="subtitle">Tổng số đơn hàng</div>                                                
                                             </div>
                                         </div>                                                                        
                                         <!-- END WIDGET -->
@@ -123,8 +130,8 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile">
                                             <div class="line">
-                                                <div class="title">Số lượng tk</div>
-                                                <div class="title pull-right text-success">-12.7%</div>
+                                                <div class="title">Số lượng tài khoản</div>
+                                                <div class="title pull-right text-success"></div>
                                             </div>                                        
                                             <div class="intval">
                                                 <?php 
@@ -134,7 +141,7 @@ if (!isset($_SESSION['uid'])) {
                                                     echo mysql_num_rows($result);
                                                 ?></div>
                                             <div class="line">
-                                                <div class="subtitle">Statistic per year</div>                                                
+                                                <div class="subtitle">Tổng số tài khoản</div>                                                
                                             </div>
                                         </div>                                                                        
                                         <!-- END WIDGET -->
@@ -149,10 +156,17 @@ if (!isset($_SESSION['uid'])) {
                                         <!-- START WIDGET -->
                                         <div class="app-widget-tile app-widget-highlight">
                                             <div class="line">
-                                                <div class="title">Visitors</div>
+                                                <div class="title">Video</div>
                                                 <div class="title pull-right"><span class="label label-warning label-ghost label-bordered">-3.5%</span></div>
                                             </div>                                        
-                                            <div class="intval">99,573</div>
+                                            <div class="intval">
+                                                <?php 
+                                                    $query="SELECT * FROM video";
+                                                    $result=mysql_query($query);
+
+                                                    echo mysql_num_rows($result);
+                                                ?>
+                                            </div>
                                             <div class="line">
                                                 <div class="subtitle">Visitors per month</div>
                                                 <div class="subtitle pull-right text-warning"><span class="icon-arrow-down"></span> normal</div>
@@ -410,7 +424,7 @@ if (!isset($_SESSION['uid'])) {
                                 <div class="block block-condensed">
                                     <div class="app-heading">                                        
                                         <div class="title">
-                                            <h2>Product Sales History</h2>
+                                            <h2>Thống kê sản phẩm</h2>
                                             <p>In comparison with "Purchase Button"</p>
                                         </div>              
                                         <div class="heading-elements">                                            
@@ -461,150 +475,56 @@ if (!isset($_SESSION['uid'])) {
                                 
                             </div>
                             <div class="col-md-6">
-                                
+                                <?php
+                                    //nhung noi dung cua file connect.php vao trang
+                                    include('connect.php');
+                                    
+                                    //Tao cau truy van va thuc thi cau truy van
+                                    $sql = 'SELECT * FROM admin ORDER BY id DESC LIMIT 0,3';
+                                    
+                                    //thuc thi cau truy van
+                                    $recordset = mysql_query($sql);
+                                ?>
                                 <!-- START LATEST TRANSACTIONS -->
                                 <div class="block block-condensed">
                                     <div class="app-heading">                                        
                                         <div class="title">
-                                            <h2>Latest Transactions</h2>
-                                            <p>Quick information</p>
+                                            <h2>Khách hàng mua gần nhất</h2>
+                                            <p>Thông tin nhanh</p>
                                         </div>              
-                                        <div class="heading-elements">
-                                            <button class="btn btn-default btn-icon-fixed"><span class="icon-file-add"></span> All Transactions</button>
-                                        </div>
                                     </div>
                                     <div class="block-content">
                                         <div class="table-responsive">
                                             <table class="table table-clean-paddings margin-bottom-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Customer</th>
+                                                        <th>Khách hàng</th>
                                                         <th width="150">Order</th>                                                    
                                                         <th width="150">Status</th>
                                                         <th width="55"></th>
                                                     </tr>
                                                 </thead>
+                                                <?php
+                                                    //xu ly ket qua tra ve
+                                                    while($row = mysql_fetch_array($recordset)) {
+                                                    
+                                                ?>
                                                 <tbody>
                                                     <tr>
                                                         <td>
                                                             <div class="contact contact-rounded contact-bordered contact-lg">
                                                                 <img src="assets/images/users/user_2.jpg">
                                                                 <div class="contact-container">
-                                                                    <a href="#">John Doe</a>
-                                                                    <span>on July 13, 2016</span>
+                                                                    <a href="#"><?php echo $row['username']; ?></a>
+                                                                    <span><?php echo $row['ngaytao']; ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>SPW-955-21</td>
+                                                        <td><?php echo $row['hoten']; ?></td>
                                                         <td><span class="label label-success label-bordered">Confirmed</span></td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
-                                                                <ul class="dropdown-menu dropdown-left">
-                                                                    <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li> 
-                                                                    <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li> 
-                                                                    <li class="divider"></li>
-                                                                    <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li> 
-                                                                </ul>
-                                                            </div>
-                                                        </td>
+                                                        
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="contact contact-rounded contact-bordered contact-lg">
-                                                                <img src="assets/images/users/user_3.jpg">
-                                                                <div class="contact-container">
-                                                                    <a href="#">Juan Obrien</a>
-                                                                    <span>on July 12, 2016</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>SPW-955-20</td>
-                                                        <td><span class="label label-warning label-bordered">Waiting payment</span></td>                                                    
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
-                                                                <ul class="dropdown-menu dropdown-left">
-                                                                    <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li> 
-                                                                    <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li> 
-                                                                    <li class="divider"></li>
-                                                                    <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li> 
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>                                                
-                                                    <tr>
-                                                        <td>
-                                                            <div class="contact contact-rounded contact-bordered contact-lg">
-                                                                <img src="assets/images/users/user_4.jpg">
-                                                                <div class="contact-container">
-                                                                    <a href="#">Erin Stewart</a>
-                                                                    <span>on July 12, 2016</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>SPW-955-18</td>
-                                                        <td><span class="label label-success label-bordered">Confirmed</span></td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
-                                                                <ul class="dropdown-menu dropdown-left">
-                                                                    <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li> 
-                                                                    <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li> 
-                                                                    <li class="divider"></li>
-                                                                    <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li> 
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>                                                
-                                                    <tr>
-                                                        <td>
-                                                            <div class="contact contact-rounded contact-bordered contact-lg">
-                                                                <img src="assets/images/users/user_5.jpg">
-                                                                <div class="contact-container">
-                                                                    <a href="#">Jeff Kuhn</a>
-                                                                    <span>on July 11, 2016</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>SPW-955-17</td>
-                                                        <td><span class="label label-danger label-bordered">Payment expired</span></td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
-                                                                <ul class="dropdown-menu dropdown-left">
-                                                                    <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li> 
-                                                                    <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li> 
-                                                                    <li class="divider"></li>
-                                                                    <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li> 
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>                                                
-                                                    <tr>
-                                                        <td>
-                                                            <div class="contact contact-rounded contact-bordered contact-lg">
-                                                                <img src="assets/images/users/user_6.jpg">
-                                                                <div class="contact-container">
-                                                                    <a href="#">Jared Stevens</a>
-                                                                    <span>on July 11, 2016</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>SPW-955-14</td>
-                                                        <td><span class="label label-primary label-bordered">Delivered</span></td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
-                                                                <ul class="dropdown-menu dropdown-left">
-                                                                    <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li> 
-                                                                    <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li> 
-                                                                    <li class="divider"></li>
-                                                                    <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li> 
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>                                                
+                                                    <?php } ?>                                                
                                                 </tbody>
                                             </table>
                                         </div>

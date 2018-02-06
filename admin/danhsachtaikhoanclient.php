@@ -84,7 +84,6 @@ if (!isset($_SESSION['username'])) {
                             				<th>STT</th>
                             				<th>Tài khoản</th>
                             				<th>Họ tên</th>
-                                            <th>Ngày sinh</th>
                             				<th>Điện thoại</th>
                             				<th>Email</th>
                             				<th>Địa chỉ</th>
@@ -106,6 +105,7 @@ if (!isset($_SESSION['username'])) {
                     				<?php
 										//xu ly ket qua tra ve
 										while($row = mysql_fetch_array($recordset)) {
+                                            $diachi = $row['dia_chi'].', '.$row['phuong'].', '.$row['quan'].', '.$row['tinh']; 
 									?>
                         			<tr>
                                     	<td><?php echo $row['id_kh']; ?></td>
@@ -114,7 +114,8 @@ if (!isset($_SESSION['username'])) {
                                         <td><?php echo $row['ngaysinh_kh']; ?></td>
                             			<td><?php echo $row['sdt_kh']; ?></td>
                             			<td><?php echo $row['email_kh']; ?></td>
-                            			<td><?php echo $row['dia_chi']; ?></td>
+                                        <td><?php echo $row['dia_chi']; ?></td>
+                            			<td><?php echo $diachi; ?></td>
                                         <td>
                                             <a href="chitiettaikhoancliet.php?id=<?php echo $row['id_kh']; ?>" return false;">View</a>
                                         </td>

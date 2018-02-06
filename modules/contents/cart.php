@@ -1,4 +1,3 @@
-<div class="s-cart">
 <?php 
 	if (isset($_POST['submit'])) {
 		foreach ($_POST['qty'] as $key => $value) {
@@ -25,6 +24,7 @@
 	}
 
  ?>
+ <div class="s-cart">
 	<div class="col-sm-12">
 		<!-- Nếu chưa có sản phẩm trong giỏ hàng sẽ hiển thị thông báo -->
 		<?php if ($state != 2) {
@@ -45,7 +45,7 @@
 		<br>
 		<a href="index.php?f=san-pham" class="kb">< Tiếp tục mua hàng</a>
 		<hr style="margin: 20px 0;">
-		<h3 align="left">Giỏ hàng của tôi</h3>
+		<h3 align="left">GIỎ HÀNG CỦA TÔI</h3>
 		<div class="col-md-8">
 			
 			<form action="index.php?f=cart" method="post">
@@ -118,7 +118,7 @@
 				<p style="float: right;"><?php echo number_format($totalp,0,',','.'); ?> ₫</p>
 			</div>
 			<br>
-			<a href="#" style="font-size: 16px">THANH TOÁN</a>
+			<a href="index.php?f=payment" style="font-size: 16px">THANH TOÁN</a>
 		</div>
 
 		<?php } ?>

@@ -6,6 +6,8 @@
 
 	$sqllsp = "SELECT * from loai_sanpham where id_loai='{$row['id_loai']}'";
 	$rowlsp = mysql_fetch_array(mysql_query($sqllsp));
+
+	$current_url = base64_encode($_SERVER['REQUEST_URI']);
 ?>
 
 <!-- Comment -->
@@ -63,11 +65,13 @@
 			  <input type="number" min="1" max="10" step="1" value="1" name="qty">
 			  <div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
 			</div>
-			<button class="btn btn-primary" style="margin-left: 5px;" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
+			<a href="modules/cart/addcart.php?id=<?php echo $row['id_sp'] ?>&url=<?php echo $current_url ?>">
+				<button class="btn btn-primary" style="margin-left: 5px;"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
+			</a>
 			<button class="btn btn-danger"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu thích</button>
 			<hr>
 			<div class="action-group">
-				<button class="btn btn-success btn-lg"> Mua ngay</button>
+				<button class="btn btn-success btn-lg" type="submit"> Mua ngay</button>
 			</div>
 		</form>
 		
