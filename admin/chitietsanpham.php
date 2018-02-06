@@ -1,15 +1,25 @@
 <!DOCTYPE html>
+<?php
+session_start();
+//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+if (!isset($_SESSION['uid'])) {
+     header('Location: login.php');
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>                        
-        <title>Boooya - Gallery</title>            
+        <!-- START TITLE -->                  
+        <title>XUXU LIPSTICKS | Chi tiết sản phẩm</title>
+        <link rel="icon" href="../image/logo-black.png" type="image/x-icon">           
+        <!-- END TITLE -->             
         
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" href="css/styles.css">
@@ -22,95 +32,105 @@
 
             <!-- START APP CONTAINER -->
             <div class="app-container">
-                <!-- START SIDEBAR -->
-
-                <!-- END SIDEBAR -->
+                <div class="form-group">
+                    <!-- START SIDEBAR -->
+                    <?php include ('nvar-bar.php'); ?>
+                    <!-- END SIDEBAR -->
+                    
                 
                 <!-- START APP CONTENT -->
                 <div class="app-content app-sidebar-left">
                     <!-- START APP HEADER -->
-
+                    <?php include ('header.php'); ?>
                     <!-- END APP HEADER  -->
-                    
-                    <!-- START PAGE HEADING -->
-                    
-                    
-                    <!-- END PAGE HEADING -->
+                    <div class="app-heading app-heading-bordered app-heading-page">                        
+                        <div class="title">
+                            <h1 style="font-size: 20px;">Chi tiết sản phẩm</h1>
+                        </div>
+                        <!--<div class="heading-elements">
+                            <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
+                            <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
+                        </div>-->
+                    </div>
+                    <div class="app-heading-container app-heading-bordered bottom">
+                        <ul class="breadcrumb">
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li class="active">Sản phẩm</li>
+                            <li><a href="danhsachsanpham.php">Danh sách</a></li>
+                            <li class="active">Chi tiết sản phẩm</li>
+                        </ul>
+                    </div>
+                    <!-- END PAGE HEADING --> 
    
                     <!-- START PAGE CONTAINER -->
                     <div class="container">
-                    <?php
-						include('connect.php');
-						$id = $_GET['id'];
-						$sql = "select * from san_pham where id_sp = {$id}";
-						$recordset = mysql_query($sql);
-						$row = mysql_fetch_array($recordset);
-                        $stt = $row['status'];
-                                        $status = '';
-        
-                                            if($stt == 0)
-                                                $status = 'Hết hàng';
-                                            else
-                                                $status = 'Còn hàng';
-					?>
-                    
-                     <form class="form-horizontal" name="form1" method="post" action="update.php">
-                        <h3>Chi tiết sản phẩm</h3>
-                        <div class="form-group">
-   						 <label class="control-label col-sm-2">Mã sản phẩm:</label>
-   							<div class="col-sm-10">          
-        					  <input type="text" class="form-control" name="txtid" id="txtid" value="<?php echo $row['id_sp']; ?>">
+                        <?php
+                            include('connect.php');
+                            $id = $_GET['id'];
+                            $sql = "select * from san_pham where id_sp = {$id}";
+                            $recordset = mysql_query($sql);
+                            $row = mysql_fetch_array($recordset);
+                            $stt = $row['status'];
+                                            $status = '';
+
+                                                if($stt == 0)
+                                                    $status = 'Hết hàng';
+                                                else
+                                                    $status = 'Còn hàng';
+                        ?>
+                        <div class="col-sm-4">
+                            <img width="300px" height="300px" src="../image/<?php echo $row['hinhanh_sp']; ?>" />
+                        </div>
+                        <div class="col-sm-8">
+                     <form class="form-horizontal" name="form1" method="post" style="text-align: center;">
+                        <div class="form-group" style="text-align: center; border-bottom: 2px solid #fff;">
+   						 <label class="control-label col-sm-3">Mã sản phẩm:</label>
+   							<div class="col-sm-2" style="padding-top: 5px;">          
+        					  <?php echo $row['id_sp']; ?>
       						</div>
   						</div>
-  						<div class="form-group">
-   						 <label class="control-label col-sm-2">Tên sản phẩm:</label>
-   							<div class="col-sm-10">          
-        						<input type="text" class="form-control" name="txtten" id="txtten" value="<?php echo $row['ten_sp']; ?>">
+  						<div class="form-group" style="border-bottom: 2px solid #fff;">
+   						 <label class="control-label col-sm-3">Tên sản phẩm:</label>
+   							<div class="col-sm-2" style="padding-top: 9px;">          
+        						<?php echo $row['ten_sp']; ?>
       						</div>
   						</div>
-                        <div class="form-group">
-   						 <label class="control-label col-sm-2">Giá sản phẩm:</label>
-   							<div class="col-sm-10">          
-        						<input type="text" class="form-control" name="txtgia" id="txtgia" value="<?php echo $row['gia_sp']; ?>">
+                        <div class="form-group" style="border-bottom: 2px solid #fff;">
+   						 <label class="control-label col-sm-3">Giá sản phẩm:</label>
+   							<div class="col-sm-2" style="padding-top: 9px;">          
+        						<?php echo $row['gia_sp']; ?> VND
       						</div>
   						</div>
-                        <div class="form-group">
-   						 <label class="control-label col-sm-2">Giảm giá:</label>
-   							<div class="col-sm-10">          
-        						<input type="text" class="form-control" name="txtgiam" id="txtgiam" value="<?php echo $row['giam_gia']; ?>">
+                        <div class="form-group" style="border-bottom: 2px solid #fff;">
+   						 <label class="control-label col-sm-3">Giảm giá:</label>
+   							<div class="col-sm-2" style="padding-top: 9px;">          
+        						<?php echo $row['giam_gia']; ?>%
       						</div>
   						</div>
-                        <div class="form-group">
-                         <label class="control-label col-sm-2">Giới thiệu:</label>
-                            <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txtgioithieu" id="txtgioithieu" value="<?php echo $row['gioithieu_sp']; ?>">
+                        <div class="form-group" style="border-bottom: 2px solid #fff;">
+                         <label class="control-label col-sm-3">Giới thiệu:</label>
+                            <div class="col-sm-2" style="padding-top: 9px;">          
+                                <?php echo $row['gioithieu_sp']; ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                         <label class="control-label col-sm-2">Mô tả:</label>
-                            <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txtmota" id="txtmota" value="<?php echo $row['mota_sp']; ?>">
+                        <div class="form-group" style="border-bottom: 2px solid #fff;">
+                         <label class="control-label col-sm-3">Mô tả:</label>
+                            <div class="col-sm-2" style="padding-top: 9px;">          
+                                <?php echo $row['mota_sp']; ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                         <label class="control-label col-sm-2">Hình ảnh:</label>
-                            <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txthinhanh" id="txthinhanh" value="<?php echo $row['hinhanh_sp']; ?>">
+                        <div class="form-group" style="border-bottom: 2px solid #fff;">
+                         <label class="control-label col-sm-3">Tình trạng:</label>
+                            <div class="col-sm-2" style="padding-top: 9px;">          
+                                <?php echo $status; ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                         <label class="control-label col-sm-2">Tình trạng:</label>
-                            <div class="col-sm-10">          
-                                <input type="text" class="form-control" name="txtstatus" id="txtstatus" value="<?php echo $status; ?>">
-                            </div>
-                        </div>
-					</form>                                             
-                    </div>
-                    <!-- END PAGE CONTAINER -->
-                    
+					</form>
+                    </div>                                            
                 </div>
-                <!-- END APP CONTENT -->
-                                
+            </div>
+                    <!-- END PAGE CONTAINER -->
+                   </div>            
             </div>
             <!-- END APP CONTAINER -->
 

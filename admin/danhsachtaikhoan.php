@@ -85,11 +85,10 @@ if (!isset($_SESSION['username'])) {
                             				<th>STT</th>
                             				<th>Tài khoản</th>
                             				<th>Họ tên</th>
-                            				<th>Điện thoại</th>
-                            				<th>Email</th>
-                            				<th>Địa chỉ</th>
+                            				<th>Email</th>                            				
                             				<th>Tình trạng</th>
                                             <th>Cấp</th>
+                                            <th>Chi tiết</th>
                                             <?php
                                             $query_rank="SELECT * FROM admin WHERE id='{$_SESSION['uid']}' ";
                                             $results_rank=mysql_query($query_rank);
@@ -127,11 +126,10 @@ if (!isset($_SESSION['username'])) {
                                     	<td><?php echo $row['id']; ?></td>
                             			<td><?php echo $row['username']; ?></td>
                             			<td><?php echo $row['hoten']; ?></td>
-                            			<td><?php echo $row['dienthoai']; ?></td>
                             			<td><?php echo $row['email']; ?></td>
-                            			<td><?php echo $row['diachi']; ?></td>
                             			<td><?php echo $status; ?></td>
                                         <td><?php echo $rank; ?></td>
+                                        <td><a href="chitiettaikhoan.php?id=<?php echo $row['id']; ?>">View</a></td>
                                         <?php
                                             if($row_rank['rank']==1)
                                             {
