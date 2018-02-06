@@ -1,6 +1,6 @@
  <div id="ultimate-heading-67195a7541fb81846" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-67195a7541fb81846 uvc-2522 " data-hspacer="line_only" data-halign="center" style="text-align:center">
     <div class="uvc-main-heading ult-responsive" data-ultimate-target=".uvc-heading.ultimate-heading-67195a7541fb81846 h2" data-responsive-json-new="{&quot;font-size&quot;:&quot;desktop:36px;&quot;,&quot;line-height&quot;:&quot;&quot;}">
-      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase; margin-top: 30px;">Sản phẩm mới 2018</h2>
+      <h2 class="" style="font-family:'Roboto Condensed', sans-serif; font-weight:300; text-transform: uppercase; margin-top: 30px;max-height: inherit;font-variant-position: normal;transition-timing-function: ease-in-out;">Sản phẩm mới 2018</h2>
     </div>
   </div>
 
@@ -116,7 +116,7 @@
 
 <!-- Phần thông tin chính -->
 
-<div id="main-prod-home" style="padding: 20px 20px 0 47px;">
+<div id="main-prod-home" style="padding: 20px 20px 0 130px;">
 <!-- List Sản phẩm -->
   <div class="prod col-sm-12">
         <?php

@@ -10,7 +10,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="index.php#home">Trang chủ</a></li>
+        <li><a href="index.php">Trang chủ</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" href="Index.php?f=san-pham">Sản phẩm<span class="caret"></span></a>
           <ul class="dropdown-menu">
